@@ -1,0 +1,24 @@
+<div class = 'firmware_version'>
+  <dl>
+  <dt>Firmware version</dt>
+    <% if firmware[:FirmwareVersion].present? %>
+      <% if firmware[:FirmwareVersion][:MAIN].present? %>
+        <dd><span class = 'firmware'> Main: </span> <%= firmware[:FirmwareVersion][:MAIN] %></dd>
+      <% else %>
+        <dd><span class = 'firmware'> Main: </span> - </dd>
+      <% end %>
+      <% if firmware[:FirmwareVersion][:SUB1].present? %>
+        <dd><span class = 'firmware'> Sub1: </span> <%= firmware[:FirmwareVersion][:SUB1] %></dd>
+      <% else %>
+        <dd><span class = 'firmware'> Sub1: </span> - </dd>
+      <% end %>
+      <% if firmware[:FirmwareVersion][:SUB2].present? %>
+        <dd><span class = 'firmware'> Sub2: </span> <%= firmware[:FirmwareVersion][:SUB2] %></dd>
+      <% else %>
+        <dd><span class = 'firmware'> Sub2: </span> - </dd>
+      <% end %>
+    <% else %>
+       -
+    <% end %>
+  </dl>
+</div>

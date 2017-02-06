@@ -1,0 +1,25 @@
+<%= render 'sessions/session' %>
+<%= render 'search/form' %>
+
+<div class ='device_setting'>
+  <%= render 'devices/back_to_customer', customers: uuid %>
+  <%= render 'back_to_devices', device: device_id %>
+
+  <div class = 'button'>
+    <span id='bsetting'><%= button_to 'Get Device Status/Settings', setting_path(uuid: uuid, device_id: device_id), method: :post %></span>
+  <% if current_staff.admin == 'sadmin' || current_staff.admin == 'admin' %>
+    <span class= 'bright'><%= button_to 'Delete Device', delete_device_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to delete this device?'} %></span>
+    <span class= 'bright'><%= button_to 'Reboot Device', reboot_device_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to reboot this device?'} %></span>
+    <span class= 'bright'><%= button_to 'Enable Device Log', enable_log_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to enable log feature for this device?'} %></span>
+  <% end %>
+  </div>
+
+<% if current_staff.admin == 'sadmin' || current_staff.admin == 'admin' %>
+  <div class = 'device_setting_search'>
+    <h2> Search by Object ID </h2>
+    <%= form_tag(device_search_path(uuid: uuid, device_id: device_id), method: 'post', action: 'device_search') do %>
+      <%= text_field_tag(:object_id, params[:object_id], placeholder: 'Object-ID', autofocus: true) %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,428 @@
+---
+1.3.6.1.4.1.2435.2.4.3.2435.5.36.12.0:
+  name: brBOCCharacterSet
+  type: charset
+  id_map:
+    '4': ISO_8859_1
+    '5': ISO_8859_2
+    '8': ISO_8859_5
+    '12': ISO_8859_9
+    '17': UTF-8
+    '106': UTF-8
+    '2004': ISO_8859_1
+1.3.6.1.2.1.25.3.2.1.3.1:
+  name: hrDeviceDescr
+  type: simple
+  id_map:
+    '0': Device_Type
+  index: false
+  data_type: octet_string_supports_utf8
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.1.0:
+  name: brInfoSerialNumber
+  type: simple
+  id_map:
+    '0': Serial_Number
+  index: false
+  data_type: octet_string_supports_utf8
+1.3.6.1.4.1.2435.2.4.3.2435.10.1.12.1.3.1:
+  name: brProxyServerName
+  type: simple
+  id_map:
+    '0': Proxy_Server_Name
+  index: false
+  data_type: octet_string_supports_utf8
+1.3.6.1.2.1.2.2.1.6.1:
+  name: ifPhysAddress
+  type: simple
+  id_map:
+    '0': Mac_Address
+  index: false
+  data_type: binary_display_string
+1.3.6.1.2.1.1.6.0:
+  name: sysLocation
+  type: simple
+  id_map:
+    '0': Location
+  index: false
+  data_type: octet_string_supports_utf8
+1.3.6.1.2.1.1.4.0:
+  name: sysContact
+  type: simple
+  id_map:
+    '0': Contact
+  index: false
+  data_type: octet_string_supports_utf8
+1.3.6.1.2.1.25.1.1.0:
+  name: hrSystemUpTime
+  type: simple
+  id_map:
+    '0': UpTime
+  index: false
+  data_type: integer
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.10.0:
+  name: brInfoCounter
+  type: composite
+  id_map:
+    '00': Total_Page_Count
+    '01': Monochrome_Page_Count
+    '02': Color_Page_Count
+    '12': Image_Count_Black
+    '13': Image_Count_Cyan
+    '14': Image_Count_Magenta
+    '15': Image_Count_Yellow
+    '16': Image_Count_Total
+    '60': Total_Print_Length_m
+    'D0': Total_Cut_Count
+    'D1': Total_Half_Cut_Count
+    'D2': Total_Full_Cut_Count
+  display: true
+  index: false
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0:
+  name: brInfoMaintenance
+  type: composite
+  id_map:
+    '11': Drum_Count
+    '31': TonerInk_Black
+    '32': TonerInk_Cyan
+    '33': TonerInk_Magenta
+    '34': TonerInk_Yellow
+    '41': Drum_Life
+    '55': Waste_Toner_Box
+    '63': Drum_Unit
+    '68': Belt_Unit
+    '69': Belt_Life
+    '6F': TonerInk_LifeBlack_MPS
+    '70': TonerInk_LifeCyan_MPS
+    '71': TonerInk_LifeMagenta_MPS
+    '72': TonerInk_LifeYellow_MPS
+    '73': Drum_Count_Cyan
+    '74': Drum_Count_Magenta
+    '75': Drum_Count_Yellow
+    '76': Drum_Unit_Cyan
+    '77': Drum_Unit_Magenta
+    '78': Drum_Unit_Yellow
+    '79': Drum_LifeCyan
+    '7A': Drum_LifeMagenta
+    '7B': Drum_LifeYellow
+    '7E': Drum_Count_Black
+    '7F': Drum_Unit_Black
+    '80': Drum_LifeBlack
+    '81': TonerInk_LifeBlack
+    '82': TonerInk_LifeCyan
+    '83': TonerInk_LifeMagenta
+    '84': TonerInk_LifeYellow
+  display: true
+  index: false
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.11.0:
+  name: brInfoNextCare
+  type: composite
+  id_map:
+    '82': Drum_Unit_Remaining_Life
+    'A4': Drum_Unit_Black_Remaining_Life
+    'A5': Drum_Unit_Cyan_Remaining_Life
+    'A6': Drum_Unit_Magenta_Remaining_Life
+    'A7': Drum_Unit_Yellow_Remaining_Life
+    '77': Paper_Feeding_Kit_1_Remaining_Life
+    '78': Paper_Feeding_Kit_2_Remaining_Life
+    '79': Paper_Feeding_Kit_3_Remaining_Life
+    '84': Paper_Feeding_Kit_4_Remaining_Life
+    '86': Paper_Feeding_Kit_MP_Remaining_Life
+    '73': Fuser_Unit_Remaining_Life
+    '81': Scanner_Unit_Remaining_Life
+    '88': Belt_Unit_Remaining_Life
+    '89': Laser_Unit_Remaining_Life
+    'C1': Pickup_Roller_Remaining_Life
+    'C2': Separation_Pad_Remaining_Life
+  display: true
+  index: false
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.18.0:
+  name: brInfoCoverage
+  type: composite
+  id_map:
+    '00': Black_Coverage
+    '01': Cyan_Coverage
+    '02': Magenta_Coverage
+    '03': Yellow_Coverage
+  display: false
+  index: false
+  format:
+    format: '%d.%d'
+    regexp: !ruby/regexp /\w{2}/
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.20.0:
+  name: brInfoReplaceCount
+  type: composite
+  id_map:
+    'A0': TonerInk_Black_Replace_Count
+    'A1': TonerInk_Cyan_Replace_Count
+    'A2': TonerInk_Magenta_Replace_Count
+    'A3': TonerInk_Yellow_Replace_Count
+    '82': Drum_Unit_Replace_Count
+    'A7': Drum_Unit_Black_Replace_Count
+    'A4': Drum_Unit_Cyan_Replace_Count
+    'A5': Drum_Unit_Magenta_Replace_Count
+    'A6': Drum_Unit_Yellow_Replace_Count
+    '77': Paper_Feeding_Kit_1_Replace_Count
+    '78': Paper_Feeding_Kit_2_Replace_Count
+    '79': Paper_Feeding_Kit_3_Replace_Count
+    '84': Paper_Feeding_Kit_4_Replace_Count
+    '86': Paper_Feeding_Kit_MP_Replace_Count
+    '73': Fuser_Unit_Replace_Count
+    '81': Scanner_Unit_Replace_Count
+    '87': Waste_Toner_Box_Replace_Count
+    '88': Belt_Unit_Replace_Count
+    '89': Laser_Unit_Replace_Count
+  display: false
+  index: false
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.21.0:
+  name: brInfoJamCount
+  type: composite
+  id_map:
+    '00': Jam_MP_Tray
+    '01': Jam_Tray_1
+    '02': Jam_Tray_2
+    '03': Jam_Tray_3
+    '04': Jam_Tray_4
+    '21': Jam_Inside
+    '22': Jam_Rear
+    '23': Jam_2sided
+    '24': Jam_MailBox_OP_Output_Tray
+    'A1': Jam_Total
+    '25': Jam_ADF_1sided
+    '26': Jam_ADF_2sided
+  display: false
+  index: false
+1.3.6.1.4.1.2435.2.4.3.2435.5.36.11.0:
+  name: brBOCDeviceMultiStatus
+  type: multi_status
+  id_map:
+    '00': Not_Error
+    '01': Cover_Open
+    '02': Paper_Jams
+    '03': Toner_Low_Ink_Low
+    '04': Replace_Toner_Ink
+    '05': Replace_Drum
+    '06': Consumable_Warnings_User_Repairable
+    '07': Consumable_Errors_User_Repairable
+    '08': Consumable_Warnings_Requires_Service_Engineer
+    '09': Consumable_Errors_Requires_Service_Engineer
+    '0A': Memory_Errors
+    '0B': Paper_Input_Errors
+    '0C': Paper_Output_Errors
+    '0D': Installation_Errors
+    '0E': Hardware_Mechanical_Errors
+    '0F': Miscellaneous_Errors
+  display: false
+  index: false
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.54.2.2.1.2:
+  name: brScanCountType
+  type: count_type
+  id_map:
+    '1': Total_Pages_Scanned_ADF_1sided
+    '2': Total_Pages_Scanned_Flatbed
+    '3': Total_Pages_Scanned_ADF_2sided
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.54.2.2.1.3
+  index: true
+  data_type: integer
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.54.2.2.1.3:
+  name: brScanCountCounter
+  type: counter
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.54.2.2.1.2
+  index: true
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.21.1.2:
+  name: brPrintPagesFuncType
+  type: count_type
+  id_map:
+    '1': Total_Pages_Printed_PC_Print
+    '2': Total_Pages_Printed_Fax_List
+    '3': Total_Pages_Printed_Copy
+    '4': Total_Pages_Printed_Color_Copy
+    '5': Total_Pages_Printed_Color_PC_Print
+    '6': Total_Pages_Printed_Color_Fax_List
+    '7': Total_Pages_Printed_Monochrome_PC_Print
+    '8': Total_Pages_Printed_Monochrome_Fax_List
+    '9': Total_Pages_Printed_Monochrome_Copy
+    '10': Total_Pages_Printed_Media
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.21.1.3
+  index: true
+  data_type: integer
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.21.1.3:
+  name: brPrintPagesFuncCounter
+  type: counter
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.21.1.2
+  index: true
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.1.1.2:
+  name: brPrintPagesPaperSize
+  type: count_type
+  id_map:
+    '1': Print_Page_Count_Executive
+    '2': Print_Page_Count_Letter
+    '3': Print_Page_Count_Legal
+    '24': Print_Page_Count_A6
+    '25': Print_Page_Count_A5A5L
+    '26': Print_Page_Count_A4
+    '27': Print_Page_Count_A3ISO
+    '45': Print_Page_Count_B5JIS
+    '46': Print_Page_Count_B4JIS
+    '80': Print_Page_Count_Monarch
+    '81': Print_Page_Count_Com10
+    '90': Print_Page_Count_Dl
+    '91': Print_Page_Count_C5
+    '99': Print_Page_Count_B6
+    '100': Print_Page_Count_B5
+    '890': Print_Page_Count_Ledger
+    '891': Print_Page_Count_A3PLUS
+    '892': Print_Page_Count_LetterShortEdge
+    '893': Print_Page_Count_A4ShortEdge
+    '894': Print_Page_Count_A4LONG
+    '895': Print_Page_Count_ExecutiveShortEdge
+    '896': Print_Page_Count_B5ISOShortEdge
+    '897': Print_Page_Count_Custom
+    '898': Print_Page_Count_A4Letter
+    '899': Print_Page_Count_B5Executive
+    '900': Print_Page_Count_Envelopes
+    '901': Print_Page_Count_Dll
+    '902': Print_Page_Count_Postcard
+    '903': Print_Page_Count_Folio
+    '904': Print_Page_Count_OrganaizerJ
+    '905': Print_Page_Count_OrganaizerK
+    '906': Print_Page_Count_OrganaizerL
+    '907': Print_Page_Count_OrganaizerM
+    '908': Print_Page_Count_Userdefined
+    '909': Print_Page_Count_LegalFolio
+    '910': Print_Page_Count_B6A5A6
+    '923': Print_Page_Count_A5L
+    '924': Print_Page_Count_B6JIS
+    '999': Print_Page_Count_OtherPage
+    '1000': Print_Page_Count_Nocasset
+    '700': Print_Page_Count_A3ledgermono
+    '701': Print_Page_Count_A3ledgercolor
+    '702': Print_Page_Count_Othersizemono
+    '703': Print_Page_Count_Othersizecolor
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.1.1.3
+  index: true
+  data_type: integer
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.1.1.3:
+  name: brPrintPages
+  type: counter
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.1.1.2
+  index: true
+1.3.6.1.4.1.2435.2.4.3.2435.5.36.41.0:
+  name: brBOCDiagnoseDummy
+  type: key_value
+  index: false
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.59.0:
+  name: brMarkerSuppliesUsage
+  type: composite
+  id_map:
+    '01': Print_Black_Ink
+    '02': Print_Yellow_Ink
+    '03': Print_Cyan_Ink
+    '04': Print_Magenta_Ink
+    '05': Cleaning_Black_Ink
+    '06': Cleaning_Yellow_Ink
+    '07': Cleaning_Cyan_Ink
+    '08': Cleaning_Magenta_Ink
+  display: true
+  index: false
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.2:
+  name: brPrintPagesClassifiedSxDxPaperSize
+  type: count_type
+  id_map:
+    '706': Print_Page_SxDx_Count_A5B5
+    '709': Print_Page_SxDx_Count_LegalB4
+    '898': Print_Page_SxDx_Count_A4Letter
+    '912': Print_Page_SxDx_Count_A3Ledger
+    '913': Print_Page_SxDx_Count_4x6Postcard
+    '999': Print_Page_SxDx_Count_Other
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.3
+  index: true
+  data_type: integer
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.3:
+  name: brPrintPagesClassifiedSxDxCounter
+  type: counter
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.2
+  index: true
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.3.1.2:
+  name: brPrintPagesClassifiedSxPaperSize
+  type: count_type
+  id_map:
+    '700': Print_Page_Sx_Count_A3LedgerMono
+    '701': Print_Page_Sx_Count_A3LedgerColor
+    '702': Print_Page_Sx_Count_OtherSizeMono
+    '703': Print_Page_Sx_Count_OtherSizeColor
+    '704': Print_Page_Sx_Count_A4LetterMono
+    '705': Print_Page_Sx_Count_A4LetterColor
+    '706': Print_Page_Sx_Count_A5B5
+    '707': Print_Page_Sx_Count_A5B5Mono
+    '708': Print_Page_Sx_Count_A5B5Color
+    '709': Print_Page_Sx_Count_LegalB4
+    '710': Print_Page_Sx_Count_LegalB4Mono
+    '711': Print_Page_Sx_Count_LegalB4Color
+    '712': Print_Page_Sx_Count_4x6PostcardMono
+    '713': Print_Page_Sx_Count_4x6PostcardColor
+    '898': Print_Page_Sx_Count_A4Letter
+    '912': Print_Page_Sx_Count_A3Ledger
+    '913': Print_Page_Sx_Count_4x6Postcard
+    '999': Print_Page_Sx_Count_Other
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.3.1.3
+  index: true
+  data_type: integer
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.3.1.3:
+  name: brPrintPagesClassifiedSxCounter
+  type: counter
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.3.1.2
+  index: true
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.4.1.2:
+  name: brPrintPagesClassifiedDxPaperSize
+  type: count_type
+  id_map:
+    '700': Print_Page_Dx_Count_A3LedgerMono
+    '701': Print_Page_Dx_Count_A3LedgerColor
+    '702': Print_Page_Dx_Count_OtherSizeMono
+    '703': Print_Page_Dx_Count_OtherSizeColor
+    '704': Print_Page_Dx_Count_A4LetterMono
+    '705': Print_Page_Dx_Count_A4LetterColor
+    '706': Print_Page_Dx_Count_A5B5
+    '707': Print_Page_Dx_Count_A5B5Mono
+    '708': Print_Page_Dx_Count_A5B5Color
+    '709': Print_Page_Dx_Count_LegalB4
+    '710': Print_Page_Dx_Count_LegalB4Mono
+    '711': Print_Page_Dx_Count_LegalB4Color
+    '712': Print_Page_Dx_Count_4x6PostcardMono
+    '713': Print_Page_Dx_Count_4x6PostcardColor
+    '898': Print_Page_Dx_Count_A4Letter
+    '912': Print_Page_Dx_Count_A3Ledger
+    '913': Print_Page_Dx_Count_4x6Postcard
+    '999': Print_Page_Dx_Count_Other
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.4.1.3
+  index: true
+  data_type: integer
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.4.1.3:
+  name: brPrintPagesClassifiedDxCounter
+  type: counter
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.4.1.2
+  index: true
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.42.1.2:
+  name: brPrintPagesSXDXPaperSizePaperType
+  type: count_type
+  id_map:
+    '1': Print_Page_SxDx_Count_A3Ledger_Regular
+    '2': Print_Page_SxDx_Count_A3Ledger_Inkjet
+    '3': Print_Page_SxDx_Count_A3Ledger_Glossy
+    '4': Print_Page_SxDx_Count_A4Letter_Regular
+    '5': Print_Page_SxDx_Count_A4Letter_Inkjet
+    '6': Print_Page_SxDx_Count_A4Letter_Glossy
+    '7': Print_Page_SxDx_Count_4x6Postcard_Regular
+    '8': Print_Page_SxDx_Count_4x6Postcard_Inkjet
+    '9': Print_Page_SxDx_Count_4x6Postcard_Glossy
+    '10': Print_Page_SxDx_Count_Other_Regular
+    '11': Print_Page_SxDx_Count_Other_Inkjet
+    '12': Print_Page_SxDx_Count_Other_Glossy
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.42.1.3
+  index: true
+  data_type: integer
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.42.1.3:
+  name: brPrintPagesSXDXPaperSizePaperTypeCounter
+  type: counter
+  pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.42.1.2
+  index: true

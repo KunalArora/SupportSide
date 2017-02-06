@@ -1,0 +1,35 @@
+// Place all the styles related to the DeviceSetting controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.device_setting {
+  margin-top: 20px;
+  .button {
+   margin-top: 10px;
+  .bright {
+    float: right;
+    clear: right;
+    margin: auto;
+  }
+  #bsetting {
+    float: left;
+  }
+  .data {
+   float: left;
+   clear: both;
+  }
+ }
+}
+.back_to_device {
+  clear: both;
+}
+.device_setting_search {
+  clear: both;
+  margin-top: 100px;
+  input[type=text] {
+    width: 350px;
+  }
+  input[type=submit] {
+    width: 100px;
+  }
+}

@@ -1,0 +1,128 @@
+create_table "tbl_device_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  t.string   "device_id"
+  t.string   "object_id"
+  t.string   "status"
+  t.integer  "user_id"
+  t.datetime "registered_date"
+  t.datetime "updated_date"
+  t.datetime "created_at",      null: false
+  t.datetime "updated_at",      null: false
+end
+
+add_index 'tbl_device_statuses', ['device_id'], name: 'idx_device_id_object_id1', using: :btree
+add_index 'tbl_device_statuses', ['object_id'], name: 'idx_device_id_object_id2', using: :btree
+add_index 'tbl_device_statuses', ['registered_date'], name: 'idx_rgdate', using: :btree
+add_index 'tbl_device_statuses', ['updated_date'], name: 'updated_date', using: :btree
+
+create_table "tbl_mfc_models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  t.string   "name"
+  t.string   "image"
+  t.string   "code"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "tbl_subscription_configs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  t.string   "device_id"
+  t.string   "object_id"
+  t.integer  "time_period"
+  t.string   "service_id"
+  t.datetime "registered_date"
+  t.datetime "updated_date"
+  t.integer  "deleted"
+  t.integer  "status"
+  t.string   "status_message"
+  t.string   "callback"
+  t.integer  "last_call"
+  t.integer  "forward_callback"
+  t.datetime "created_at",       null: false
+  t.datetime "updated_at",       null: false
+end
+
+add_index 'tbl_subscription_configs', ['device_id'], name: 'idx_device_id_object_id1', using: :btree
+add_index 'tbl_subscription_configs', ['object_id'], name: 'idx_device_id_object_id2', using: :btree
+
+create_table "tbl_user_mfcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  t.integer  "mfc"
+  t.integer  "id_user"
+  t.string   "name"
+  t.string   "description"
+  t.integer  "status"
+  t.string   "mfc_key"
+  t.integer  "online"
+  t.string   "last_presence"
+  t.string   "scan_status"
+  t.string   "serial"
+  t.string   "mfc_status"
+  t.string   "mfc_ink"
+  t.string   "mfc_paper"
+  t.string   "mfc_options"
+  t.string   "mfc_specifications"
+  t.integer  "mfc_last_used"
+  t.string   "mfc_last_used_IP"
+  t.integer  "mfc_type"
+  t.string   "mfc_manufacture"
+  t.string   "device_id"
+  t.integer  "id_model"
+  t.datetime "created_at",         null: false
+  t.datetime "updated_at",         null: false
+end
+
+add_index 'tbl_user_mfcs', ['device_id'], name: 'idx_device_id', using: :btree
+add_index 'tbl_user_mfcs', ['id_user'], name: 'id_user_index', using: :btree
+add_index 'tbl_user_mfcs', ['mfc_key'], name: 'mfc_key_index', using: :btree
+add_index 'tbl_user_mfcs', ['mfc_type'], name: 'mfc_type_index', using: :btree
+
+create_table "tbl_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  t.string   "first_name"
+  t.string   "last_name"
+  t.string   "email"
+  t.string   "country"
+  t.string   "time_zone"
+  t.integer  "dst"
+  t.string   "password"
+  t.integer  "mfc_id"
+  t.integer  "enabled"
+  t.string   "confirmation_code"
+  t.datetime "created_on"
+  t.datetime "last_login"
+  t.integer  "quota"
+  t.integer  "limit"
+  t.integer  "index_update"
+  t.integer  "can_print"
+  t.string   "pull_scan"
+  t.string   "push_scan"
+  t.string   "mfc_access"
+  t.string   "virtual_folders"
+  t.string   "default_up"
+  t.integer  "default_mfc"
+  t.string   "user_agent"
+  t.string   "google_id"
+  t.integer  "admin_id"
+  t.datetime "last_activity"
+  t.string   "user_preferences"
+  t.integer  "owner_id"
+  t.string   "uid"
+  t.datetime "created_at",        null: false
+  t.datetime "updated_at",        null: false
+end
+
+add_index 'tbl_users', ['admin_id'], name: 'admin_id_index', using: :btree
+add_index 'tbl_users', ['confirmation_code'], name: 'confirmation_code_index', using: :btree
+add_index 'tbl_users', ['enabled'], name: 'enabled_index', using: :btree
+add_index 'tbl_users', ['password'], name: 'password_index', using: :btree
+
+create_table "tlb_serial_mfcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  t.string   "serial"
+  t.integer  "id_model"
+  t.integer  "id_mfc"
+  t.string   "name"
+  t.string   "uid"
+  t.string   "api"
+  t.string   "mfc_specifications"
+  t.datetime "time_stamp"
+  t.datetime "date_added"
+  t.datetime "date_unbind"
+  t.datetime "created_at",         null: false
+  t.datetime "updated_at",         null: false
+end

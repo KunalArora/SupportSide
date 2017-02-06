@@ -1,0 +1,14 @@
+<%= render 'shared', uuid: @uuid, device_id: @device_id %>
+
+<div class = 'device_setting'>
+  <div class = 'data'>
+    <% if @delete.present? %>
+      <% if @delete['message'] == 'Success.' %>
+        <span class ='info'> Device is successfully deleted.</span>
+      <% else %>
+        <span class = 'error'> <%= @delete['message'] %></span></br>
+        <span class = 'error'> Error while deleting device.</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

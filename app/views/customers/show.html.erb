@@ -1,0 +1,16 @@
+<%= render 'sessions/session' %>
+<%= render 'search/form' %>
+
+<div class = 'customers'>
+  <h2> Customer Information </h2>
+  <% if @customer.present? %>
+    <%= render 'detail', customer: @customer %>
+    <% if @devices.present? %>
+      <%= render 'devices', devices: @devices %>
+    <% else %>
+      </br><span class = 'error'> No Device Registered. </span>
+    <% end %>
+  <% else %>
+</br><span class = 'error'> Customer not found. </span>
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+<%= render 'sessions/session' %>
+<%= render 'form' %>
+
+<div class= 'search'>
+  <div class = 'error'>
+    <%= flash[:error] unless flash[:error].blank? %>
+  </div>
+
+  <h2> Search Customer/Device Information </h2>
+  <dl>
+    <dt>BOC Customer UUID</dt> <dd>Customer UUID that BOC sends back when creating an account (e.g. {XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}).</dd>
+    <dt>S/N</dt> <dd>Serial number of the device (9 digits or 15 digits).</dd>
+    <dt>BOC Device ID</dt> <dd>Unique Device ID that is stored in BOC database (e.g. XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX)</dd>
+  </dl>
+</div>

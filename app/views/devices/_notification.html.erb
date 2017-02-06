@@ -1,0 +1,11 @@
+<div class = 'notification'>
+  <dl>
+  <dt>Last Notification</dt>
+  <dd>
+    <% if notification.present? %>
+      since <%= notification.updated_date %>
+    <% else %>
+      -
+    <% end %>
+  </dd></dl>
+</div>

@@ -1,0 +1,246 @@
+/* line 5, /home/kunal/boc_support_site/app/assets/stylesheets/customers.scss */
+.customers {
+  margin: 0 auto;
+  margin-top: 100px;
+  font-family: sans-serif;
+}
+/* line 10, /home/kunal/boc_support_site/app/assets/stylesheets/customers.scss */
+.customers .device {
+  margin-left: 0px;
+}
+/* line 12, /home/kunal/boc_support_site/app/assets/stylesheets/customers.scss */
+.customers .device table {
+  border-collapse: collapse;
+  width: 100%;
+}
+/* line 16, /home/kunal/boc_support_site/app/assets/stylesheets/customers.scss */
+.customers .device table, .customers .device th, .customers .device td {
+  border: 1px black;
+  text-align: left;
+}
+/* line 20, /home/kunal/boc_support_site/app/assets/stylesheets/customers.scss */
+.customers .device th, .customers .device td {
+  border-bottom: 1px solid #ddd;
+  height: 30px;
+}
+/* line 24, /home/kunal/boc_support_site/app/assets/stylesheets/customers.scss */
+.customers .device tbody tr:hover {
+  background-color: #f5f5f5;
+}
+/* line 28, /home/kunal/boc_support_site/app/assets/stylesheets/customers.scss */
+.customers .message {
+  color: red;
+}
+/* line 5, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting {
+  margin-top: 100px;
+  font-family: sans-serif;
+}
+/* line 10, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting span {
+  font-weight: bold;
+}
+/* line 13, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting .inner {
+  margin-left: 20px;
+}
+/* line 16, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting .message {
+  color: red;
+  font-weight: normal;
+}
+/* line 20, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting .button {
+  display: block;
+}
+/* line 22, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting .button #bsetting {
+  float: left;
+  clear: left;
+}
+/* line 26, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting .button #bdelete {
+  float: right;
+  clear: right;
+}
+/* line 30, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting .button #breboot {
+  float: right;
+  clear: right;
+  margin-top: 10px;
+}
+/* line 35, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting .button #blog {
+  float: right;
+  clear: right;
+  margin-top: 12px;
+}
+/* line 41, /home/kunal/boc_support_site/app/assets/stylesheets/device_setting.scss */
+.device_setting .data {
+  float: left;
+  clear: both;
+}
+/* line 5, /home/kunal/boc_support_site/app/assets/stylesheets/devices.scss */
+.device {
+  margin: 0 true;
+  margin-top: 100px;
+  font-family: sans-serif;
+}
+/* line 10, /home/kunal/boc_support_site/app/assets/stylesheets/devices.scss */
+.device dl {
+  margin-left: 50px;
+}
+/* line 13, /home/kunal/boc_support_site/app/assets/stylesheets/devices.scss */
+.device dt {
+  padding: 3px;
+}
+/* line 17, /home/kunal/boc_support_site/app/assets/stylesheets/devices.scss */
+.device span {
+  font-weight: bold;
+}
+/* line 21, /home/kunal/boc_support_site/app/assets/stylesheets/devices.scss */
+.device .detail {
+  display: block;
+}
+/* line 24, /home/kunal/boc_support_site/app/assets/stylesheets/devices.scss */
+.device .back_to_customers {
+  float: left;
+  clear: both;
+}
+/* line 29, /home/kunal/boc_support_site/app/assets/stylesheets/devices.scss */
+.device .to_device_setting {
+  margin-left: 70%;
+}
+/* line 32, /home/kunal/boc_support_site/app/assets/stylesheets/devices.scss */
+.device .message {
+  color: red;
+  font-weight: normal;
+}
+/* line 5, /home/kunal/boc_support_site/app/assets/stylesheets/search.scss */
+.search_form {
+  display: block;
+  position: absolute;
+}
+/* line 9, /home/kunal/boc_support_site/app/assets/stylesheets/search.scss */
+.search_form input[type=text] {
+  width: 350px;
+}
+/* line 12, /home/kunal/boc_support_site/app/assets/stylesheets/search.scss */
+.search_form input[type=submit] {
+  width: 120px;
+}
+
+/* line 17, /home/kunal/boc_support_site/app/assets/stylesheets/search.scss */
+.search {
+  display: block;
+  margin-top: 150px;
+  font-family: sans-serif;
+  overflow: visible;
+}
+/* line 22, /home/kunal/boc_support_site/app/assets/stylesheets/search.scss */
+.search dl {
+  margin-left: 30px;
+}
+/* line 25, /home/kunal/boc_support_site/app/assets/stylesheets/search.scss */
+.search span {
+  font-weight: bold;
+}
+/* line 5, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.login {
+  max-width: 440px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+/* line 10, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.login h2 {
+  text-align: center;
+  border: none;
+}
+/* line 14, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.login input[type=email] {
+  display: inline;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-left: 50px;
+}
+/* line 21, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.login input {
+  display: inline;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+/* line 28, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.login input[type=submit] {
+  display: inline;
+  width: 74%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  margin-left: 103px;
+}
+/* line 35, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.login .message {
+  text-align: center;
+}
+/* line 38, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.login p {
+  margin-left: 105px;
+}
+
+/* line 44, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.session {
+  text-align: right;
+  margin-bottom: 5px;
+  margin-right: 0px;
+  position: relative;
+}
+/* line 50, /home/kunal/boc_support_site/app/assets/stylesheets/sessions.scss */
+.session span + span::before {
+  content: ' | ';
+}
+/* line 5, /home/kunal/boc_support_site/app/assets/stylesheets/users.scss */
+.signup {
+  max-width: 440px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+/* line 10, /home/kunal/boc_support_site/app/assets/stylesheets/users.scss */
+.signup h1 {
+  text-align: left;
+  border: none;
+}
+/* line 14, /home/kunal/boc_support_site/app/assets/stylesheets/users.scss */
+.signup input {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+/* line 21, /home/kunal/boc_support_site/app/assets/stylesheets/users.scss */
+.signup input[type=submit] {
+  display: block;
+  width: 50%;
+  margin-left: 125px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+ .container {
+   margin: 100px;
+ }

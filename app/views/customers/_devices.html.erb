@@ -1,0 +1,29 @@
+<div class = 'device' style='overflow-x:auto'>
+  <table>
+    <thead>
+      <tr>
+        <th> Model Name </th>
+        <th> Serial Number </th>
+        <th> Device ID </th>
+        <th> Online/Offline </th>
+        <th> Notification </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% devices.each do |d| %>
+        <tr class='clickable-row' data-href= "<%= devices_search_path(device_id: d.device_id) %>">
+          <td><%= d.tbl_mfc_model.name %></td>
+          <td><%= d.serial %></td>
+          <td><%= d.device_id %></td>
+          <td><%= network_status(d.online) %> </br>(<%= date_conversion(d.last_presence) %>UTC) </td>
+          <% if notify = TblDeviceStatus.notify_status(d.device_id) %>
+            <td><%= notify.updated_date %> </td>
+          <% else %>
+            <td> - </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate devices %>
+</div>

@@ -1,0 +1,15 @@
+<%= render 'shared', uuid: @uuid, device_id: @device_id %>
+
+<div class = 'device_setting'>
+  <div class = 'device_search_data'>
+    <% if @value.present? %>
+      <% if @value['get'].present? && @value['success'] == true %>
+        <span class ='info'> <%= @value['get'][0]['value'] %></span>
+      <% elsif @value['success'] == false && @value['message'] == 'Error' %>
+        <span class = 'error'> <%= @value['get'][0]['message'] %></span></br>
+      <% else %>
+        <span class = 'error'><%= @value['message'] %></span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

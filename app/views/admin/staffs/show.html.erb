@@ -1,0 +1,32 @@
+<%= render 'sessions/session' %>
+<%= render 'back_to_search' %>
+
+<div class= 'staffs'>
+  <h2> Staff Information </h2>
+  <dl>
+    <dt> ID </dt>
+    <dd> <%= @staff.id %> </dd>
+    <dt> Name </dt>
+    <dd> <%= @staff.name %> </dd>
+    <dt> E-mail Address: </dt>
+    <dd> <%= @staff.email %></dd>
+    <dt> Company ID: </dt>
+    <dd> <%= @staff.company_id %> </dd>
+    <dt> Admin </dt>
+    <dd> <%= admin_type(@staff.admin) %></dd>
+  </dl>
+</div>
+
+<dl>
+  <span class = 'staff'> <%= link_to '<<Back', admin_staffs_path %> </span>
+  <span class = 'staff'> <%= link_to 'Edit', edit_admin_staff_path %> </span>
+  <span class = 'staff'> <%= link_to 'Delete', admin_staff_path(@staff), method: 'delete', data: {confirm: 'Are you sure to delete this staff?'} %> </span>
+</dl>
+
+</br><div class = 'info'>
+  <%= flash[:info] unless flash[:info].blank? %>
+</div>
+
+</br><div class = 'error'>
+  <%= flash[:error] unless flash[:error].blank? %>
+</div>

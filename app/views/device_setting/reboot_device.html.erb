@@ -1,0 +1,14 @@
+<%= render 'shared', uuid: @uuid, device_id: @device_id %>
+
+<div class = 'device_setting'>
+  <div class = 'data'>
+    <% if @reboot.present? %>
+      <% if @reboot['message'] == 'Success.' %>
+        <span class = 'info'> Device is successfully rebooted.</span>
+      <% else %>
+        <span class = 'error'> <%= @reboot['message'] %></span></br>
+        <span class = 'error'> Error while rebooting device.</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

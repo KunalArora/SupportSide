@@ -1,0 +1,35 @@
+<%= render 'sessions/session' %>
+<%= render 'back_to_search' %>
+
+<div class= 'staffinfo'>
+  <h2> Staff Information </h2>
+  <%= form_for([:admin, @staff], html: {class: 'form-horizontal'}) do |f| %>
+    <dl>
+      <dt><%= f.label :name, 'Name' %></dt>
+      <dd><%= f.text_field :name, placeholder: 'Name', autofocus: true, class: 'form-control' %></dd>
+
+      <dt><%= f.label :company_id, 'Company ID' %></dt>
+      <dd><%= f.text_field :company_id, placeholder: 'Company ID', class: 'form-control' %></dd>
+
+      <dt><%= f.label :email, 'E-mail Address' %></dt>
+      <dd><%= f.email_field :email, placeholder: 'E-Mail Address', class: 'form-control' %></dd>
+
+      <dt><%= f.label :password, 'Password' %></dt>
+      <dd><%= f.password_field :password, placeholder: 'Password', class: 'form-control' %></dd>
+
+      <dt><%= f.label :admin %></dt>
+      <%= f.radio_button :admin, 'sadmin' %>
+      <%= f.label :admin, 'Super Administrator', :value => 'sadmin' %>
+      <%= f.radio_button :admin, 'admin' %>
+      <%= f.label :admin, 'Administrator', :value => 'admin' %>
+      <%= f.radio_button :admin, 'mstaff' %>
+      <%= f.label :admin, 'Managing Staff', :value => 'mstaff' %>
+      </br><span class = 'error'> The password must be minimum of 8 characters, at least 1 number and special character and at least one upper and lowercase.</span>
+
+      <dl></br>
+        <%= f.submit 'Create' %>
+        <%= link_to 'Cancel', admin_staffs_path %>
+      </dl>
+  <% end %>
+  <%= render 'shared/error_messages' %>
+</div>

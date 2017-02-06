@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+foo:
+  id: 1
+  first_name: 'foo'
+  last_name: 'last'
+  email: foo@example.com
+  country: 'Japan'
+  time_zone: 'Japan time'
+  password: 'foo123'
+  mfc_id: 1 #brother_mfc #mfc value
+  enabled: 1
+  confirmation_code: 'foolastmfc'
+  last_login: <%= (Date.today - 2).to_s %>
+  mfc_access: 1
+  uid: <%= "{#{SecureRandom.uuid}}" %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+bar:
+  id: 2
+  first_name: 'bar'
+  last_name: 'last'
+  email: bar@example.com
+  country: 'Japan'
+  time_zone: 'Japan time'
+  password: 'bar123'
+  mfc_id: 0 #mfc value
+  enabled: 1
+  confirmation_code: 'barlastmfc'
+  last_login: <%= (Date.today - 5).to_s %>
+  mfc_access: 1
+  uid: <%= "{#{SecureRandom.uuid}}" %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+baz:
+  id: 3
+  first_name: 'baz'
+  last_name: 'last'
+  email: baz@example.com
+  country: 'Japan'
+  time_zone: 'Japan time'
+  password: 'baz123'
+  mfc_id: baz_brother_mfc #mfc value
+  enabled: 1
+  confirmation_code: 'bazlastmfc'
+  last_login: <%= (Date.today - 5).to_s %>
+  mfc_access: 1
+  uid: <%= "{#{SecureRandom.uuid}}" %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

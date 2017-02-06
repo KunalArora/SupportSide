@@ -1,0 +1,14 @@
+<%= render 'shared', uuid: @uuid, device_id: @device_id %>
+
+<div  class = 'device_setting'>
+  <div class = 'data'>
+    <% if @enable.present? %>
+      <% if @enable['message'] == 'Success.' %>
+        <span class = 'info'> Device detailed log functionality is enabled.</span>
+      <% else %>
+        <span class = 'error'> <%= @enable['message'] %></span></br>
+        <span class = 'error'> Error while enabling detailed Log functionality for the device.</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

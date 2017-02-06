@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+
+serial_brother_mfc:
+  id: 1
+  serial: <%= "U#{SecureRandom.hex(7)}" %>
+  id_model: 1 #brother_mfc
+  id_mfc: 1 #foo_mfc
+  name: 'Brother MFC-L8600CDW_U63783H9A843433'
+  uid: <%= SecureRandom.uuid %>
+  api: '3.0.4'
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

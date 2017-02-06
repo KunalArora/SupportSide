@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+   font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+   max-width: 1024px;
+   margin: 0 auto;
+   color: #333;
+ }
+
+ h1 {
+   border-bottom: 1px solid #aaa;
+   padding-bottom: 5px;
+   background-image: image-url('200px_at_b');
+   background-repeat: no-repeat;
+   background-position: right center;
+   background-size: contain;
+ }
+
+ h2 {
+   border-bottom: 1px solid #aaa;
+ }
+
+ dl {
+   max-width: 100%;
+   line-height: 1.8em;
+ }
+
+ a {
+   color: #2b90d9;
+ }
+
+ dt {
+   float: left;
+   width: 200px;
+   font-weight: bold;
+ }
+
+ dd {
+   margin-left: 200px;
+ }
+
+ table {
+   width: 100%;
+   margin: 0 auto;
+   border-collapse: collapse;
+ }
+
+ th {
+   text-align: left;
+ }
+
+ td {
+   border-top: 1px solid #aaa;
+ }
+
+ tr {
+   line-height: 1.5em;
+ }
+
+ td:empty::before {
+   content: '-';
+ }
+
+ ul.messages {
+   list-style-type: disc;
+ }
+
+ .info {
+   color: green;
+ }
+
+ .error {
+   color: red;
+ }
+
+ .pagination {
+   margin-top: 25px;
+   text-align: center;
+ }

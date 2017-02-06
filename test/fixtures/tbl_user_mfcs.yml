@@ -1,0 +1,44 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+
+foo_mfc:
+  id: 1
+  mfc: 0
+  id_user: 1 #foo
+  name: 'Brother Machine'
+  status: 1
+  online: 1
+  last_presence: <%= (Date.today - 2).to_s %>
+  serial: <%= "U#{SecureRandom.hex(7)}" %>
+  mfc_specifications: "{'FirmwareVersion': {
+    'MAIN': 'N1408251003:3FCE',
+    'SUB1': '1.05',
+    'SUB2': 'J14082510'
+    }}"
+  device_id: <%= SecureRandom.uuid %>
+  id_model: 30 #foo_brother_mfc
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+<% 20.times do |n| %>
+baz_mfc_<% n %>:
+  mfc: 0
+  id_user: 3 #baz
+  name: 'Brother Machine'
+  status: 1
+  online: 1
+  last_presence: <%= (Date.today - 2).to_s %>
+  serial: <%= "U#{SecureRandom.hex(7)}" %>
+  mfc_specifications: "{'FirmwareVersion': {
+    'MAIN': 'N1408251003:3FCE',
+    'SUB1': '1.01',
+    'SUB2': 'J14482510'
+    }}"
+  device_id: <%= SecureRandom.uuid %>
+  id_model: <% n %> #baz_brother_mfc_<% n %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+<% end %>

@@ -1,0 +1,11 @@
+<div class = 'subscription'>
+  <dl>
+  <dt>Subscription Status</dt>
+  <dd>
+    <% if subscription.present? %>
+      <%= subscribe_status(subscription.status) %> ( since <%= subscription.updated_date %> )
+    <% else %>
+       Unsubscribed
+    <% end %>
+  </dd></dl>
+</div>

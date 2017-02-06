@@ -1,0 +1,23 @@
+<div class='to_device_setting'>
+  <%= link_to 'Device Settings >>', device_setting_path(device.device_id) %>
+</div>
+
+<div class='detail'>
+  <h2> Device Information </h2>
+  <dl>
+    <dt>Model Name</dt>
+    <dd><%= device.tbl_mfc_model.name %></dd>
+    <dt>Serial Number</dt>
+    <dd><%= device.serial %></dd>
+    <dt>BOC Device ID</dt>
+    <dd><%= device.device_id %></dd>
+  </dl>
+</div>
+
+<div class='network_status'>
+  <h2>Device Status </h2>
+  <dl>
+    <dt>Network Status</dt>
+    <dd><%= network_status(device.online) %> ( since <%= date_conversion(device.last_presence) %> UTC) </dd>
+  </dl>
+</div>

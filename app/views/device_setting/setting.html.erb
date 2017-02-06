@@ -1,0 +1,43 @@
+<%= render 'shared', uuid: @uuid, device_id: @device_id %>
+
+<div class='device_setting'>
+  <div class = 'data'>
+   <% if @setting.present? %>
+     <% if @setting['get'].present? %>
+     <dl>
+       <dt>BOC Registration Status</dt>
+       <dd><%= registration_value(@setting['get'][0]['value']) %></dd>
+     </dl>
+     <% else %>
+       <span class ='error'> <%= @setting['message'] %></span>
+     <% end %>
+    <% if @setting['get'].present? %>
+     <dl>
+      <dt>Proxy Settings</dt>
+      <dd><dl>
+        <dt>Proxy server name</dt>
+          <dd><%= proxy_name_parse(@setting['get'][1]['value']) %></dd>
+        <dt>Proxy server port</dt>
+          <dd><%= @setting['get'][2]['value'] %> </dd>
+       </dl>
+      </dd>
+      </br>
+      <dt>Network Settings</dt>
+      <dd><dl>
+        <dt>IP Address</dt>
+          <dd><%= @setting['get'][3]['value'] %> </dd>
+        <dt>Subnet Mask</dt>
+          <dd><%= @setting['get'][4]['value'] %></dd>
+        <dt>IP Gateway</dt>
+          <dd><%= @setting['get'][5]['value'] %></dd>
+        <dt>Primary DNS Server</dt>
+          <dd><%= @setting['get'][6]['value'] %></dd>
+        <dt>Secondary DNS Server</dt>
+          <dd><%= @setting['get'][7]['value'] %></dd>
+        </dl>
+      </dd>
+     </dl>
+   <% end %>
+   <% end %>
+  </div>
+</div>

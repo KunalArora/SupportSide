@@ -1,0 +1,35 @@
+<%= render 'sessions/session' %>
+<%= link_to '<<Search', search_path %>
+
+<div class='staff'>
+  <h2> Change Password </h2>
+  <%= form_for current_staff do |f| %>
+    <dl>
+      <dt><%= f.label :current_pswd, 'Current Password' %></dt>
+      <dd><%= f.password_field :current_pswd, placeholder: 'Current Password' %></dd>
+      <dt><%= f.label :new_pswd, 'New Password' %></dt>
+      <dd><%= f.password_field :new_pswd, placeholder: 'New Password' %></dd>
+      <dt><%= f.label :cfm_pswd, 'Confirm Password' %></dt>
+      <dd><%= f.password_field :cfm_pswd, placeholder: 'Confirm Password' %></dd>
+    </dl>
+    <span class = 'error'> The password must be minimum of 8 characters, at least 1 number and special character and at least one upper and lowercase.</span>
+    <dl>
+      <%= f.submit 'Update' %>
+      <%= link_to 'Cancel', search_path %>
+    </dl>
+
+    <div class = 'info'>
+       <%= flash[:info] unless flash[:info].blank? %>
+    </div>
+    <div class = 'error'>
+       <%= flash[:error] unless flash[:error].blank? %>
+    </div>
+  <% end %>
+</div>
+
+<% if current_staff.admin == 'sadmin' %>
+  <div class = 'administration'>
+    <h2> Administration </h2>
+    <ul><%= link_to 'Manage Support Staff', admin_staffs_path %></ul>
+  </div>
+<% end %>

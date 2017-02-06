@@ -1,0 +1,20 @@
+<%= render 'sessions/session' %>
+<%= render 'search/form' %>
+
+<div class='device'>
+  <% if @device.present? %>
+    <% if @device.size!=1 %>
+  </br></br><span class = 'info'> There are multiple devices found for the searched query <%= params[@key] %>.
+      To get the correct results please search again using <%= query_opp(@key)%>. </span>
+    <% else %>
+      <%= render 'back_to_customer', customers: @device.first.tbl_user.uid %>
+      <%= render 'to_device_setting', device: @device.first %>
+      <%= render 'consumables', consumable: @consumable %>
+      <%= render 'firmware_version', firmware: eval(@device.first.mfc_specifications) %>
+      <%= render 'subscription', subscription: @subscription %>
+      <%= render 'notification', notification: @notification %>
+    <% end %>
+  <% else %>
+    </br><span class='error'> Device not found. </span>
+  <% end %>
+</div>

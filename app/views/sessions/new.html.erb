@@ -1,0 +1,14 @@
+<div class='login'>
+  <h2> Log in</h2>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= render 'shared/error_messages' %>
+
+    <%= f.email_field :email, placeholder: 'E-Mail Address', autofocus: true %>
+    <%= f.password_field :password, placeholder: 'Password' %>
+    <%= f.submit 'Log in'%>
+  <% end %>
+
+  <div class = 'error' >
+    <%= flash[:error] unless flash[:error].blank? %>
+  </div>
+</div>

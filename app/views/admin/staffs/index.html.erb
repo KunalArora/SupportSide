@@ -1,0 +1,45 @@
+<%= render 'sessions/session' %>
+<%= render 'back_to_search' %>
+
+<div class='staffs'>
+  <h2> Support Site Staff </h2>
+
+  <dl><%= link_to 'Create new Staff', new_admin_staff_path, class: 'create' %></dl>
+  <table>
+    <thead>
+      <tr>
+        <th> ID </th>
+        <th> E-mail Address </th>
+        <th> Company ID </th>
+        <th> Admin </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @staffs.each do |s| %>
+      <tr>
+        <td> <%= s.id %></td>
+        <td> <%= s.email %></td>
+        <td> <%= s.company_id %></td>
+        <td>
+          <% if s.admin == 'sadmin' %>
+            Super Administrator
+          <% elsif s.admin == 'admin' %>
+            Administrator
+          <% else %>
+            Managing Staff
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Show', admin_staff_path(s) %>
+          <%= link_to 'Edit', edit_admin_staff_path(s) %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @staffs %>
+
+  </br><div class = 'info'>
+    <%= flash[:info] unless flash[:info].blank? %>
+  </div>
+</div>

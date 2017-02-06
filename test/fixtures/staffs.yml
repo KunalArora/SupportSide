@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+jack:
+  id: 1
+  name: Jack Daniels
+  email: jack@example.com
+  password_digest: <%= Staff.digest('N@kia987') %>
+  company_id: 2
+  admin: sadmin
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+john:
+  id: 2
+  name: John Legend
+  email: john@example.com
+  password_digest: <%= Staff.digest('N@kia987') %>
+  company_id: 2
+  admin: admin
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+jill:
+  id: 3
+  name: Jill Bill
+  email: jill@example.com
+  password_digest: <%= Staff.digest('N@kia987') %>
+  company_id: 2
+  admin: mstaff
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

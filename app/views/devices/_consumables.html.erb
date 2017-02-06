@@ -1,0 +1,17 @@
+<div class = 'consumable'>
+  <dl>
+    <dt>Consumables</dt>
+  <dd>
+  <% if consumable.present? %>
+    <% consumables(parser(consumable)).try(:each)  do |k,v| %>
+      <% if !v.nil? %>
+      <%= k %> :
+      <%= v[:value] %>
+      <% end %>
+    <% end %>
+    ( since <%= consumable.updated_date %> )
+  <% else %>
+    -
+  <% end %>
+</dd></dl>
+</div>
