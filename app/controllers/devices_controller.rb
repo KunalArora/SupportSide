@@ -7,6 +7,7 @@ class DevicesController < ApplicationController
     @device = TblUserMfc.device_info(@key, params[@key])
     return unless @device.present? && @device.size == 1
     @consumable = TblDeviceStatus.consumable_status(@device.first.device_id)
+    p @consumable
     @notification = TblDeviceStatus.notify_status(@device.first.device_id)
     @subscription = TblSubscriptionConfig.subscription_status(@device.first.device_id)
   end

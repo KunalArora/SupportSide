@@ -3,13 +3,15 @@
     <dt>Consumables</dt>
   <dd>
   <% if consumable.present? %>
-    <% consumables(parser(consumable)).try(:each)  do |k,v| %>
-      <% if !v.nil? %>
-      <%= k %> :
-      <%= v[:value] %>
+    <% consumable.each do |c| %>
+      <% consumables(parser(c)).try(:each)  do |k,v| %>
+        <% if !v.nil? %>
+        <%= k %> :
+        <%= v[:value] %>
+        <% end %>
       <% end %>
+      ( since <%= c.updated_date %> )
     <% end %>
-    ( since <%= consumable.updated_date %> )
   <% else %>
     -
   <% end %>

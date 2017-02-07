@@ -5,7 +5,14 @@ module DevicesHelper
     bool ? 'online' : 'offline'
   end
 
+  def page_count consumable
+    page = %w(total )
+  end
+
   def consumables consumable
+    if consumable['object_id'] == '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.10.0'
+      page_count(consumable)
+    end
     colors = %w(Black Cyan Magenta Yellow).freeze
     return unless consumable
     colors.map do |c|
