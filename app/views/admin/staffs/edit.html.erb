@@ -21,10 +21,12 @@
       <dt><%= f.label :admin %></dt>
       <%= f.radio_button :admin, 'sadmin' %>
       <%= f.label :admin, 'Super Administrator', :value => 'sadmin' %>
-      <%= f.radio_button :admin, 'admin' %>
-      <%= f.label :admin, 'Administrator', :value => 'admin' %>
-      <%= f.radio_button :admin, 'mstaff' %>
-      <%= f.label :admin, 'Managing Staff', :value => 'mstaff' %>
+      <%= f.radio_button :admin, 'loadmin' %>
+      <%= f.label :admin, 'LO Administrator', :value => 'loadmin' %>
+      <%= f.radio_button :admin, 'lomstaff' %>
+      <%= f.label :admin, 'LO Managing Staff', :value => 'lomstaff' %>
+      <%= f.radio_button :admin, 'sdesk' %>
+      <%= f.label :admin, 'Service Desk', :value => 'sdesk' %>
 
       <dl>
         <%= f.submit 'Update' %>

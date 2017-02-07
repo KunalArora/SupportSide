@@ -11,6 +11,7 @@ class CustomersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'sessions/_session'
     assert_template 'search/_form'
+    assert_select '.pin_link', 1
   end
 
   test 'should show user not found' do
@@ -34,6 +35,22 @@ class CustomersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'sessions/_session'
     assert_template 'search/_form'
-  #  assert_select 'table tbody tr', 10
+  end
+
+  test 'should not show pin link on service desk staff login' do
+    session[:email] = staffs(:jordan).email
+    get :show, params: { uuid: @user.uid }
+    assert_response :success
+    assert_template 'sessions/_session'
+    assert_template 'search/_form'
+    assert_select '.pin_link', 0
+  end
+
+  test 'should get pin generate' do
+    get :pin_generate, params: { uuid: @user.uid }
+    assert_response :success
+    assert_template 'sessions/_session'
+    assert_template 'search/_form'
+    assert_select '.cust_button', 1
   end
 end

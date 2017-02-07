@@ -4,13 +4,21 @@
 <div class = 'customers'>
   <h2> Customer Information </h2>
   <% if @customer.present? %>
-    <%= render 'detail', customer: @customer %>
+    <%= render 'detail', customer: @customer.uid %>
+
+    <% if current_staff.admin != 'sdesk' %>
+      <div class = 'pin_link'>
+        <%= link_to 'PIN Generate>>', customers_pin_generate_path, method: :post %>
+      </div>
+    <% end %>
+
     <% if @devices.present? %>
       <%= render 'devices', devices: @devices %>
     <% else %>
       </br><span class = 'error'> No Device Registered. </span>
     <% end %>
+
   <% else %>
-</br><span class = 'error'> Customer not found. </span>
+    </br><span class = 'error'> Customer not found. </span>
   <% end %>
 </div>

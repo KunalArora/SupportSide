@@ -1,0 +1,47 @@
+<%= render 'sessions/session' %>
+<%= render 'search/form' %>
+
+<div class = 'pin_generate'>
+  <div class = 'back'>
+    <%= link_to '<<Back', customers_path %>
+  </div>
+  <h2> Customer Information </h2>
+  <%= render 'detail', customer: @customer %>
+
+  <div class = 'cust_button'>
+    <%= button_to 'Generate PIN', customers_pin_generate_path(link: 'pin') %>
+    <%= button_to 'Outstanding PIN', customers_pin_generate_path(link: 'outstanding_pin') %>
+  </div>
+
+  <div class = 'pin_data'>
+    <% if @pin.present? && @pin['success'] == true%>
+      <%= @pin['pins'][0] %>
+    <% elsif @pin!=nil && @pin['success'] == false %>
+      <span class 'error'><%= @pin['message'] %></span>
+    <% end %>
+  </div>
+
+  <div class = 'outstanding_data'>
+    <% if @outstanding_pin.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th> PIN </th>
+          <th> Expiration Date </th>
+          <th> Registrable devices count </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @outstanding_pin['pins'].each do |f|%>
+        <tr>
+          <td><%= f['pin'] %></td>
+          <td><%= f['expires']%></td>
+          <td><%= f['count']%></td>
+        <% end %>
+      </tr>
+    </table>
+    <% elsif @outstanding_pin!=nil && @outstanding_pin['success']==false %>
+      <span class = 'error'><%= @outstanding_pin['message'] %></span>
+    <% end %>
+  </div>
+</div>
