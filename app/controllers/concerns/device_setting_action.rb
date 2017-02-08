@@ -61,7 +61,7 @@ module DeviceSettingAction
   private
 
   def send_req request
-    request.basic_auth(*Rails.application.secrets.boc_api_credentials.split(/:/))
+#    request.basic_auth(*Rails.application.secrets.boc_api_credentials.split(/:/))
     JSON.parse(BOC::API.new(Rails.application.secrets.boc_api_endpoint).connect(request))
   end
 end

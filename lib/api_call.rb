@@ -13,7 +13,6 @@ module BOC
     def connect req
       https = create_http
       res = https.start { |http| http.request(req) }
-      p https.inspect
       res.value
       block_given? ? yield(res) : res.body
     rescue Net::HTTPExceptions

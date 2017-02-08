@@ -11,7 +11,6 @@ class DeviceSettingController < ApplicationController
 
   def setting
     @setting = settings(@device_id)
-    p @setting
   end
 
   def reboot_device
