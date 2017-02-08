@@ -6,23 +6,56 @@ module DevicesHelper
   end
 
   def page_count consumable
-    page = %w(total )
+    page = %w(Total Monochrome Color).freeze
+    page.map do |c|
+      next unless consumable.key? "#{c}_Page_Count"
+      consumable_status "#{c}_PageCount", consumable["#{c}_Page_Count"]
+    end
   end
 
-  def consumables consumable
-    if consumable['object_id'] == '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.10.0'
-      page_count(consumable)
-    end
+  def cons_status object_id, consumable
     colors = %w(Black Cyan Magenta Yellow).freeze
     return unless consumable
     colors.map do |c|
       next unless consumable.key? "TonerInk_#{c}"
-      consumable_status c, consumable["TonerInk_Life#{c}"]
+      consumable_status "#{c}_Status", consumable["TonerInk_#{c}"]
+    end
+  end
+
+  def remaining_life consumable
+    colors = %w(Black Cyan Magenta Yellow).freeze
+    return unless consumable
+    colors.map do |c|
+      next unless consumable.key? "TonerInk_#{c}"
+      consumable_status "#{c}_RemainingLife", consumable["TonerInk_Life#{c}"]
+    end
+  end
+
+  def replace_count consumable
+    replace = %w(Black Cyan Magenta Yellow).freeze
+    return unless consumable
+    replace.map do |c|
+      next unless consumable.key? "TonerInk_#{c}_Replace_Count"
+      consumable_status "#{c}_ReplaceCount", consumable["TonerInk_#{c}_Replace_Count"]
+    end
+  end
+
+  def consumables object_id, consumable
+    if object_id == '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.10.0'
+      page_count(consumable)
+    elsif object_id == '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0'
+      cons_status(object_id, consumable)
+      remaining_life(consumable)
+    elsif object_id == '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.11.0'
+    elsif object_id == '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.20.0'
+      replace_count(consumable)
     end
   end
 
   def consumable_status color, value
-    [color.to_s, { value: value }]
+    p value
+    p color
+    p {"#{color}".to_sym "#{value}" }
   end
 
   def subscribe_status status
@@ -38,6 +71,7 @@ module DevicesHelper
 
   def parser consumable
     return unless consumable.present?
+    p consumable
     MIBParser::ObjectId.new(consumable['object_id'])
                        .parse(consumable['status'])
   end

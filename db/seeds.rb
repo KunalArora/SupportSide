@@ -46,19 +46,58 @@ serial_mfc=TlbSerialMfc.create(serial: 'U63783H9A843433', #Device Serial number
                     api: '3.0.4' #Device API version
                     )
 
-subscription_config=TblSubscriptionConfig.create(device_id: user_mfc.device_id,
-                             object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0', #MIB
+subscription_config=TblSubscriptionConfig.create!(
+                            [{device_id: user_mfc.device_id,
+                             object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.20.0', #MIB
                              registered_date: '2010-05-10', #Registered Date
                              updated_date: '2010-05-11', #Updated time
                              deleted: 0, #Delete flag
                              status: 1, #Device Registration state
                              status_message: 'Registered' #Message received from device during registration
-                             )
+                             },
+                             {device_id: user_mfc.device_id,
+                              object_id: '1.3.6.1.2.1.25.1.1.0', #MIB
+                              registered_date: '2010-05-10', #Registered Date
+                              updated_date: '2010-05-11', #Updated time
+                              deleted: 0, #Delete flag
+                              status: 2, #Device Registration state
+                              status_message: 'Registered' #Message received from device during registration
+                              },
+                              {device_id: user_mfc.device_id,
+                               object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0', #MIB
+                               registered_date: '2010-05-10', #Registered Date
+                               updated_date: '2010-05-11', #Updated time
+                               deleted: 0, #Delete flag
+                               status: 0, #Device Registration state
+                               status_message: 'Registered' #Message received from device during registration
+                               }])
 
-device_status=TblDeviceStatus.create(device_id: user_mfc.device_id,
-                       object_id:  '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0', #MIB
-                       status: '630104000000011101040000014B41010400002710310104000000016F0104000021FC8101040000005A8601040000000F670104000000016B0104000027105401040000000166010400000001350104000000016A0104000027106C0104000027106D010400002710FF', #Data received from device
-                       user_id: user.id,
-                       registered_date: '2010-05-10', #Registered Date
-                       updated_date: '2010-05-11', #Updated Date
-                       )
+device_status=TblDeviceStatus.create(
+                       [{device_id: user_mfc.device_id,
+                        object_id:  '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0', #MIB
+                        status: '7601040000000177010400000001780104000000017F0104000000016801040000000155010400000001310104000000013201040000000133010400000001340104000000017001040000238C82010400000064710104000017708301040000003C720104000010CC840104000000326F01040000258081010400000064790104000027107A0104000027107B01040000271080010400002710690104000013247301040000002C7401040000002C7501040000002C7E01040000002C54010400000001350104000000016A0104000027106D010400002710FF', #Data received from device
+                        user_id: user.id,
+                        registered_date: '2010-05-10', #Registered Date
+                        updated_date: '2010-05-11', #Updated Date
+                        },
+                       {device_id: user_mfc.device_id,
+                        object_id:  '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.10.0', #MIB
+                        status: '0001040001A1860201040000B8FF0101040000E8871601040003BD131301040000B6BF1401040000B78B1501040000ADEA1201040001A0DFFF', #Data received from device
+                        user_id: user.id,
+                        registered_date: '2010-05-10', #Registered Date
+                        updated_date: '2010-05-11', #Updated Date
+                        },
+                       {device_id: user_mfc.device_id,
+                        object_id:  '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.11.0', #MIB
+                        status: 'A4010400003A6CA5010400003A6CA6010400003A6CA7010400003A6C88010400005F037301040000C2FA7701040000C2F7FF', #Data received from device
+                        user_id: user.id,
+                        registered_date: '2010-05-10', #Registered Date
+                        updated_date: '2010-05-11', #Updated Date
+                        },
+                        {device_id: user_mfc.device_id,
+                         object_id:  '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.20.0', #MIB
+                         status: '870101A10117A20116A30117A40107A50107A60107A70107A00133880102730102770102FF', #Data received from device
+                         user_id: user.id,
+                         registered_date: '2010-05-10', #Registered Date
+                         updated_date: '2010-05-11', #Updated Date
+                         }])

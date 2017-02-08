@@ -4,13 +4,17 @@
   <dd>
   <% if consumable.present? %>
     <% consumable.each do |c| %>
-      <% consumables(parser(c)).try(:each)  do |k,v| %>
+      <% consumables(c['object_id'], parser(c)).try(:each)  do |k,v| %>
         <% if !v.nil? %>
-        <%= k %> :
-        <%= v[:value] %>
+        <dl>
+          <span ><span style='font-weight: bold; padding: 5px'><%= k %>:</span> <%= v[:value] %>, </span>
+          <p>in</p>
         <% end %>
+      <p>out</p>
       <% end %>
-      ( since <%= c.updated_date %> )
+
+  <!--    <dd>( since <%= c.updated_date %> )</dd> -->
+      </dl>
     <% end %>
   <% else %>
     -
