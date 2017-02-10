@@ -2,7 +2,7 @@
 <%= render 'search/form' %>
 
 <%= link_to '<<Back', devices_search_path(device_id: @device_id) %>
-<div class='detail'>
+<div class='subscription_detail'>
   <h2> Device Information </h2>
   <dl>
     <dt>BOC Device ID</dt>
@@ -15,6 +15,7 @@
         <th> Subscribed Date/Time</th>
         <th> Notify Interval</th>
         <th> Service Provider ID</th>
+        <th> Last Notification </th>
       </tr>
       <% @subscribe.each do |s|%>
         <tr>
@@ -22,6 +23,7 @@
           <td><%= s.registered_date %></td>
           <td><%= s.time_period %></td>
           <td><%= s.service_id %></td>
+          <td><%= @notify[s.object_id] %></td>
         </tr>
       <% end %>
     </table>

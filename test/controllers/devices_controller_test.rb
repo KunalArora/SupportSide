@@ -56,4 +56,12 @@ class DevicesControllerTest < ActionController::TestCase
     assert_template 'search/_form'
     assert_select '.device .error', 'Device not found.'
   end
+
+  test 'should get subscription' do
+    get :subscription, params: { uuid: @device.device_id }
+    assert_response :success
+    assert_template 'sessions/_session'
+    assert_template 'search/_form'
+    assert_select '.subscription_detail', 1
+  end
 end

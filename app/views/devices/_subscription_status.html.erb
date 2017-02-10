@@ -3,7 +3,7 @@
   <dt>Subscription Status</dt>
   <dd>
     <% if subscription.present? %>
-      <%= link_to 'Subscription', subscription_path(uuid: @device.first.device_id, subscibe: subscription) %>
+      <%= link_to 'Subscription', subscription_path(uuid: @device.first.device_id) %>
     <% else %>
        Unsubscribed
     <% end %>

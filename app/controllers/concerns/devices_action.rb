@@ -1,11 +1,11 @@
-require 'mib_parser'
-
 module DevicesAction
   extend ActiveSupport::Concern
 
-  def parser consumable
-    return unless consumable.present?
-    MIBParser::ObjectId.new(consumable['object_id'])
-                       .parse(consumable['status'])
+  def notify value
+    ha = {}
+    value.each do |v|
+      ha[v.object_id] = v.updated_date
+    end
+    ha
   end
 end

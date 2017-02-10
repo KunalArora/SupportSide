@@ -8,12 +8,12 @@ class DevicesController < ApplicationController
     return unless @device.present? && @device.size == 1
     @consumable = TblDeviceStatus.consumable_status(@device.first.device_id)
     @notification = TblDeviceStatus.notify_status(@device.first.device_id)
-    @subscription = TblSubscriptionConfig.where(device_id: @device.first.device_id)
-    p @subscription
+    @subscription = TblSubscriptionConfig.exists?(device_id: @device.first.device_id)
   end
 
   def subscription
     @device_id = params[:uuid]
     @subscribe = TblSubscriptionConfig.where(device_id: @device_id)
+    @notify = notify(TblDeviceStatus.where(device_id: @device_id))
   end
 end
