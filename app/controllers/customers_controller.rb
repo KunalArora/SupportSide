@@ -7,15 +7,5 @@ class CustomersController < ApplicationController
     @devices = TblUserMfc.joins(:tbl_user, :tbl_mfc_model).references(:tbl_user, :tbl_mfc_model)
                          .where(id_user: @customer.id)
                          .paginate(page: params[:page], per_page: 10)
-    ar = []
-    @devices.each do |m|
-      ar << m.device_id
-    end
-    #ar << @devices.first.device_id
-    p ar
-    @result = TblDeviceStatus.notification(ar)
-    @result.each do |r|
-      
-    end
-   end
+  end
 end
