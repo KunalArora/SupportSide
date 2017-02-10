@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'devices/:uuid', to: 'devices#show', as: 'device'
   get 'devices/search', to: 'devices#show'
+  get 'devices/subscription/:uuid', to: 'devices#subscription', as: 'subscription' 
 
   get 'device_setting/:device_id', to: 'device_setting#show', as: 'device_setting'
   post 'device_setting/setting', to: 'device_setting#setting', as: 'setting'

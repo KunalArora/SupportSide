@@ -11,7 +11,7 @@
       <%= render 'to_device_setting', device: @device.first %>
       <%= render 'consumables', consumable: @consumable %>
       <%= render 'firmware_version', firmware: eval(@device.first.mfc_specifications) %>
-      <%= render 'subscription', subscription: @subscription %>
+      <%= render 'subscription_status', subscription: @subscription %>
       <%= render 'notification', notification: @notification %>
     <% end %>
   <% else %>

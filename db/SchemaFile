@@ -126,3 +126,10 @@ create_table "tlb_serial_mfcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT
   t.datetime "created_at",         null: false
   t.datetime "updated_at",         null: false
 end
+
+create_table "tbl_services_providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  t.string "service_name"
+  t.string "callback_url"
+  t.datetime "registered_date"
+  t.datetime "updated_date"
+end

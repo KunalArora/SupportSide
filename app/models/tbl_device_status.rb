@@ -10,4 +10,8 @@ class TblDeviceStatus < ApplicationRecord
   def self.notify_status id
     TblDeviceStatus.where(device_id: id).order(updated_date: :desc).first
   end
+
+  def self.notification arr
+    TblDeviceStatus.select('updated_date', :object_id).where(device_id: arr).group(:object_id, :id).order(updated_date: :desc)
+  end
 end
