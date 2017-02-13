@@ -1,0 +1,41 @@
+<%= render 'shared', uuid: @uuid, device_id: @device_id %>
+
+<div class='device_setting'>
+  <div class = 'data'>
+  <% if @setting.present? && @setting['get'].present? %>
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="1" scope="colgroup" style='text-align: center; background: grey'> Registration Settings</th>
+          <th colspan="2" scope="colgroup" style='text-align: center; background: grey; border-right: 1px solid black; border-left: 1px solid black'>Proxy Settings</th>
+          <th colspan="5" scope="colgroup" style='text-align: center; background: grey'>Network Settings</th>
+        </tr>
+        <tr>
+          <th scope="col"> BOC Registration Status</th>
+          <th scope="col" style = "border-left: 1px solid black"> Proxy Server Name</th>
+          <th scope="col" style = 'border-right: 1px solid black'> Proxy Port</th>
+          <th scope="col"> IP Address</th>
+          <th scope="col"> Subnet Mask</th>
+          <th scope="col"> IP Gateway</th>
+          <th scope="col"> Primary DNS Server</th>
+          <th scope="col"> Secondary DNS Server</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= registration_value(@setting['get'][0]['value'])%></td>
+          <td style = "border-left: 1px solid black"><%= proxy_name_parse(@setting['get'][1]['value']) %></td>
+          <td style = "border-right: 1px solid black"><%= @setting['get'][2]['value'] %></td>
+          <td><%= @setting['get'][3]['value'] %></td>
+          <td><%= @setting['get'][4]['value'] %></td>
+          <td><%= @setting['get'][5]['value'] %></td>
+          <td><%= @setting['get'][6]['value'] %></td>
+          <td><%= @setting['get'][7]['value'] %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% else %>
+    <span class = 'error'><%= @setting['message'] %></span>
+  <% end %>
+  </div>
+</div>
