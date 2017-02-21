@@ -16,7 +16,7 @@ john:
   email: john@example.com
   password_digest: <%= Staff.digest('N@kia987') %>
   company_id: 2
-  admin: admin
+  admin: loadmin
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -26,6 +26,16 @@ jill:
   email: jill@example.com
   password_digest: <%= Staff.digest('N@kia987') %>
   company_id: 2
-  admin: mstaff
+  admin: lomstaff
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+jordan:
+  id: 4
+  name: Jordan
+  email: jordan@example.com
+  password_digest: <%= Staff.digest('N@kia987') %>
+  company_id: 2
+  admin: sdesk
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>

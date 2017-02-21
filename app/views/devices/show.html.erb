@@ -4,7 +4,7 @@
 <div class='device'>
   <% if @device.present? %>
     <% if @device.size!=1 %>
-  </br></br><span class = 'info'> There are multiple devices found for the searched query <%= params[@key] %>.
+      </br></br><span class = 'info'> There are multiple devices found for the searched query <%= params[@key] %>.
       To get the correct results please search again using <%= query_opp(@key)%>. </span>
     <% else %>
       <%= render 'back_to_customer', customers: @device.first.tbl_user.uid %>

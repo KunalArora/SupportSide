@@ -1,12 +1,13 @@
 module Admin::StaffsHelper
   def admin_type admin
-    case admin
-    when 'sadmin'
+    if admin == 'sadmin'
       'Super Administrator'
-    when 'admin'
-      'Administrator'
-    when 'mstaff'
-      'Managing Staff'
+    elsif admin == 'loadmin'
+      'Local Office Administrator'
+    elsif admin == 'lomstaff'
+      'Local Office Managing Staff'
+    else
+      'Service Desk'
     end
   end
 end
