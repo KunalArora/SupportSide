@@ -1,17 +1,56 @@
-<div class = 'consumable'>
+<div class = 'consumables'>
   <dl>
     <dt>Consumables</dt>
-  <dd>
-  <% if consumable.present? %>
-    <% consumables(parser(consumable)).try(:each)  do |k,v| %>
-      <% if !v.nil? %>
-      <%= k %> :
-      <%= v[:value] %>
-      <% end %>
-    <% end %>
-    ( since <%= consumable.updated_date %> )
-  <% else %>
-    -
-  <% end %>
-</dd></dl>
+    <dd>
+      <table>
+        <tr>
+          <th></th>
+          <th scope='col'>Black</th>
+          <th scope='col'>Yellow</th>
+          <th scope='col'>Cyan</th>
+          <th scope='col'>Magenta</th>
+          <th scope='col'>Drum Unit</th>
+          <th scope='col'>Belt Unit</th>
+          <th scope='col'>Waste Toner</th>
+        </tr>
+        <tr>
+          <th scope='row'>Status</th>
+          <td><%= ink_status(consumable['TonerInk_Black']) %> </td>
+          <td><%= ink_status(consumable['TonerInk_Yellow']) %></td>
+          <td><%= ink_status(consumable['TonerInk_Cyan']) %></td>
+          <td><%= ink_status(consumable['TonerInk_Magenta']) %></td>
+          <td><%= drum_belt_status(consumable['Drum_Unit']) %></td>
+          <td><%= drum_belt_status(consumable['Belt_Unit']) %></td>
+          <td><%= waste_box_status(consumable['Waste_Toner_Box']) %></td>
+        </tr>
+        <tr>
+          <th scope='row'>Remaining Life</th>
+          <td><%= consumable['TonerInk_LifeBlack'] %></td>
+          <td><%= consumable['TonerInk_LifeYellow'] %></td>
+          <td><%= consumable['TonerInk_LifeCyan'] %></td>
+          <td><%= consumable['TonerInk_LifeMagenta'] %></td>
+          <td><%= consumable['Drum_Unit_Remaining_Life'] %></td>
+          <td><%= consumable['Belt_Unit_Remaining_Life'] %></td>
+          <td><%= consumable['Waste_Toner_Box_Remaining_Life'] %></td>
+        </tr>
+        <tr>
+          <th scope='row'>Replace Count</th>
+          <td><%= consumable['TonerInk_Black_Replace_Count'] %></td>
+          <td><%= consumable['TonerInk_Yellow_Replace_Count'] %></td>
+          <td><%= consumable['TonerInk_Cyan_Replace_Count'] %></td>
+          <td><%= consumable['TonerInk_Magenta_Replace_Count'] %></td>
+          <td><%= consumable['Drum_Unit_Replace_Count'] %></td>
+          <td><%= consumable['Belt_Unit_Replace_Count'] %></td>
+          <td><%= consumable['Waste_Toner_Box_Replace_Count'] %></td>
+        </tr>
+      </table>
+      <span style='font-weight: bold; padding-right: 60px'>Page Count</span>
+      <span class ='page_count'>Total :</span>
+      <span><%= consumable['Total_Page_Count'] %>,</span>
+      <span class = 'page_count'>Color :</span>
+      <span><%= consumable['Color_Page_Count'] %>,</span>
+      <span class = 'page_count'>Mono :</span>
+      <span><%= consumable['Monochrome_Page_Count'] %></span>
+
+    </dd>
 </div>

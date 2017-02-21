@@ -8,4 +8,12 @@ module DevicesAction
     MIBParser::ObjectId.new(consumable['object_id'])
                        .parse(consumable['status'])
   end
+
+  def consumables consumable
+    result = {}
+    consumable.each do |c|
+      result = result.merge(parser(c))
+    end
+    result
+  end
 end
