@@ -17,31 +17,33 @@
     <% if @pin.present? && @pin['success'] == true%>
       <%= @pin['pins'][0] %>
     <% elsif @pin!=nil && @pin['success'] == false %>
-      <span class 'error'><%= @pin['message'] %></span>
+      <span class ='error'><%= @pin['message'] %></span>
     <% end %>
   </div>
 
-  <div class = 'outstanding_data'>
-    <% if @outstanding_pin.present? %>
-    <table>
-      <thead>
-        <tr>
-          <th> PIN </th>
-          <th> Expiration Date </th>
-          <th> Registrable devices count </th>
+  <% if @outstanding_pin.present? && @outstanding_pin['success']==true %>
+    <div class = 'outstanding_data'>
+      <table>
+        <thead>
+          <tr>
+            <th> PIN </th>
+            <th> Expiration Date </th>
+            <th> Registrable devices count </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @outstanding_pin['pins'].each do |f|%>
+          <tr>
+            <td><%= f['pin'] %></td>
+            <td><%= f['expires']%></td>
+            <td style='text-align: center'><%= f['count']%></td>
+          <% end %>
         </tr>
-      </thead>
-      <tbody>
-        <% @outstanding_pin['pins'].each do |f|%>
-        <tr>
-          <td><%= f['pin'] %></td>
-          <td><%= f['expires']%></td>
-          <td><%= f['count']%></td>
-        <% end %>
-      </tr>
-    </table>
-    <% elsif @outstanding_pin!=nil && @outstanding_pin['success']==false %>
+      </table>
+    </div>
+  <% elsif @outstanding_pin.present? && @outstanding_pin['success']==false %>
+    <div class = 'failed_data'>
       <span class = 'error'><%= @outstanding_pin['message'] %></span>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
