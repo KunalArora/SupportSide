@@ -13,11 +13,12 @@
   }
   #bsetting {
     float: left;
+    clear: right;
   }
-  .data {
-   float: left;
-   clear: both;
-  }
+ }
+ .data {
+  float: left;
+  clear: both;
  }
 }
 .back_to_device {

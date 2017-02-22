@@ -20,15 +20,7 @@
         <td> <%= s.id %></td>
         <td> <%= s.email %></td>
         <td> <%= s.company_id %></td>
-        <td>
-          <% if s.admin == 'sadmin' %>
-            Super Administrator
-          <% elsif s.admin == 'admin' %>
-            Administrator
-          <% else %>
-            Managing Staff
-          <% end %>
-        </td>
+        <td> <%= admin_type(s.admin) %></td>
         <td>
           <%= link_to 'Show', admin_staff_path(s) %>
           <%= link_to 'Edit', edit_admin_staff_path(s) %>

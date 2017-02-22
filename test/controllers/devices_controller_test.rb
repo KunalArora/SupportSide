@@ -15,7 +15,7 @@ class DevicesControllerTest < ActionController::TestCase
     assert_select '.to_device_setting', 1
     assert_select '.detail', 1
     assert_select '.network_status', 1
-    assert_select '.consumable', 1
+    assert_select '.consumables', 1
     assert_select '.firmware_version', 1
     assert_select '.subscription', 1
     assert_select '.notification', 1
@@ -30,7 +30,7 @@ class DevicesControllerTest < ActionController::TestCase
     assert_select '.to_device_setting', 1
     assert_select '.detail', 1
     assert_select '.network_status', 1
-    assert_select '.consumable', 1
+    assert_select '.consumables', 1
     assert_select '.firmware_version', 1
     assert_select '.subscription', 1
     assert_select '.notification', 1

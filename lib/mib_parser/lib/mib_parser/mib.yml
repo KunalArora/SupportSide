@@ -129,6 +129,7 @@
     '86': Paper_Feeding_Kit_MP_Remaining_Life
     '73': Fuser_Unit_Remaining_Life
     '81': Scanner_Unit_Remaining_Life
+    '87': Waste_Toner_Box_Remaining_Life
     '88': Belt_Unit_Remaining_Life
     '89': Laser_Unit_Remaining_Life
     'C1': Pickup_Roller_Remaining_Life

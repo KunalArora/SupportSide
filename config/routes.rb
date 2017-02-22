@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/search', to: 'search#query', as: 'search'
 
   get 'customers/:uuid', to: 'customers#show', as: 'customers'
+  get 'customers/:uuid/pin_generate', to: 'customers#pin_generate', as: 'customers_pin_generate'
+  post 'customers/:uuid/pin_generate', to: 'customers#pin_generate'
 
   get 'devices/:uuid', to: 'devices#show', as: 'device'
   get 'devices/search', to: 'devices#show'
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
   post 'device_setting/reboot', to: 'device_setting#reboot_device', as: 'reboot_device'
   post 'device_setting/log', to: 'device_setting#enable_log', as: 'enable_log'
   post 'device_setting/delete', to: 'device_setting#delete_device', as: 'delete_device'
-
   post 'device_setting/device_search', to: 'device_setting#device_search', as: 'device_search'
 
   resources :staffs, only: %w(edit update)
