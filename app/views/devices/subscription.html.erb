@@ -15,14 +15,14 @@
         <th> Subscribed Date/Time</th>
         <th> Notify Interval</th>
         <th> Service Provider ID</th>
-        <th> Last Notification </th>
+        <th style = 'text-align: center'> Last Notification </th>
       </tr>
       <% @subscribe.each do |s|%>
         <tr>
           <td><%= s.object_id %></td>
           <td><%= s.registered_date %></td>
-          <td><%= s.time_period %></td>
-          <td><%= s.service_id %></td>
+          <td style = 'text-align: center'><%= s.time_period %></td>
+          <td style = 'text-align: center'><%= s.service_id %></td>
           <td><%= @notify[s.object_id] %></td>
         </tr>
       <% end %>
