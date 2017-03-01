@@ -1,5 +1,5 @@
 class Staff < ActiveRecord::Base
-  before_save { self.email = email.downcase }
+#  before_save { self.email = email.downcase }
 
   VALID_EMAIL_REGEXP = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PASSWORD_REGEXP = \
