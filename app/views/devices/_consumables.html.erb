@@ -25,10 +25,10 @@
         </tr>
         <tr>
           <th scope='row'>Remaining Life</th>
-          <td><%= consumable['TonerInk_LifeBlack'] %></td>
-          <td><%= consumable['TonerInk_LifeYellow'] %></td>
-          <td><%= consumable['TonerInk_LifeCyan'] %></td>
-          <td><%= consumable['TonerInk_LifeMagenta'] %></td>
+          <td><%= (consumable['TonerInk_LifeBlack_MPS'].to_i/100) %>%</td>
+          <td><%= (consumable['TonerInk_LifeYellow_MPS'].to_i/100) %>%</td>
+          <td><%= (consumable['TonerInk_LifeCyan_MPS'].to_i/100) %>%</td>
+          <td><%= (consumable['TonerInk_LifeMagenta_MPS'].to_i/100) %>%</td>
           <td><%= consumable['Drum_Unit_Remaining_Life'] %></td>
           <td><%= consumable['Belt_Unit_Remaining_Life'] %></td>
           <td><%= consumable['Waste_Toner_Box_Remaining_Life'] %></td>
