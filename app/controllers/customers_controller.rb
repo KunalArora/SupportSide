@@ -16,6 +16,5 @@ class CustomersController < ApplicationController
     @pin = generate(params[:uuid]) if params[:link] == 'pin'
     @outstanding_pins = outstanding(params[:uuid])
     @outs = @outstanding_pins['pins'].paginate(page: params[:page], per_page: 10) if @outstanding_pins['pins'].present?
-    p @outstanding_pins
   end
 end
