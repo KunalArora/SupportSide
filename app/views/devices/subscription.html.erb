@@ -1,7 +1,7 @@
 <%= render 'sessions/session' %>
 <%= render 'search/form' %>
 
-<%= link_to '<<Back', devices_search_path(device_id: @device_id) %>
+<span class = 'subscribe_back'><%= link_to '<<Back', devices_search_path(device_id: @device_id) %></span>
 <div class='subscription_detail'>
   <h2> Device Information </h2>
   <dl>
@@ -15,7 +15,7 @@
         <th> Subscribed Date/Time</th>
         <th> Notify Interval</th>
         <th> Service Provider ID</th>
-        <th style = 'text-align: center'> Last Notification </th>
+        <th style='border-right: 0px'> Last Notification </th>
       </tr>
       <% @subscribe.each do |s|%>
         <tr>
@@ -23,7 +23,7 @@
           <td><%= s.registered_date %></td>
           <td style = 'text-align: center'><%= s.time_period %></td>
           <td style = 'text-align: center'><%= s.service_id %></td>
-          <td style = 'text-align: center'><%= @notify[s.object_id] %></td>
+          <td style='border-right: 0px'><%= @notify[s.object_id] %></td>
         </tr>
       <% end %>
     </table>

@@ -4,7 +4,7 @@
     <dd>
       <table>
         <tr>
-          <th></th>
+          <th style='border: 0px; border-right: 1px solid black'></th>
           <th scope='col'>Black</th>
           <th scope='col'>Yellow</th>
           <th scope='col'>Cyan</th>
@@ -14,7 +14,7 @@
           <th scope='col'>Waste Toner</th>
         </tr>
         <tr>
-          <th scope='row'>Status</th>
+          <th scope='row' style='border-left: 1px solid black'>Status</th>
           <td><%= ink_status(consumable['TonerInk_Black']) %> </td>
           <td><%= ink_status(consumable['TonerInk_Yellow']) %></td>
           <td><%= ink_status(consumable['TonerInk_Cyan']) %></td>
@@ -24,7 +24,7 @@
           <td><%= waste_box_status(consumable['Waste_Toner_Box']) %></td>
         </tr>
         <tr>
-          <th scope='row'>Remaining Life</th>
+          <th scope='row' style='border-left: 1px solid black'>Remaining Life</th>
           <td><%= (consumable['TonerInk_LifeBlack_MPS'].to_i/100) %>%</td>
           <td><%= (consumable['TonerInk_LifeYellow_MPS'].to_i/100) %>%</td>
           <td><%= (consumable['TonerInk_LifeCyan_MPS'].to_i/100) %>%</td>
@@ -34,7 +34,7 @@
           <td><%= consumable['Waste_Toner_Box_Remaining_Life'] %></td>
         </tr>
         <tr>
-          <th scope='row'>Replace Count</th>
+          <th scope='row' style='border-left: 1px solid black'>Replace Count</th>
           <td><%= consumable['TonerInk_Black_Replace_Count'] %></td>
           <td><%= consumable['TonerInk_Yellow_Replace_Count'] %></td>
           <td><%= consumable['TonerInk_Cyan_Replace_Count'] %></td>

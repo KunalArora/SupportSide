@@ -6,11 +6,9 @@
   <% if @customer.present? %>
     <%= render 'detail', customer: @customer.uid %>
 
-    <% if current_staff.admin != 'sdesk' %>
       <div class = 'pin_link'>
-        <%= link_to 'PIN Generate>>', customers_pin_generate_path, method: :post %>
+        <%= link_to 'PIN Settings>>', customers_pin_generate_path, method: :post %>
       </div>
-    <% end %>
 
     <% if @devices.present? %>
       <%= render 'devices', devices: @devices %>

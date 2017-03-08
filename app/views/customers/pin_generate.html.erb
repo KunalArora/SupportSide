@@ -8,9 +8,10 @@
   <h2> Customer Information </h2>
   <%= render 'detail', customer: @customer %>
 
+  <% if current_staff.admin != 'sdesk' %>
   <div class = 'cust_button'>
     <%= button_to 'Generate PIN', customers_pin_generate_path(link: 'pin') %>
-    <%= button_to 'Outstanding PIN', customers_pin_generate_path(link: 'outstanding_pin') %>
+  <!--  <%= button_to 'Outstanding PIN', customers_pin_generate_path(link: 'outstanding_pin') %> -->
   </div>
 
   <div class = 'pin_data'>
@@ -20,30 +21,33 @@
       <span class ='error'><%= @pin['message'] %></span>
     <% end %>
   </div>
+  <% end %>
 
-  <% if @outstanding_pin.present? && @outstanding_pin['success']==true %>
-    <div class = 'outstanding_data'>
+  <div class = 'outstanding_data'>
+  <h3> Outstanding PIN </h3>
+  <% if @outstanding_pins.present? && @outstanding_pins['success']==true %>
       <table>
         <thead>
           <tr>
             <th> PIN </th>
             <th> Expiration Date </th>
-            <th> Registrable devices count </th>
+            <th style='border-right: 0px'> Registrable devices count </th>
           </tr>
         </thead>
         <tbody>
-          <% @outstanding_pin['pins'].each do |f|%>
+          <% @outs.each do |f|%>
           <tr>
             <td><%= f['pin'] %></td>
             <td><%= f['expires']%></td>
-            <td style='text-align: center'><%= f['count']%></td>
+            <td style='text-align: center; border-right: 0px'><%= f['count']%></td>
           <% end %>
         </tr>
       </table>
+      <%= will_paginate @outs %>
     </div>
-  <% elsif @outstanding_pin.present? && @outstanding_pin['success']==false %>
+  <% elsif @outstanding_pins.present? && @outstanding_pins['success']==false %>
     <div class = 'failed_data'>
-      <span class = 'error'><%= @outstanding_pin['message'] %></span>
+      PIN information cannot be displayed because <span class = 'error'><%= @outstanding_pins['message'] %></span>
     </div>
   <% end %>
 </div>

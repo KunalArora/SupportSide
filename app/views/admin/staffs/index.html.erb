@@ -8,7 +8,7 @@
   <table>
     <thead>
       <tr>
-        <th> ID </th>
+        <th style='border: 1px solid black'> ID </th>
         <th> E-mail Address </th>
         <th> Company ID </th>
         <th> Admin </th>
@@ -17,11 +17,11 @@
     <tbody>
       <% @staffs.each do |s| %>
       <tr>
-        <td> <%= s.id %></td>
+        <td style='border: 1px solid black'> <%= s.id %></td>
         <td> <%= s.email %></td>
         <td> <%= s.company_id %></td>
         <td> <%= admin_type(s.admin) %></td>
-        <td>
+        <td style='border: 0px'>
           <%= link_to 'Show', admin_staff_path(s) %>
           <%= link_to 'Edit', edit_admin_staff_path(s) %>
         </td>

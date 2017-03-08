@@ -5,8 +5,16 @@
 tbody tr:hover{
   background-color: #f5f5f5;
 }
+th {
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
 td {
   padding-right: 10px;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .cust_detail {
@@ -32,7 +40,7 @@ td {
   margin-top: 15px;
 }
 .failed_data {
-  float: right;
-  margin-top: 30px;
-  margin-right: 50%;
+}
+.outstanding_data {
+  margin-top: 150px;
 }
