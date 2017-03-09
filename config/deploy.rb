@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'boc_support_site'
-set :repo_url, 'git@github.ap.brothergroup.net:aroraku/boc_support_site.git'
+set :repo_url, 'git@github.ap.brothergroup.net:boc/boc_support_site.git'
 set :rsync_with_submodules, false
 set :bundle_env_variables, {nokogiri_use_system_libraries: 1}
 set :bundle_bin_stubs, nil
