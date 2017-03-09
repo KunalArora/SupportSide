@@ -35,7 +35,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @outs.each do |f|%>
+          <% @pins.each do |f|%>
           <tr>
             <td><%= f['pin'] %></td>
             <td><%= f['expires']%></td>
@@ -43,7 +43,7 @@
           <% end %>
         </tr>
       </table>
-      <%= will_paginate @outs %>
+      <%= will_paginate @pins %>
     </div>
   <% elsif @outstanding_pins.present? && @outstanding_pins['success']==false %>
     <div class = 'failed_data'>
