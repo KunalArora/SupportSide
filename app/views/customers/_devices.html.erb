@@ -15,12 +15,8 @@
           <td><%= d.tbl_mfc_model.name %></td>
           <td><%= d.serial %></td>
           <td><%= d.device_id %></td>
-          <td><%= network_status(d.online) %> </br>(<%= date_conversion(d.last_presence) %>UTC) </td>
-          <% if notify = TblDeviceStatus.notify_status(d.device_id) %>
-            <td style='border-right: 0px'><%= notify.updated_date %> </td>
-          <% else %>
-            <td> - </td>
-          <% end %>
+          <td><%= network_status(d.online) %> </br>(<%= date_conversion(d.last_presence) %>) </td>
+          <td style='border-right: 0px'><%= notify[d.device_id] || '---' %> </td>
         </tr>
       <% end %>
     </tbody>

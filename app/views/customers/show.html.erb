@@ -11,7 +11,7 @@
       </div>
 
     <% if @devices.present? %>
-      <%= render 'devices', devices: @devices %>
+      <%= render 'devices', devices: @devices, notify: @notify %>
     <% else %>
       </br><span class = 'error'> No Device Registered. </span>
     <% end %>

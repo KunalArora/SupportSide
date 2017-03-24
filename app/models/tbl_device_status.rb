@@ -1,5 +1,6 @@
 class TblDeviceStatus < ApplicationRecord
   belongs_to :tbl_users, foreign_key: 'user_id', class_name: 'TblUser'
+  belongs_to :tbl_user_mfcs, primary_key: 'device_id', foreign_key: 'device_id', class_name: 'TblUserMfc'
 
   OBJECT_ID = ['1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.10.0',
                '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0',
@@ -8,9 +9,5 @@ class TblDeviceStatus < ApplicationRecord
 
   def self.consumable_status id
     TblDeviceStatus.where(device_id: id, object_id: OBJECT_ID)
-  end
-
-  def self.notify_status id
-    TblDeviceStatus.where(device_id: id).order(updated_date: :desc).first
   end
 end

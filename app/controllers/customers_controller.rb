@@ -7,8 +7,8 @@ class CustomersController < ApplicationController
   def show
     @customer = TblUser.find_by(uid: params[:uuid])
     return unless @customer.present?
-    @devices = TblUserMfc.joins(:tbl_user, :tbl_mfc_model).references(:tbl_user, :tbl_mfc_model)
-                         .where(id_user: @customer.id).paginate(page: params[:page], per_page: 10)
+    @devices = @customer.tbl_user_mfcs.paginate(page: params[:page], per_page: 10)
+    @notify = @devices.left_joins(:tbl_device_statuses).group(:device_id).maximum(:updated_date)
   end
 
   def pin_generate
