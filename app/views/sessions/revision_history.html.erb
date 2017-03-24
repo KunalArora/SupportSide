@@ -1,0 +1,115 @@
+<div class = 'revision_login'>
+  <%= link_to '<<Login', login_path %>
+</div>
+<div class ='revision_data'>
+  <h2> Revision History </h2>
+  <table>
+    <thead>
+      <tr>
+        <th style='border-left: 1px solid black'> Version </th>
+        <th> Functionality </th>
+        <th> Details </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style='border-left: 1px solid black; border-bottom: 0px'> 1.03 </td>
+        <td> Support for multiple serial numbers </td>
+        <td> Modification in the logic when multiple devices being found while searching using serial number.
+          In such a case, a list of all devices having same serial number is shown as a list and user can choose the device whose detailed
+          information is required. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px'> </td>
+        <td> Revision History </td>
+        <td> A page that can be accessed during log in, displaying the revision history of BOC Support Site. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-bottom: 0px'> 1.02 </td>
+        <td> Modification in Issued PIN display functionality</td>
+        <td> The Issued PINs are displayed as a list as soon as PIN Settings page is displayed. Included as the minimal feature which can be accessed
+          by all the users logged in to BOC Support Site. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px'> </td>
+        <td> Refinement of Consumables Remaining life status </td>
+        <td> Display the consumables remaining life status more precisely.</td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-bottom: 0px'> 1.01 </td>
+        <td> PIN Generation </td>
+        <td> Generate a 30-digit PIN on a particular BOC customer UUID. This feature can only be accessed from customer information page. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Issued PIN display </td>
+        <td> List of all the PINs issued on a particular BOC customer UUID. This feature can only be accessed from customer information page. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> New user authority addition</td>
+        <td> Added another level of user authority which can access only minimal features plus PIN Generation functionality. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Consumables detailed information </td>
+        <td> Display the detailed information for the consumables of a device.
+          The added information includes Status, Replace count, Remaining life status for consumables as well as Drum unit, Belt unit and Waste Toner.
+          Also, the page count(Color, Mono and Total) information.</td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px'> </td>
+        <td> Subscribe status detailed information </td>
+        <td> Display the information regarding all the Object IDs registered for a particular device.
+          The information includes Object ID, Subscibed DateTime, Notify Interval, Service provider ID and last notification DateTime.</td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-bottom: 0px'> 1.00</td>
+        <td> User Management </td>
+        <td> To manage the account settings of users who log into BOC Support Site.</td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Search </td>
+        <td> Functionality to search customer or device information using, BOC Customer UUID, BOC Device ID or Serial Number(9 or 15 digits). </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Customer Information </td>
+        <td> Display information regarding customer registered to BOC along with a list of devices owned by customer. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Device Information </td>
+        <td> Display detailed information regarding device registered to BOC. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Device Settings </td>
+        <td> Display settings for the device using real time API calls. Allow delete, reboot and enable-Log feature as well. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Subscribe confirmation Settings</td>
+        <td> Verify the BOC Registration status along with Network and  Proxy settings using real time API calls.
+          This feature can only be accessed from Device settings page. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Delete Device </td>
+        <td> Delete a device registered to BOC. This feature can only be accessed from Device settings page. </td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px; border-bottom: 0px'> </td>
+        <td> Reboot Device </td>
+        <td> Reboot a device registred to BOC. This feature can only be accessed from Device settings page.</td>
+      </tr>
+      <tr>
+        <td style='border-left: 1px solid black; border-top: 0px'> </td>
+        <td> Enable device detailed Log </td>
+        <td> Enable the detailed Log functionality of a device for further informational purposes.
+          This feature can only be accessed from Device settings page.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

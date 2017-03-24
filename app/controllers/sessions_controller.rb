@@ -19,6 +19,8 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
+  def revision_history; end
+
   private
 
   def session_params

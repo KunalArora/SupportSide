@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   root 'sessions#new'
 
-  get '/signup', to: 'staffs#new', as: 'signup'
-  post '/signup', to: 'staffs#create'
-
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/revision_history', to: 'sessions#revision_history', as: 'revision_history'
 
   get '/search', to: 'search#query', as: 'search'
 
@@ -16,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'devices/:uuid', to: 'devices#show', as: 'device'
   get 'devices/search', to: 'devices#show'
-  get 'devices/subscription/:uuid', to: 'devices#subscription', as: 'subscription' 
+  get 'devices/subscription/:uuid', to: 'devices#subscription', as: 'subscription'
 
   get 'device_setting/:device_id', to: 'device_setting#show', as: 'device_setting'
   post 'device_setting/setting', to: 'device_setting#setting', as: 'setting'
