@@ -6,7 +6,8 @@
   <%= render 'back_to_devices', device: device_id %>
 
   <div class = 'button'>
-    <span id='bsetting'><%= button_to 'Get Device Status/Settings', setting_path(uuid: uuid, device_id: device_id), method: :post %></span>
+    <div id = 'bsetting' ><%= button_to 'Get Device Status/Settings', setting_path(uuid: uuid, device_id: device_id), method: :post %></div>
+    <div id = 'bmaintenance'><%= button_to 'Get Device Maintenance Information', maintenance_path(uuid: uuid, device_id: device_id), method: :post %></div>
   <% if current_staff.admin == 'sadmin' || current_staff.admin == 'loadmin' %>
     <span class= 'bright'><%= button_to 'Delete Device', delete_device_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to delete this device?'} %></span>
     <span class= 'bright'><%= button_to 'Reboot Device', reboot_device_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to reboot this device?'} %></span>

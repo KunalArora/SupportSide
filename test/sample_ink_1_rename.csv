@@ -1,0 +1,197 @@
+Model Name = ,Brother MFC-L2707DW
+Serial Number = ,U64463A7A667049
+Country Code = ,8C5-H58:Ver.K
+Boot Version = ,1
+Boot Checksum = ,2
+Head barcode = ,3
+Head voltage rank = ,4
+CIS type ADF = ,5
+CIS type FB = ,6
+Fax Total Count = ,7
+Mono Fax Total Count = ,8
+Mono Fax Count = ,9
+Color Fax Count = ,10
+List Total Count = ,11
+Mono List Total Count = ,12
+Mono List Count = ,13
+Color List Count = ,14
+List/Fax Total Count = ,15
+Mono List/Fax Count = ,16
+Color List/Fax Count = ,17
+Media Total Count = ,18
+Mono Media Total Count = ,19
+Color Media Total Count = ,20
+Pincheck sheet count = ,21
+CRADJ count = ,22
+FEEDADJ count = ,23
+Airprint total count = ,24
+Airprint color count = ,25
+Airprint mono count = ,26
+iPS total count = ,27
+iPS color count = ,28
+iPS mono count = ,29
+GCP total count = ,30
+GCP color count = ,31
+GCP mono count = ,32
+Webconnect total count = ,33
+Webconnect color count = ,34
+Webconnect mono count = ,35
+Mobileprint total count = ,36
+Cloud color count = ,37
+Cloud mono count = ,38
+Home Position Scan Error : ,39
+Home Position Scan Error History : ,40
+Machine Error History : ,41
+Comm Error History : ,42
+T1B : ,43
+T1C : ,44
+T1M : ,45
+T1Y : ,46
+T2B : ,47
+T2C : ,48
+T2M : ,49
+T2Y : ,50
+Black = ,51
+Cyan = ,52
+Magenta = ,53
+Yellow = ,54
+Black Error State = ,55
+Cyan Error State = ,56
+Magenta Error State = ,57
+Yellow Error State = ,58
+Black genuine State = ,59
+Cyan genuine State = ,60
+Magenta genuine State = ,61
+Yellow genuine State = ,62
+Black(%) = ,63
+Yellow(%) = ,64
+Cyan(%) = ,65
+Magenta(%) = ,66
+A3 Ledger Plain = ,67
+A3 Ledger Inkjet = ,68
+A3 Ledger Glossy = ,69
+A4 Letter Plain = ,70
+A4 Letter Inkjet = ,71
+A4 Letter Glossy = ,72
+4x6 Plain = ,73
+4x6 Inkjet = ,74
+4x6 Glossy = ,75
+Hagaki Plain = ,76
+Hagaki Inkjet = ,77
+Hagaki Glossy = ,78
+Lban Plain = ,79
+Lban Inkjet = ,80
+Lban Glossy = ,81
+Envelope = ,82
+A3 Plain = ,83
+A3 Inkjet = ,84
+A3 Glossy = ,85
+A4 Plain = ,86
+A4 Inkjet = ,87
+A4 Glossy = ,88
+Card Plain = ,89
+Card Inkjet = ,90
+Card Glossy = ,91
+L Plain = ,92
+L Inkjet = ,93
+L Glossy = ,94
+MP Tray = ,95
+Manual Feed = ,96
+Tray1 = ,97
+Tray2 = ,98
+Tray3 = ,99
+CD Label = ,100
+Jam Total : ,101
+Jam Duplex Back Side : ,102
+Jam MP : ,103
+Jam MN : ,104
+Jam T1 : ,105
+Jam T2 : ,106
+Jam T3 : ,107
+Jam CD Label : ,108
+Jam ADF : ,109
+Jam ADSX : ,110
+Jam ADDX : ,111
+Scan ADF : ,112
+Scan ADFDX : ,113
+FB : ,114
+Fax : ,115
+Scan count except FAX / Copy : ,116
+Ink Sensor : ,117
+DF : ,118
+DR : ,119
+CV : ,120
+RS : ,121
+CC : ,122
+P1 : ,123
+AC : ,124
+IK : ,125
+IY : ,126
+IC : ,127
+IM : ,128
+EK : ,129
+EY : ,130
+EC : ,131
+EM : ,132
+OR : ,133
+CD : ,134
+PP : ,135
+HF : ,136
+A3 : ,137
+B4 : ,138
+RB : ,139
+FC : ,140
+VT : ,141
+HK : ,142
+T1 : ,143
+Feed Adjustment count : ,144
+Feed Adjustment complete count : ,145
+Alignment count : ,146
+Alignment complete count : ,147
+PowerOn Time : ,148
+PowerOn count : ,149
+First print Date : ,150
+RTC set up : ,151
+Roller Clean Tray1 : ,152
+Roller Clean Tray2 : ,153
+Roller Clean Tray3 : ,154
+Roller Clean MP Tray : ,155
+Pick Miss Tray1 : ,156
+Pick Miss Tray2 : ,157
+Pick Miss Tray3 : ,158
+Pick Miss MP Tray : ,159
+Pick Miss Manual Feed : ,160
+Pick Miss CD Label : ,161
+Initial Purge Log : ,162
+Purge passtime Log : ,163
+Total Purge Count : ,164
+Nozzle Wipe Count : ,165
+Flush Count (BK) : ,166
+Flush Count (CL) : ,167
+Sensor Purge : ,168
+tFL : ,169
+Total Print Count = ,170 (DX:195)
+Colour Print Count = ,171 (DX:196)
+Mono Print Count = ,172 (DX:197)
+Total PCPrint Count = ,173 (DX:198)
+Colour PCPrint Count = ,174 (DX:199)
+Mono PCPrint Count = ,175 (DX:200)
+Total Copy Count = ,176 (DX:201)
+Colour Copy Count = ,177 (DX:202)
+Mono Copy Count = ,178 (DX:203)
+Total Other Count = ,179 (DX:204)
+Colour Other Count = ,180 (DX:205)
+Mono Other Count = ,181 (DX:206)
+eIP (BK) : ,182 (207)
+UIP (BK) : ,183 (208)
+RP (BK) : ,184 (209)
+SRP (BK) : ,185 (210)
+SP (BK) : ,186 (211)
+RP2 (BK) : ,187 (212)
+CP (BK) : ,188 (213)
+NP (BK) : ,189 (214)
+RP3 (BK) : ,190 (215)
+PP (BK) : ,191 (216)
+QPP (BK) : ,192 (217)
+MPP (BK) : ,193 (218)
+REP (BK) : ,194 (219)

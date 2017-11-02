@@ -1,0 +1,33 @@
+Mono List/Fax Count = ,1
+Mono Media Total Count = ,2
+Airprint mono count = ,3
+iPS mono count = ,4
+GCP mono count = ,5
+Webconnect mono count = ,6
+MP Tray = ,7
+Manual Feed = ,8
+Tray1 = ,9
+Tray2 = ,10
+Tray3 = ,11
+CD Label = ,12
+Airprint color count = ,13
+iPS color count = ,14
+tFL : ,15
+Mono Print Count = ,100 (DX:50)
+Mono PCPrint Count = ,101 (DX:51)
+Total Copy Count = ,102 (DX:52)
+Mono Copy Count = ,103 (DX:53)
+Mono Other Count = ,104 (DX:54)
+eIP (CL) : ,105 (55)
+UIP (CL) : ,106 (56)
+RP (CL) : ,107 (57)
+SRP (CL) : ,108 (58)
+SP (CL) : ,109 (59)
+RP2 (CL) : ,110 (60)
+CP (CL) : ,111 (61)
+NP (CL) : ,112 (62)
+RP3 (CL) : ,113 (63)
+PP (CL) : ,114 (64)
+QPP (CL) : ,115 (65)
+MPP (CL) : ,116 (66)
+REP (CL) : ,117 (67)

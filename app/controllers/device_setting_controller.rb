@@ -2,7 +2,7 @@ class DeviceSettingController < ApplicationController
   include DeviceSettingAction
 
   before_action :session_required
-  before_action :set_param, only: %w(setting reboot_device enable_log delete_device device_search)
+  before_action :set_param, only: %w(setting reboot_device enable_log delete_device device_search maintenance_information)
   def show
     @device = params[:device_id]
     @customers = TblUser.joins(:tbl_user_mfcs).references(:tbl_user_mfcs)
@@ -11,6 +11,10 @@ class DeviceSettingController < ApplicationController
 
   def setting
     @setting = settings(@device_id)
+  end
+
+  def maintenance_information
+    @status, @updated_at = TblDeviceStatus.maintenance_information(@device_id)
   end
 
   def reboot_device

@@ -63,4 +63,5 @@ module DeviceSettingAction
   def send_req request
     JSON.parse(BOC::API.new(Rails.application.secrets.boc_api_endpoint).connect(request))
   end
+
 end

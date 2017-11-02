@@ -1,7 +1,7 @@
 create_table "tbl_device_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
   t.string   "device_id"
   t.string   "object_id"
-  t.string   "status"
+  t.text   "status"
   t.integer  "user_id"
   t.datetime "registered_date"
   t.datetime "updated_date"

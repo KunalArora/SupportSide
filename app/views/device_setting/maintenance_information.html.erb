@@ -1,0 +1,26 @@
+<%= render 'shared', uuid: @uuid, device_id: @device_id %>
+
+<div class = 'device_setting'>
+  <div class = 'data'>
+    <%status = organize_status_by_category(@status)%>
+    <% if status.empty? %>
+      <div id = 'derror'> Not found Error </div>
+    <% else %>
+      <div id = 'dmaintenance'>
+      <div><b>Last Notification:</b> <%= @updated_at %> </div><br>
+      <% status.each_key do |category| %>
+        <% unless status[category].blank?%>
+          <div id = 'dstatus'>
+            <div><b>&lt;<%= category %>&gt;</b></div>
+            <ul>
+              <% @status[category].each do |item| %>
+              <li><%= item.join(" ") %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,153 @@
+Model Name = ,Brother MFC-L2707DW
+Serial Number = ,U64463A7A667049
+Model Code = ,8C5-H58:Ver.K
+BRModel Code = ,8C5H4
+Main Version = ,K
+Main PCB SN = ,100000109
+Fuser Unit SN = ,N00000781
+Scanner Unit SN = ,60584718
+FB Unit SN = ,32433578
+ADF Unit SN = ,45687937
+Memory size = ,33554432
+Default Paper size = ,LETTER
+Current Paper size = ,Letter
+Machine Error History : ,1
+Engine Error History : ,2
+Comm Error History : ,3
+Discharge History1 : ,4
+Discharge History2 : ,5
+Discharge History3 : ,6
+Black = ,7
+Cyan = ,8
+Magenta = ,9
+Yellow = ,10
+Black(%) = ,11
+Cyan(%) = ,12
+Magenta(%) = ,13
+Yellow(%) = ,14
+A4 = ,15
+Letter = ,16
+Legal = ,17
+Executive = ,18
+A5 = ,19
+ISOB5 = ,20
+JISB5 = ,21
+C5 = ,22
+DL = ,23
+MONARC = ,24
+Other = ,25
+MP Tray = ,26
+Manual Feed = ,27
+Tray1 = ,28
+Tray2 = ,29
+Tray3 = ,30
+Tray4 = ,31
+Tray5 = ,32
+Duplex = ,33
+Std Output = ,34
+Jam Total : ,35
+Jam MP : ,36
+Jam MN : ,37
+Jam T1 : ,38
+Jam T2 : ,39
+Jam T3 : ,40
+Jam T4 : ,41
+Jam T5 : ,42
+Jam Inside : ,43
+Jam Rear : ,44
+Jam Duplex : ,45
+Jam ADF : ,46
+Jam ADSX : ,47
+Jam ADDX : ,48
+Scan ADF : ,49
+Scan ADFSX : ,50
+Scan ADFDX : ,51
+Scan FB : ,52
+Scan count except FAX / Copy : ,53
+Engine : ,54
+ADF : ,55
+Auto regist count : ,56
+Manual regist count : ,57
+Auto dev bias count : ,58
+Manual dev bias count : ,59
+Auto gamma count : ,60
+Manual gamma count : ,61
+Regist error count : ,62
+PowerOn Total Time : ,63
+PowerOn count : ,64
+First print Date : ,65
+RTC set up : ,66
+Discharge error count : ,67
+Fuser error count : ,68
+Polygon Motor Lock error count : ,69
+SQ Wave detect count : ,70
+Black = ,71
+Cyan = ,72
+Magenta = ,73
+Yellow = ,74
+Current Black = ,75
+Current Cyan = ,76
+Current Magenta = ,77
+Current Yellow = ,78
+Previous Black = ,79
+Previous Cyan = ,80
+Previous Magenta = ,81
+Previous Yellow = ,82
+Black = ,83
+Cyan = ,84
+Magenta = ,85
+Yellow = ,86
+Black = ,87
+Cyan = ,88
+Magenta = ,89
+Yellow = ,90
+Log : ,91
+FAX : ,92
+PCFAX TX : ,93
+PCFAX RX : ,94
+Log : ,95
+Temp_Max : ,96
+Temp_Min : ,97
+Humidity_Max : ,98
+Humidity_Min : ,99
+B : ,1000
+C : ,1010
+M : ,1020
+Y : ,1030
+Total Print Count = ,100 (DX:50)
+Colour Print Count = ,101 (DX:51)
+Mono Print Count = ,102 (DX:52)
+Total PCPrint Count = ,103 (DX:53)
+Colour PCPrint Count = ,104 (DX:54)
+Mono PCPrint Count = ,105 (DX:55)
+Total Copy Count = ,106 (DX:56)
+Colour Copy Count = ,107 (DX:57)
+Mono Copy Count = ,108 (DX:58)
+Total FAX Count = ,109 (DX:59)
+Colour FAX Count = ,110 (DX:60)
+Mono FAX Count = ,111 (DX:61)
+Total Other Count = ,112 (DX:62)
+Colour Other Count = ,113 (DX:63)
+Mono Other Count = ,114 (DX:64)
+Belt = ,115 (DX:65)
+Fuser = ,116 (DX:66)
+Laser = ,117 (DX:67)
+PFKitMP = ,118 (DX:68)
+PFKit1 = ,119 (DX:69)
+PFKit2 = ,120 (DX:70)
+PFKit3 = ,121 (DX:71)
+PFKit4 = ,122 (DX:72)
+PFKit5 = ,123 (DX:73)
+Belt = ,110 (1100%)
+Fuser = ,120 (1200%)
+Laser = ,130 (1300%)
+PFKitMP = ,140 (1400%)
+PFKit1 = ,150 (1500%)
+PFKit2 = ,160 (1600%)
+PFKit3 = ,170 (1700%)
+PFKit4 = ,180 (1800%)
+PFKit5 = ,190 (1900%)
+B : ,124 (50) 11/11/11
+C : ,125 (51) 11/11/12
+M : ,126 (52) 11/11/13
+Y : ,127 (53) 11/11/14

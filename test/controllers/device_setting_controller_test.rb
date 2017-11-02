@@ -135,4 +135,38 @@ class DeviceSettingControllerTest < ActionController::TestCase
     assert_response :success
     assert_select '.device_setting', 1
   end
+
+  test 'should show maintenance information when device has data' do
+    session[:email] = @sadmin.email
+    post :maintenance_information, params: {
+      uuid: @user.uid,
+      device_id: @device.device_id
+    }
+    assert_response :success
+    assert_select '#dmaintenance', 1
+    assert_select '#derror', 0
+  end
+
+  test 'should show error message when device does not have data' do
+    session[:email] = @sadmin.email
+    post :maintenance_information, params: {
+      uuid: @user.uid,
+      device_id: tbl_user_mfcs(:foo_mfc_2).device_id
+    }
+    assert_response :success
+    assert_select '#dmaintenance', 0
+    assert_select '#derror', 1
+  end
+
+  test 'should not show category and status when category does not have status' do
+    session[:email] = @sadmin.email
+    post :maintenance_information, params: {
+      uuid: @user.uid,
+      device_id: tbl_user_mfcs(:foo_mfc_3).device_id
+    }
+      assert_response :success
+      assert_select '#dmaintenance', 0
+      assert_select '#derror', 1
+      assert_select '#dstatus', 0
+  end
 end
