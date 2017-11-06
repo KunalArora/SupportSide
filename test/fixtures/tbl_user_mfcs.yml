@@ -37,7 +37,6 @@ foo_mfc_2:
     'SUB1': '1.05',
     'SUB2': 'J14082510'
     }}"
-  #device_id: <%= SecureRandom.uuid %>
   device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb5'
   id_model: 31 #foo_brother_mfc
   created_at: <%= Time.now %>
@@ -57,8 +56,26 @@ foo_mfc_3:
       'SUB1': '1.05',
       'SUB2': 'J14082510'
       }}"
-    #device_id: <%= SecureRandom.uuid %>
     device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb6'
+    id_model: 31 #foo_brother_mfc
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+foo_mfc_4:
+    id: 4
+    mfc: 0
+    id_user: 1 #foo
+    name: 'Brother Machine'
+    status: 1
+    online: 1
+    last_presence: <%= (Date.today - 2).to_s %>
+    serial: <%= "U#{SecureRandom.hex(7)}" %>
+    mfc_specifications: "{'FirmwareVersion': {
+      'MAIN': 'N1408251003:3FCE',
+      'SUB1': '1.05',
+      'SUB2': 'J14082510'
+      }}"
+    device_id: 'da23bd9a-86da-2580-cefa-d05acfff7ee2'
     id_model: 31 #foo_brother_mfc
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>

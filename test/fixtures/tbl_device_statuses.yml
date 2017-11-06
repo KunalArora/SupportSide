@@ -6,7 +6,7 @@
 
 brother_mfc_status:
   id: 1
-  device_id: <%= SecureRandom.uuid %>
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7ee2'
   object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0'
   status: '630104000000011101040000014B41010400002710310104000000016F0104000021FC8101040000005A8601040000000F670104000000016B0104000027105401040000000166010400000001350104000000016A0104000027106C0104000027106D010400002710FF'
   user_id: 1 #foo
@@ -17,7 +17,6 @@ brother_mfc_status:
 
 brother_mfc_status_2:
   id: 2
-  #device_id: <%= SecureRandom.uuid %>
   device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
   object_id: '1.3.6.1.4.1.2435.2.4.3.2435.5.36.41.0'
   status: 'LAS_MODEL_NAME="Brother MFC-L8600CDW"'
@@ -29,7 +28,6 @@ brother_mfc_status_2:
 
 brother_mfc_status_3:
   id: 3
-  #device_id: <%= SecureRandom.uuid %>
   device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb5'
   object_id: '1.3.6.1.4.1.2435.2.4.3.2435.5.36.41.0'
   status: ''
@@ -41,7 +39,6 @@ brother_mfc_status_3:
 
 brother_mfc_status_4:
   id: 4
-  #device_id: <%= SecureRandom.uuid %>
   device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb6'
   object_id: '1.3.6.1.4.1.2435.2.4.3.2435.5.36.41.0'
   status: 'INK_MODEL_NAME=,""'

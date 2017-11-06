@@ -169,4 +169,17 @@ class DeviceSettingControllerTest < ActionController::TestCase
       assert_select '#derror', 1
       assert_select '#dstatus', 0
   end
+
+  test 'should show error message when device does not have object_id' do
+    session[:email] = @sadmin.email
+    post :maintenance_information, params: {
+      uuid: @user.uid,
+      device_id: tbl_user_mfcs(:foo_mfc_4).device_id
+    }
+      assert_response :success
+      assert_select '#dmaintenance', 0
+      assert_select '#derror', 1
+      assert_select '#dstatus', 0
+  end
+
 end

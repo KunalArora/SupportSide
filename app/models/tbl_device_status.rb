@@ -13,12 +13,16 @@ class TblDeviceStatus < ApplicationRecord
 
   def self.maintenance_information device_id
     rawdata = get_maintenacne_information(device_id)
-    unless rawdata.status.blank? then
-      @item = rawdata.get_item()
-      item_renamed = rawdata.rename_item_key(@item)
-      return item_renamed, rawdata.updated_at
+    if rawdata.nil?
+      return empty = {}
     else
-      empty = {}
+      if rawdata.status.present?
+        @item = rawdata.get_item()
+        item_renamed = rawdata.rename_item_key(@item)
+        return item_renamed, rawdata.updated_date
+      else
+        return empty ={}
+      end
     end
   end
 
