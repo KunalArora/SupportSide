@@ -86,9 +86,16 @@
     '32': TonerInk_Cyan
     '33': TonerInk_Magenta
     '34': TonerInk_Yellow
+    '35': PFKit1_Status
+    '36': PFKit2_Status
+    '37': PFKit3_Status
     '41': Drum_Life
+    '54': FuserUnit_Status
     '55': Waste_Toner_Box
     '63': Drum_Unit
+    '64': PFKit4_Status
+    '66': PFKitMP_Status
+    '67': LaserUnit_Status
     '68': Belt_Unit
     '69': Belt_Life
     '6F': TonerInk_LifeBlack_MPS
@@ -111,6 +118,7 @@
     '82': TonerInk_LifeCyan
     '83': TonerInk_LifeMagenta
     '84': TonerInk_LifeYellow
+    '91': PFKit5_Status
   display: true
   index: false
 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.11.0:
