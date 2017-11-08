@@ -91,7 +91,7 @@
     '37': PFKit3_Status
     '41': Drum_Life
     '54': FuserUnit_Status
-    '55': Waste_Toner_Box
+    '55': Waste_TonerPack
     '63': Drum_Unit
     '64': PFKit4_Status
     '66': PFKitMP_Status
@@ -140,6 +140,7 @@
     '87': Waste_Toner_Box_Remaining_Life
     '88': Belt_Unit_Remaining_Life
     '89': Laser_Unit_Remaining_Life
+    '90': Paper_Feeding_Kit_5_Remaining_Life
     'C1': Pickup_Roller_Remaining_Life
     'C2': Separation_Pad_Remaining_Life
   display: true
@@ -180,6 +181,7 @@
     '87': Waste_Toner_Box_Replace_Count
     '88': Belt_Unit_Replace_Count
     '89': Laser_Unit_Replace_Count
+    '90': Paper_Feeding_Kit_5_Replace_Count
   display: false
   index: false
 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.21.0:
@@ -337,8 +339,20 @@
   name: brPrintPagesClassifiedSxDxPaperSize
   type: count_type
   id_map:
+    '700': Print_Mono_Page_SxDx_Count_A3Ledger
+    '701': Print_Color_Page_SxDx_Count_A3Ledger
+    '702': Print_Mono_Page_SxDx_Count_Other
+    '703': Print_Color_Page_SxDx_Count_Other
+    '704': Print_Mono_Page_SxDx_Count_A4Letter
+    '705': Print_Color_Page_SxDx_Count_A4Letter
     '706': Print_Page_SxDx_Count_A5B5
+    '707': Print_Mono_Page_SxDx_Count_A5B5
+    '708': Print_Color_Page_SxDx_Count_A5B5
     '709': Print_Page_SxDx_Count_LegalB4
+    '710': Print_Mono_Page_SxDx_Count_LegalB4
+    '711': Print_Color_Page_SxDx_Count_LegalB4
+    '712': Print_Mono_Page_SxDx_Count_4x6Postcard
+    '713': Print_Color_Page_SxDx_Count_4x6Postcard
     '898': Print_Page_SxDx_Count_A4Letter
     '912': Print_Page_SxDx_Count_A3Ledger
     '913': Print_Page_SxDx_Count_4x6Postcard
@@ -435,3 +449,10 @@
   type: counter
   pair_oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.42.1.2
   index: true
+1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.6.0:
+  name: brInfoPrinterUstatus
+  type: simple
+  id_map:
+    '0': USTATUS
+  index: false
+  data_type: integer
