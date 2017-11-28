@@ -101,16 +101,16 @@
       "INK_PAGECOUNT_OTHER_BLACK=" => {merge: true, label: "Mono Other Count = ", sublabel: "INK_PAGECOUNT_OTHER_BLACK_DX="}
     },
     "Machine Error History" => {
-      "LAS_ERRORHISTORY_PAGE_ME=" => {merge: false, label: "Machine Error History : "},
-      "LAS_ERRORHISTORY_ENGINE=" => {merge: false, label: "Engine Error History : "},
-      "LAS_ERRORHISTORY_DATE_COMM=" => {merge: false, label: "Comm Error History : "},
-      "LAS_HISTORY_HODEN1=" => {merge: false, label: "Discharge History1 : "},
-      "LAS_HISTORY_HODEN2=" => {merge: false, label: "Discharge History2 : "},
-      "LAS_HISTORY_HODEN3=" => {merge: false, label: "Discharge History3 : "},
+      "LAS_ERRORHISTORY_PAGE_ME=" => {split: ',', merge: false, label: "Machine Error History : "},
+      "LAS_ERRORHISTORY_ENGINE=" => {split: ',', merge: false, label: "Engine Error History : "},
+      "LAS_ERRORHISTORY_DATE_COMM=" => {split: ',', merge: false, label: "Comm Error History : "},
+      "LAS_HISTORY_HODEN1=" => {split: ',', merge: false, label: "Discharge History1 : "},
+      "LAS_HISTORY_HODEN2=" => {split: ',', merge: false, label: "Discharge History2 : "},
+      "LAS_HISTORY_HODEN3=" => {split: ',', merge: false, label: "Discharge History3 : "},
       "INK_SCAN_HP_ERR=" => {merge: false, label: "Home Position Scan Error : "},
       "INK_SCAN_ERR_LOG_WTAPE=" => {merge: false, label: "Home Position Scan Error History : "},
-      "INK_ERRORHISTORY_ME=" => {merge: false, label: "Machine Error History : "},
-      "INK_ERRORHISTORY_COMM=" => {merge: false, label: "Comm Error History : "}
+      "INK_ERRORHISTORY_ME=" => {split: ',', merge: false, label: "Machine Error History : "},
+      "INK_ERRORHISTORY_COMM=" => {split: ',', merge: false, label: "Comm Error History : "}
     },
     "Toner/INK Replace Count" => {
       "LAS_KTONER_CHANGE_COUNT=" => {merge: true, label: "B : ", sublabel: {manual: "LAS_KTONER_CHANGE_COUNT_MANUAL=", date: "LAS_KTONER_CHANGE_DATE="}},
@@ -157,7 +157,7 @@
       "INK_REMAINING_MAGENTA=" => {merge: false, label: "Magenta(%) = "},
       "INK_REMAINING_YELLOW=" => {merge: false, label: "Yellow(%) = "}
     },
-    "Page Count for each papaer size" => {
+    "Page Count for each paper size" => {
       "LAS_PAGES_A4=" => {merge: false, label: "A4 = "},
       "LAS_PAGES_LETTER=" => {merge: false, label: "Letter = "},
       "LAS_PAGES_LEGAL=" => {merge: false, label: "Legal = "},
@@ -260,8 +260,8 @@
       "INK_SCANPAGE_SCANNER=" => {merge: false, label: "Scan count except FAX / Copy : "}
     },
     "Sensor log" => {
-      "LAS_SENSORLOG_ENGINE=" => {merge: false, label: "Engine : "},
-      "LAS_SENSORLOG_ADF=" => {merge: false, label: "ADF : "},
+      "LAS_SENSORLOG_ENGINE=" => {split: ',', merge: false, label: "Engine : "},
+      "LAS_SENSORLOG_ADF=" => {split: ',', merge: false, label: "ADF : "},
       "INK_SENSOR_STATUS=" => {merge: false, label: "Ink Sensor : "},
       "INK_SENSOR_STATUS_DF=" => {merge: false, label: "DF : "},
       "INK_SENSOR_STATUS_DR=" => {merge: false, label: "DR : "},
@@ -369,18 +369,18 @@
       "LAS_PFKITMP_CHANGE_COUNT=" => {merge: false, label: "PFKitMP : "}
     },
     "Cartridge Type History for last 5 times" => {
-      "LAS_KTONER_CHANGE_TYPE_HIST=" => {merge: false, label: "Black = "},
-      "LAS_CTONER_CHANGE_TYPE_HIST=" => {merge: false, label: "Cyan = "},
-      "LAS_MTONER_CHANGE_TYPE_HIST=" => {merge: false, label: "Magenta = "},
-      "LAS_YTONER_CHANGE_TYPE_HIST=" => {merge: false, label: "Yellow = "},
-      "LAS_TONER_CHANGE_TYPE_HIST=" => {merge: false, label: "Black = "}
+      "LAS_KTONER_CHANGE_TYPE_HIST=" => {split: ',', merge: false, label: "Black = "},
+      "LAS_CTONER_CHANGE_TYPE_HIST=" => {split: ',', merge: false, label: "Cyan = "},
+      "LAS_MTONER_CHANGE_TYPE_HIST=" => {split: ',', merge: false, label: "Magenta = "},
+      "LAS_YTONER_CHANGE_TYPE_HIST=" => {split: ',', merge: false, label: "Yellow = "},
+      "LAS_TONER_CHANGE_TYPE_HIST=" => {split: ',', merge: false, label: "Black = "}
     },
     "Factor of Toner Empty History" => {
-      "LAS_KTONER_EMPTYREASON_HIST=" => {merge: false, label: "Black = "},
-      "LAS_CTONER_EMPTYREASON_HIST=" => {merge: false, label: "Cyan = "},
-      "LAS_MTONER_EMPTYREASON_HIST=" => {merge: false, label: "Magenta = "},
-      "LAS_YTONER_EMPTYREASON_HIST=" => {merge: false, label: "Yellow = "},
-      "LAS_TONER_EMPTYREASON_HIST=" => {merge: false, label: "Black = "}
+      "LAS_KTONER_EMPTYREASON_HIST=" => {split: ',', merge: false, label: "Black = "},
+      "LAS_CTONER_EMPTYREASON_HIST=" => {split: ',', merge: false, label: "Cyan = "},
+      "LAS_MTONER_EMPTYREASON_HIST=" => {split: ',', merge: false, label: "Magenta = "},
+      "LAS_YTONER_EMPTYREASON_HIST=" => {split: ',', merge: false, label: "Yellow = "},
+      "LAS_TONER_EMPTYREASON_HIST=" => {split: ',', merge: false, label: "Black = "}
     },
     "Drum Remaining Life" => {
       "LAS_NEXTCARE_KDRUM=" => {merge: true, label: "Black = ", sublabel: "LAS_KDRUM_LIFE_PERIOD="},
@@ -428,14 +428,14 @@
       "LAS_DEVROLLER_COUNT=" => {merge: false, label: "Black = "}
     },
     "Developer Count History for last 5 times" => {
-      "LAS_KTONER_CHANGE_DEVROLLERCOUNT_HIST=" => {merge: false, label: "Black = "},
-      "LAS_CTONER_CHANGE_DEVROLLERCOUNT_HIST=" => {merge: false, label: "Cyan = "},
-      "LAS_MTONER_CHANGE_DEVROLLERCOUNT_HIST=" => {merge: false, label: "Magenta = "},
-      "LAS_YTONER_CHANGE_DEVROLLERCOUNT_HIST=" => {merge: false, label: "Yellow = "},
-      "LAS_TONER_CHANGE_DEVROLLERCOUNT_HIST=" => {merge: false, label: "Black = "}
+      "LAS_KTONER_CHANGE_DEVROLLERCOUNT_HIST=" => {split: ',', merge: false, label: "Black = "},
+      "LAS_CTONER_CHANGE_DEVROLLERCOUNT_HIST=" => {split: ',', merge: false, label: "Cyan = "},
+      "LAS_MTONER_CHANGE_DEVROLLERCOUNT_HIST=" => {split: ',', merge: false, label: "Magenta = "},
+      "LAS_YTONER_CHANGE_DEVROLLERCOUNT_HIST=" => {split: ',', merge: false, label: "Yellow = "},
+      "LAS_TONER_CHANGE_DEVROLLERCOUNT_HIST=" => {split: ',', merge: false, label: "Black = "}
     },
     "Page Count monthly" => {
-      "LAS_PAGE_COUNT_MONTHLY=" => {merge: false, label: "Log : "}
+      "LAS_PAGE_COUNT_MONTHLY=" => {split: ',', merge: false, label: "Log : "}
     },
     "FAX count" => {
       "LAS_FAXTXPAGE=" => {merge: false, label: "FAX : "},
@@ -443,7 +443,7 @@
       "LAS_PCFAXTXPAGE=" => {merge: false, label: "PCFAX TX : "}
     },
     "New Toner Detect Log" => {
-      "LAS_NEWTONERDETECTION_LOG=" => {merge: false, label: "Log : "}
+      "LAS_NEWTONERDETECTION_LOG=" => {split: ', ', merge: false, label: "Log : "}
     },
     "Temp/Humidity" => {
       "LAS_TEMPERATURE_MAX=" => {merge: false, label: "Temp_Max : "},

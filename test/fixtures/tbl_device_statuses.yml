@@ -47,3 +47,14 @@ brother_mfc_status_4:
   updated_date: <%= (Date.today - 2).to_s %>
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
+
+brother_mfc_status_51:
+  id: 51
+  device_id: 'gv6fg92-59kl-0914-lohf-g3mvbxsq1hz3'
+  object_id: '1.3.6.1.4.1.2435.2.4.3.2435.5.36.41.0'
+  status: 'LAS_ERRORHISTORY_PAGE_ME="1:9400:237, 2:5700:228, 3:9600:169, 4:7D00:35, 5:8800:32, 6:C000:27, 7:9300:0, 8:, 9:, 10:"'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= (Date.today - 2).to_s %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

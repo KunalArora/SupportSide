@@ -182,4 +182,14 @@ class DeviceSettingControllerTest < ActionController::TestCase
       assert_select '#dstatus', 0
   end
 
+  test 'should show status which class is Array in list' do
+    session[:email] = @sadmin.email
+    post :maintenance_information, params: {
+      uuid: @user.uid,
+      device_id: tbl_user_mfcs(:foo_mfc_5).device_id
+    }
+      assert_response :success
+      assert_select '.case_array', 1
+  end
+
 end

@@ -14,7 +14,18 @@
             <div><b>&lt;<%= category %>&gt;</b></div>
             <ul>
               <% @status[category].each do |item| %>
-              <li><%= item.join(" ") %>
+                <% if item[1].class == Array %>
+                  <li>
+                    <%= item[0] %>
+                    <ul class='case_array'>
+                      <% item[1].each do |i| %>
+                        <li><%= i%></li>
+                      <% end %>
+                    </ul>
+                  </li>
+                <%else%>
+                  <li><%= item.join(" ") %>
+                <% end %>
               <% end %>
             </ul>
           </div>

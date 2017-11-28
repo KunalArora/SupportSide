@@ -39,13 +39,15 @@ class TblDeviceStatus < ApplicationRecord
     Map77listItemRename.each do |category, names|
       item_renamed.store(category,{})
       item.each do |key, value|
-        if names.has_key?(key)
-          if names[key][:merge]
-            value = merge_value(item, category, key, value)
-          end
-          if value.present?
-            item_renamed[category].store(names[key][:label], value)
-          end
+        next unless names.has_key?(key)
+        if names[key][:split]
+          value = value.split(names[key][:split])
+        end
+        if names[key][:merge]
+          value = merge_value(item, category, key, value)
+        end
+        if value.present?
+          item_renamed[category].store(names[key][:label], value)
         end
       end
       item_renamed.delete(category) if item_renamed[category].empty?
