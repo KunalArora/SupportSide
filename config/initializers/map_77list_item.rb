@@ -108,7 +108,7 @@
       "LAS_HISTORY_HODEN2=" => {split: ',', merge: false, label: "Discharge History2 : "},
       "LAS_HISTORY_HODEN3=" => {split: ',', merge: false, label: "Discharge History3 : "},
       "INK_SCAN_HP_ERR=" => {merge: false, label: "Home Position Scan Error : "},
-      "INK_SCAN_ERR_LOG_WTAPE=" => {merge: false, label: "Home Position Scan Error History : "},
+      "INK_SCAN_ERR_LOG_WTAPE=" => {split: ',', merge: false, label: "Home Position Scan Error History : "},
       "INK_ERRORHISTORY_ME=" => {split: ',', merge: false, label: "Machine Error History : "},
       "INK_ERRORHISTORY_COMM=" => {split: ',', merge: false, label: "Comm Error History : "}
     },
@@ -262,7 +262,7 @@
     "Sensor log" => {
       "LAS_SENSORLOG_ENGINE=" => {split: ',', merge: false, label: "Engine : "},
       "LAS_SENSORLOG_ADF=" => {split: ',', merge: false, label: "ADF : "},
-      "INK_SENSOR_STATUS=" => {merge: false, label: "Ink Sensor : "},
+      "INK_SENSOR_STATUS=" => {split: ',', merge: false, label: "Ink Sensor : "},
       "INK_SENSOR_STATUS_DF=" => {merge: false, label: "DF : "},
       "INK_SENSOR_STATUS_DR=" => {merge: false, label: "DR : "},
       "INK_SENSOR_STATUS_CV=" => {merge: false, label: "CV : "},
@@ -475,7 +475,7 @@
     },
     "Purge related" => {
       "INK_INITPURGE_STATUS=" => {merge: false, label: "Initial Purge Log : "},
-      "INK_INITPURGE_PASSTIME=" => {merge: false, label: "Purge passtime Log : "},
+      "INK_INITPURGE_PASSTIME=" => {split: ',', merge: false, label: "Purge passtime Log : "},
       "INK_PURGEWASTE_COUNT=" => {merge: false, label: "Total Purge Count : "},
       "INK_WIPEHEAD_COUNT=" => {merge: false, label: "Nozzle Wipe Count : "},
       "INK_FLUSHWASTE_COUNT_BK=" => {merge: false, label: "Flush Count (BK) : "},
