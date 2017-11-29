@@ -1,25 +1,31 @@
-<div class = 'cust_device'>
-  <table>
-    <thead>
-      <tr>
-        <th> Model Name </th>
-        <th> Serial Number </th>
-        <th> Device ID </th>
-        <th> Online/Offline </th>
-        <th style='border-right: 0px'> Notification </th>
-      </tr>
-    </thead>
-    <tbody>
-      <% devices.each do |d| %>
-        <tr class='clickable-row' data-href= "<%= devices_search_path(device_id: d.device_id) %>">
-          <td><%= d.tbl_mfc_model.name %></td>
-          <td><%= d.serial %></td>
-          <td><%= d.device_id %></td>
-          <td><%= network_status(d.online) %> </br>(<%= date_conversion(d.last_presence) %>) </td>
-          <td style='border-right: 0px'><%= notify[d.device_id] || '---' %> </td>
+<div id= 'btn_dl'><%= button_to 'Download All Items', customers_download_path, method: :get %></div>
+<%= form_tag(customers_download_path, method: :get, id: 'frm') do %>
+  <%= tag :input, {"type" => "button", "value" => 'Download Selected Items', "id" => "btn_submit", "disabled" => true} %>
+  <div class = 'cust_device'>
+    <table>
+      <thead>
+        <tr>
+          <th class = 'checkbox'><%= tag :input, {"type" => "checkbox", "id" => "all_check"}%> </th>
+          <th> Model Name </th>
+          <th> Serial Number </th>
+          <th> Device ID </th>
+          <th> Online/Offline </th>
+          <th style='border-right: 0px'> Notification </th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= will_paginate devices %>
-</div>
+      </thead>
+      <tbody>
+        <% devices.each do |d| %>
+          <tr class='clickable-row' >
+            <td class='checkbox'><%= check_box :check_box, :device_id, {multiple: true, id: "checkbox#{d.id}"}, d.device_id, nil %></td>
+            <td data-href= "<%= devices_search_path(device_id: d.device_id) %>"><%= d.tbl_mfc_model.name %></td>
+            <td data-href= "<%= devices_search_path(device_id: d.device_id) %>"><%= d.serial %></td>
+            <td data-href= "<%= devices_search_path(device_id: d.device_id) %>"><%= d.device_id %></td>
+            <td data-href= "<%= devices_search_path(device_id: d.device_id) %>"><%= network_status(d.online) %> </br>(<%= date_conversion(d.last_presence) %>) </td>
+            <td data-href= "<%= devices_search_path(device_id: d.device_id) %>" style='border-right: 0px'><%= notify[d.device_id] || '---' %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate devices %>
+  </div>
+<% end %>

@@ -12,7 +12,7 @@ foo_mfc:
   status: 1
   online: 1
   last_presence: <%= (Date.today - 2).to_s %>
-  serial: <%= "U#{SecureRandom.hex(7)}" %>
+  serial: <%= "Udfbb7669a3c67a" %>
   mfc_specifications: "{'FirmwareVersion': {
     'MAIN': 'N1408251003:3FCE',
     'SUB1': '1.05',

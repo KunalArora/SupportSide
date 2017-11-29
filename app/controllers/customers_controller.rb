@@ -17,4 +17,9 @@ class CustomersController < ApplicationController
     @outstanding_pins = outstanding(params[:uuid])
     @pins = @outstanding_pins['pins'].reverse.paginate(page: params[:page], per_page: 10) if @outstanding_pins['pins'].present?
   end
+
+  def download_device_information_csv
+    device_informations = TblUserMfc.get_device_information_csv(params[:uuid], params[:check_box])
+    send_data(device_informations, filename: 'device_information.csv')
+  end
 end

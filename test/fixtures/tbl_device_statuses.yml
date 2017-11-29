@@ -11,7 +11,7 @@ brother_mfc_status:
   status: '630104000000011101040000014B41010400002710310104000000016F0104000021FC8101040000005A8601040000000F670104000000016B0104000027105401040000000166010400000001350104000000016A0104000027106C0104000027106D010400002710FF'
   user_id: 1 #foo
   registered_date: <%= (Date.today - 30).to_s %>
-  updated_date: <%= (Date.today - 2).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -22,7 +22,7 @@ brother_mfc_status_2:
   status: 'LAS_MODEL_NAME="Brother MFC-L8600CDW"'
   user_id: 1 #foo
   registered_date: <%= (Date.today - 30).to_s %>
-  updated_date: <%= (Date.today - 2).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -33,7 +33,7 @@ brother_mfc_status_3:
   status: ''
   user_id: 1 #foo
   registered_date: <%= (Date.today - 30).to_s %>
-  updated_date: <%= (Date.today - 2).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -44,7 +44,176 @@ brother_mfc_status_4:
   status: 'INK_MODEL_NAME=,""'
   user_id: 1 #foo
   registered_date: <%= (Date.today - 30).to_s %>
-  updated_date: <%= (Date.today - 2).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_5:
+  id: 5
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.2.1.2.2.1.6.1'
+  status: '001BA98A60B8'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_6:
+  id: 6
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.2.1.1.6.0'
+  status: '504F4C2E204C41204E415641204E41564520423235'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_7:
+  id: 7
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.2.1.1.4.0'
+  status: '4D50532044656D6F204D46432D3931343043444E'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_8:
+  id: 8
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.10.0'
+  status: '000104000000400101040000000902010400000037060104000000000701040000000008010400000000FF'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_9:
+  id: 9
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.18.0'
+  status: '00020F07010204050202030003020109FF'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_10:
+  id: 10
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.6.0'
+  status: '10023'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_11:
+  id: 11
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.2.0'
+  status: '898'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+<% for n in 1..14 %>
+brother_mfc_status_<%= n+11%>:
+  id: <%=n+11 %>
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.2.<%= n%>'
+  status: <%= 699+n %>
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+<% end %>
+
+brother_mfc_status_26:
+  id: 26
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.2.15'
+  status: '912'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_27:
+  id: 27
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.2.16'
+  status: '999'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_28:
+  id: 28
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.2.17'
+  status: '913'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+<% for n in 0..17 %>
+brother_mfc_statuses_<%= n+29%>:
+  id: <%=n+29 %>
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.2.1.3.<%= n%>'
+  status: <%= n %>
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+<% end %>
+
+brother_mfc_status_47:
+  id: 47
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0'
+  status: '31010400000064320104000000653301040000006634010400000067630104000000687F0104000000697601040000006a7701040000006b7801040000006c3501040000006d3601040000006e3701040000006f640104000000709101040000007166010400000072540104000000736701040000007468010400000075550104000000768101040000007782010400000078830104000000798401040000007a1101040000007b7E01040000007c7301040000007d7401040000007e7501040000007fFF'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_48:
+  id: 48
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.11.0'
+  status: '82010400000080A4010400000081A5010400000082A6010400000083A701040000008477010400000085780104000000867901040000008784010400000088900104000000898601040000008a7301040000008b8901040000008c8801040000008dFF'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+brother_mfc_status_49:
+  id: 49
+  device_id: 'da23bd9a-86da-2580-cefa-d05acfff7eb4'
+  object_id: '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.20.0'
+  status: 'A0040000008eA1040000008fA20400000090A30400000091820400000092A70400000093A40400000094A50400000095A6040000009677040000009778040000009879040000009984040000009a90040000009b86040000009c73040000009d89040000009e88040000009f8704000000a0FF'
+  user_id: 1 #foo
+  registered_date: <%= (Date.today - 30).to_s %>
+  updated_date: <%= '2010-05-11 00:00:00' %>
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 

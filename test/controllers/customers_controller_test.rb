@@ -53,4 +53,23 @@ class CustomersControllerTest < ActionController::TestCase
     assert_template 'search/_form'
     assert_select '.cust_button', 1
   end
+
+  test 'should show 2 buttons when user has some devices' do
+    get :show, params: {uuid: @user.uid}
+    assert_response :success
+    assert_select '#btn_dl', 1
+    assert_select '#btn_submit', 1
+  end
+
+  test 'should not show 2 buttons when user does not have any devices' do
+    get :show, params: {uuid: tbl_users(:bar).uid}
+    assert_response :success
+    assert_select '#btn_dl', 0
+    assert_select '#btn_submit', 0
+  end
+
+  test 'should be unable to press Download Selected Items button when all checkboxes are not checked ' do
+    get :show, params: {uuid: @user.uid}
+    assert_select "#btn_submit[disabled='disabled']", true
+  end
 end
