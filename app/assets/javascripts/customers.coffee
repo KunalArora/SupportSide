@@ -11,7 +11,7 @@ $ ->
     $('#frm').submit();
 
 $ ->
-  $('td.checkbox input[type="checkbox"]').click ->
+  $(document).on 'click', 'td.checkbox input[type="checkbox"]', ->
     checked = (c for c in $("td.checkbox input[type=checkbox]") when $(c).prop("checked"))
     $("#btn_submit").attr({"disabled": (checked.length == 0)})
 

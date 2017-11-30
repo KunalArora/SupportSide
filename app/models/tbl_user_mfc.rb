@@ -69,7 +69,7 @@ end
                         .joins(:tbl_user)
                         .where(tbl_users: {uid: user_uuid})
     unless check_box.nil?
-      device_informations = device_informations.where(device_id: check_box[:device_id])
+      device_informations = device_informations.where(device_id: check_box[:device_id]).order(:id)
     end
     CSV.generate do |csv|
       csv << CsvColumns

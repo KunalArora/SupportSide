@@ -20,6 +20,6 @@ class CustomersController < ApplicationController
 
   def download_device_information_csv
     device_informations = TblUserMfc.get_device_information_csv(params[:uuid], params[:check_box])
-    send_data(device_informations, filename: 'device_information.csv')
+    send_data(device_informations, filename: "#{Time.now.utc.strftime("%Y%m%d%H%M%S")}_latest_device_information.csv")
   end
 end
