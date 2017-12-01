@@ -43,8 +43,16 @@ class TblUserMfc < ApplicationRecord
     DateTime.strptime(last_presence[0..9].to_i.to_s, '%s').strftime('%d/%m/%Y %H:%M:%S')
   end
 
-  def get_offline_dyas
-    if online == 0
+  def get_online_status
+    if online
+      'Online'
+    else
+      'Offline'
+    end
+  end
+
+  def get_offline_days
+    if !online
       t = Time.at(last_presence[0..9].to_i)
       (Date.today - Date.new(t.year, t.month, t.day)).to_i
     else
@@ -113,9 +121,9 @@ end
                 data_parsed['Mac_Address'],
                 d.get_connection_type,
                 d.get_warning,
-                d.online,
+                d.get_online_status,
                 d.get_since,
-                d.get_offline_dyas,
+                d.get_offline_days,
                 data_parsed['Location'],
                 data_parsed['Contact'],
                 data_parsed['Total_Page_Count'],
