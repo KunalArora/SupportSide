@@ -72,4 +72,39 @@ class CustomersControllerTest < ActionController::TestCase
     get :show, params: {uuid: @user.uid}
     assert_select "#btn_submit[disabled='disabled']", true
   end
+
+  test 'should show link to change number of display correctly' do
+    get :show, params: {uuid: @user.uid}
+    assert_select '#link1', 0
+    assert_select '#link2', 1
+    assert_select '#link3', 1
+    assert_select '#link4', 1
+  end
+
+  test 'should show link to change number of display correctly when All equals 10' do
+    @user = tbl_users(:william)
+    get :show, params: {uuid: @user.uid}
+    assert_select '#link1', 0
+    assert_select '#link2', 1
+    assert_select '#link3', 1
+    assert_select '#link4', 1
+  end
+
+  test 'should show link to change number of display correctly when All equals 20' do
+    @user = tbl_users(:jacob)
+    get :show, params: {uuid: @user.uid}
+    assert_select '#link1', 0
+    assert_select '#link2', 1
+    assert_select '#link3', 1
+    assert_select '#link4', 1
+  end
+
+  test 'should show link to change number of display correctly when All equals 50' do
+    @user = tbl_users(:manson)
+    get :show, params: {uuid: @user.uid}
+    assert_select '#link1', 0
+    assert_select '#link2', 1
+    assert_select '#link3', 1
+    assert_select '#link4', 1
+  end
 end

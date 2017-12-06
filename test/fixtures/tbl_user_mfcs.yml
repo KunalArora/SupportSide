@@ -118,3 +118,63 @@ baz_mfc_<%= n %>:
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 <% end %>
+
+<% 10.times do |n| %>
+william_mfc_<%= n %>:
+  mfc: 0
+  id_user: 4 #william
+  name: 'Brother Machine'
+  status: 1
+  online: 1
+  last_presence: <%= (Date.today - 2).to_s %>
+  serial: <%= "U#{SecureRandom.hex(7)}" %>
+  mfc_specifications: "{'FirmwareVersion': {
+    'MAIN': 'N1408251003:3FCE',
+    'SUB1': '1.01',
+    'SUB2': 'J14482510'
+    }}"
+  device_id: <%= SecureRandom.uuid %>
+  id_model: 32
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+<% end %>
+
+<% 20.times do |n| %>
+jacob_mfc_<%= n %>:
+  mfc: 0
+  id_user: 5 #jacob
+  name: 'Brother Machine'
+  status: 1
+  online: 1
+  last_presence: <%= (Date.today - 2).to_s %>
+  serial: <%= "U#{SecureRandom.hex(7)}" %>
+  mfc_specifications: "{'FirmwareVersion': {
+    'MAIN': 'N1408251003:3FCE',
+    'SUB1': '1.01',
+    'SUB2': 'J14482510'
+    }}"
+  device_id: <%= SecureRandom.uuid %>
+  id_model: 33
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+<% end %>
+
+<% 50.times do |n| %>
+manson_mfc_<%= n %>:
+  mfc: 0
+  id_user: 6 #manson
+  name: 'Brother Machine'
+  status: 1
+  online: 1
+  last_presence: <%= (Date.today - 2).to_s %>
+  serial: <%= "U#{SecureRandom.hex(7)}" %>
+  mfc_specifications: "{'FirmwareVersion': {
+    'MAIN': 'N1408251003:3FCE',
+    'SUB1': '1.01',
+    'SUB2': 'J14482510'
+    }}"
+  device_id: <%= SecureRandom.uuid %>
+  id_model: 34
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+<% end %>

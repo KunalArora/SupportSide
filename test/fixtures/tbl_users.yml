@@ -55,3 +55,54 @@ baz:
   uid: <%= "{#{SecureRandom.uuid}}" %>
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
+
+william:
+  id: 4
+  first_name: 'william'
+  last_name: 'last'
+  email: william@example.com
+  country: 'Japan'
+  time_zone: 'Japan time'
+  password: 'william123'
+  mfc_id: 0 #mfc value
+  enabled: 1
+  confirmation_code: 'williamlastmfc'
+  last_login: <%= (Date.today - 5).to_s %>
+  mfc_access: 1
+  uid: <%= "{#{SecureRandom.uuid}}" %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+jacob:
+  id: 5
+  first_name: 'jacob'
+  last_name: 'last'
+  email: jacob@example.com
+  country: 'Japan'
+  time_zone: 'Japan time'
+  password: 'jacob123'
+  mfc_id: 0 #mfc value
+  enabled: 1
+  confirmation_code: 'jacoblastmfc'
+  last_login: <%= (Date.today - 5).to_s %>
+  mfc_access: 1
+  uid: <%= "{#{SecureRandom.uuid}}" %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+manson:
+  id: 6
+  first_name: 'manson'
+  last_name: 'last'
+  email: manson@example.com
+  country: 'Japan'
+  time_zone: 'Japan time'
+  password: 'manson123'
+  mfc_id: 0 #mfc value
+  enabled: 1
+  confirmation_code: 'mansonlastmfc'
+  last_login: <%= (Date.today - 5).to_s %>
+  mfc_access: 1
+  uid: <%= "{#{SecureRandom.uuid}}" %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

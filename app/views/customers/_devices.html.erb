@@ -2,6 +2,10 @@
 <%= form_tag(customers_download_path, method: :get, id: 'frm') do %>
   <%= tag :input, {"type" => "button", "value" => 'Download Selected Items', "id" => "btn_submit", "disabled" => true} %>
   <div class = 'cust_device'>
+    <div class = 'num_disp'>
+      <%= 'Show : ' %>
+      <%= num_disp_link(params[:per_page], @num_all) %>
+    </div>
     <table>
       <thead>
         <tr>

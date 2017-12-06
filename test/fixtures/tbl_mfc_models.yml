@@ -23,3 +23,21 @@ baz_brother_mfc_<%= n %>:
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 <% end %>
+
+william_brother_mfc:
+  id: 32
+  name: 'Brother HL-5695'
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+jacob_brother_mfc:
+  id: 33
+  name: 'Brother HL-5695'
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+manson_brother_mfc:
+  id: 34
+  name: 'Brother HL-5695'
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
