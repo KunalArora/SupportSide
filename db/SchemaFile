@@ -1,7 +1,7 @@
 create_table "tbl_device_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
   t.string   "device_id"
   t.string   "object_id"
-  t.text   "status"
+  t.text     "status", limit: 16777215
   t.integer  "user_id"
   t.datetime "registered_date"
   t.datetime "updated_date"
@@ -15,9 +15,9 @@ add_index 'tbl_device_statuses', ['registered_date'], name: 'idx_rgdate', using:
 add_index 'tbl_device_statuses', ['updated_date'], name: 'updated_date', using: :btree
 
 create_table "tbl_mfc_models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-  t.string   "name"
-  t.string   "image"
-  t.string   "code"
+  t.string   "name", limit: 100
+  t.string   "image", limit: 200
+  t.string   "code", limit: 100
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
 end
@@ -29,12 +29,12 @@ create_table "tbl_subscription_configs", force: :cascade, options: "ENGINE=InnoD
   t.string   "service_id"
   t.datetime "registered_date"
   t.datetime "updated_date"
-  t.integer  "deleted"
+  t.boolean  "deleted"
   t.integer  "status"
   t.string   "status_message"
   t.string   "callback"
   t.integer  "last_call"
-  t.integer  "forward_callback"
+  t.boolean  "forward_callback"
   t.datetime "created_at",       null: false
   t.datetime "updated_at",       null: false
 end
@@ -45,24 +45,24 @@ add_index 'tbl_subscription_configs', ['object_id'], name: 'idx_device_id_object
 create_table "tbl_user_mfcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
   t.integer  "mfc"
   t.integer  "id_user"
-  t.string   "name"
-  t.string   "description"
-  t.integer  "status"
-  t.string   "mfc_key"
-  t.integer  "online"
-  t.string   "last_presence"
-  t.string   "scan_status"
-  t.string   "serial"
-  t.string   "mfc_status"
-  t.string   "mfc_ink"
-  t.string   "mfc_paper"
-  t.string   "mfc_options"
-  t.string   "mfc_specifications"
+  t.string   "name", limit: 500
+  t.text     "description"
+  t.boolean  "status"
+  t.string   "mfc_key", limit: 500
+  t.boolean  "online"
+  t.string   "last_presence", limit: 20
+  t.string   "scan_status", limit: 500
+  t.string   "serial", limit: 200
+  t.text     "mfc_status"
+  t.string   "mfc_ink", limit: 50
+  t.string   "mfc_paper", limit: 50
+  t.text     "mfc_options"
+  t.text     "mfc_specifications"
   t.integer  "mfc_last_used"
-  t.string   "mfc_last_used_IP"
-  t.integer  "mfc_type"
+  t.string   "mfc_last_used_IP", limit: 45
+  t.integer  "mfc_type", limit: 2
   t.string   "mfc_manufacture"
-  t.string   "device_id"
+  t.string   "device_id", limit: 100
   t.integer  "id_model"
   t.datetime "created_at",         null: false
   t.datetime "updated_at",         null: false
@@ -74,35 +74,35 @@ add_index 'tbl_user_mfcs', ['mfc_key'], name: 'mfc_key_index', using: :btree
 add_index 'tbl_user_mfcs', ['mfc_type'], name: 'mfc_type_index', using: :btree
 
 create_table "tbl_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-  t.string   "first_name"
-  t.string   "last_name"
+  t.string   "first_name", limit: 100
+  t.string   "last_name", limit: 100
   t.string   "email"
-  t.string   "country"
-  t.string   "time_zone"
-  t.integer  "dst"
-  t.string   "password"
-  t.integer  "mfc_id"
-  t.integer  "enabled"
-  t.string   "confirmation_code"
-  t.datetime "created_on"
+  t.string   "country", limit: 99
+  t.string   "time_zone", limit: 6
+  t.boolean  "dst"
+  t.string   "password", limit: 100
+  t.integer  "mfc_id", limit: 5
+  t.boolean  "enabled"
+  t.string   "confirmation_code", limit: 100
+  t.timestamp "created_on"
   t.datetime "last_login"
-  t.integer  "quota"
-  t.integer  "limit"
-  t.integer  "index_update"
-  t.integer  "can_print"
+  t.integer  "quota", limit: 5
+  t.boolean  "limit"
+  t.boolean  "index_update"
+  t.integer  "can_print", limit: 1
   t.string   "pull_scan"
   t.string   "push_scan"
   t.string   "mfc_access"
   t.string   "virtual_folders"
-  t.string   "default_up"
+  t.string   "default_up", limit: 20
   t.integer  "default_mfc"
-  t.string   "user_agent"
-  t.string   "google_id"
-  t.integer  "admin_id"
+  t.string   "user_agent", limit: 256
+  t.string   "google_id", limit: 100
+  t.integer  "admin_id", limit: 5
   t.datetime "last_activity"
-  t.string   "user_preferences"
+  t.text     "user_preferences"
   t.integer  "owner_id"
-  t.string   "uid"
+  t.string   "uid", limit: 39
   t.datetime "created_at",        null: false
   t.datetime "updated_at",        null: false
 end
@@ -113,14 +113,14 @@ add_index 'tbl_users', ['enabled'], name: 'enabled_index', using: :btree
 add_index 'tbl_users', ['password'], name: 'password_index', using: :btree
 
 create_table "tlb_serial_mfcs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-  t.string   "serial"
+  t.string   "serial", limit: 200
   t.integer  "id_model"
   t.integer  "id_mfc"
-  t.string   "name"
-  t.string   "uid"
-  t.string   "api"
-  t.string   "mfc_specifications"
-  t.datetime "time_stamp"
+  t.string   "name", limit: 100
+  t.string   "uid", limit: 58
+  t.string   "api", limit: 10
+  t.text     "mfc_specifications"
+  t.timestamp "time_stamp"
   t.datetime "date_added"
   t.datetime "date_unbind"
   t.datetime "created_at",         null: false
