@@ -99,6 +99,25 @@ foo_mfc_5:
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
+silent_mfc:
+    id: 6
+    mfc: 0
+    id_user: 7 #silent
+    name: 'Brother Machine'
+    status: 1
+    online: 1
+    last_presence: <%= (Date.today - 2).to_s %>
+    serial: <%= "U#{SecureRandom.hex(7)}" %>
+    mfc_specifications: "{'FirmwareVersion': {
+      'MAIN': 'N1408251003:3FCE',
+      'SUB1': '1.05',
+      'SUB2': 'J14082510'
+      }}"
+    device_id: 'gv6fg92-59kl-0914-lohf-777788889999'
+    id_model: 52 #silent_brother_mfc
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
 <% 20.times do |n| %>
 baz_mfc_<%= n %>:
   mfc: 0

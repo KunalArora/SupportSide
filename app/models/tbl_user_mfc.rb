@@ -6,6 +6,9 @@ class TblUserMfc < ApplicationRecord
   has_one :tlb_serial_mfc, foreign_key: 'id_mfc'
   has_many :tbl_device_statuses, primary_key: 'device_id', foreign_key: 'device_id', class_name: 'TblDeviceStatus'
   has_many :tbl_subscription_configs, primary_key: 'device_id', foreign_key: 'device_id', class_name: 'TblSubscriptionConfig'
+
+  OMNIPRESENT_OBJECT_ID = '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0'
+
   scope :includes_device_information, lambda {
     joins(:tbl_user, :tbl_mfc_model).references(:tbl_user, :tbl_mfc_model)
   }
@@ -23,8 +26,27 @@ class TblUserMfc < ApplicationRecord
     end
   }
 
+  scope :search_for_devices, lambda { |device_ids|
+    where(device_id: device_ids)
+  }
+
   def self.device_info key, value
     includes_device_information.search_with_query(key, value)
+  end
+
+  def self.retrieve_possible_silent_device_id silent_days
+     TblUserMfc.joins(:tbl_subscription_configs, :tbl_device_statuses)
+      .merge(TblSubscriptionConfig.search_device_against_particular_object_id(OMNIPRESENT_OBJECT_ID))
+      .merge(TblDeviceStatus.search_device_against_particular_object_id(OMNIPRESENT_OBJECT_ID))
+      .where(TblDeviceStatus.arel_table[:updated_date].lt (silent_days.to_i).days.ago)
+      .where(online: 1).distinct(:device_id).pluck(:device_id)
+  end
+
+  def self.silent_device silent_days
+    device_ids = TblDeviceStatus.retrieve_silent_devices(silent_days)
+
+    result = includes_device_information.search_for_devices(device_ids.keys)
+    return result, device_ids
   end
 
   def get_connection_type

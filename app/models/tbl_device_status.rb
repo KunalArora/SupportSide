@@ -110,4 +110,17 @@ class TblDeviceStatus < ApplicationRecord
       "#{purge_auto} (#{purge_manual})"
     end
   end
+
+  def self.search_device_against_particular_object_id object_id
+    TblDeviceStatus.where(object_id: object_id)
+  end
+
+  def self.retrieve_silent_devices silent_days
+    TblDeviceStatus.select(:device_id)
+      .merge(TblDeviceStatus.group(:device_id))
+      .where(TblDeviceStatus.arel_table[:updated_date].lt (silent_days.to_i).days.ago)
+      .where(device_id: TblUserMfc.retrieve_possible_silent_device_id(silent_days))
+      .maximum(:updated_date)
+  end
+
 end

@@ -11,14 +11,14 @@ foo:
   last_name: 'last'
   email: foo@example.com
   country: 'Japan'
-  time_zone: 'Japan time'
+  time_zone: 'UTC'
   password: 'foo123'
   mfc_id: 1 #brother_mfc #mfc value
   enabled: 1
   confirmation_code: 'foolastmfc'
   last_login: <%= (Date.today - 2).to_s %>
   mfc_access: 1
-  uid: <%= "{#{SecureRandom.uuid}}" %>
+  uid: 'na0bf1e75-5ca3-49fb-a87f-f8cc5d63c830'
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -28,14 +28,14 @@ bar:
   last_name: 'last'
   email: bar@example.com
   country: 'Japan'
-  time_zone: 'Japan time'
+  time_zone: 'UTC'
   password: 'bar123'
   mfc_id: 0 #mfc value
   enabled: 1
   confirmation_code: 'barlastmfc'
   last_login: <%= (Date.today - 5).to_s %>
   mfc_access: 1
-  uid: <%= "{#{SecureRandom.uuid}}" %>
+  uid: 'n95a0e1a9-277b-4a8e-928e-fa88a4166a3b'
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -45,14 +45,14 @@ baz:
   last_name: 'last'
   email: baz@example.com
   country: 'Japan'
-  time_zone: 'Japan time'
+  time_zone: 'UTC'
   password: 'baz123'
   mfc_id: baz_brother_mfc #mfc value
   enabled: 1
   confirmation_code: 'bazlastmfc'
   last_login: <%= (Date.today - 5).to_s %>
   mfc_access: 1
-  uid: <%= "{#{SecureRandom.uuid}}" %>
+  uid: 'n97a21209-5b06-40ab-b385-55f0c6733d7f'
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -62,14 +62,14 @@ william:
   last_name: 'last'
   email: william@example.com
   country: 'Japan'
-  time_zone: 'Japan time'
+  time_zone: 'UTC'
   password: 'william123'
   mfc_id: 0 #mfc value
   enabled: 1
   confirmation_code: 'williamlastmfc'
   last_login: <%= (Date.today - 5).to_s %>
   mfc_access: 1
-  uid: <%= "{#{SecureRandom.uuid}}" %>
+  uid: 'ne88003d6-3f91-4566-931f-e123fd746307'
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -79,14 +79,14 @@ jacob:
   last_name: 'last'
   email: jacob@example.com
   country: 'Japan'
-  time_zone: 'Japan time'
+  time_zone: 'UTC'
   password: 'jacob123'
   mfc_id: 0 #mfc value
   enabled: 1
   confirmation_code: 'jacoblastmfc'
   last_login: <%= (Date.today - 5).to_s %>
   mfc_access: 1
-  uid: <%= "{#{SecureRandom.uuid}}" %>
+  uid: 'na151abde-2746-4530-a7bf-a57853644592'
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
@@ -96,13 +96,30 @@ manson:
   last_name: 'last'
   email: manson@example.com
   country: 'Japan'
-  time_zone: 'Japan time'
+  time_zone: 'UTC'
   password: 'manson123'
   mfc_id: 0 #mfc value
   enabled: 1
   confirmation_code: 'mansonlastmfc'
   last_login: <%= (Date.today - 5).to_s %>
   mfc_access: 1
-  uid: <%= "{#{SecureRandom.uuid}}" %>
+  uid: 'n0c8ff2f6-4cf0-48dc-ada0-b808d81c49c8'
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+silent:
+  id: 7
+  first_name: 'silent'
+  last_name: 'last'
+  email: silent@example.com
+  country: 'Japan'
+  time_zone: 'UTC'
+  password: 'silent123'
+  mfc_id: 0 #mfc value
+  enabled: 1
+  confirmation_code: 'mansonlastmfc'
+  last_login: <%= (Date.today - 5).to_s %>
+  mfc_access: 1
+  uid: 'n0c8ff2f6-4cf0-48dc-ada0-b808d81c49c8'
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>

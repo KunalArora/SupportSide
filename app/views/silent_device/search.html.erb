@@ -1,0 +1,42 @@
+<%= render 'sessions/session' %>
+<%= render 'shared' %>
+
+<div class = 'silent_device_list'>
+  <% unless @silent_device_list.empty? %>
+  <div class = 'num_disp'>
+    <%= 'Show : ' %>
+    <%= num_disp(params[:per_page], @num_all, @days) %>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th> Model Name </th>
+        <th> Serial Number </th>
+        <th> Device ID </th>
+        <th> Country </th>
+        <th> Online Since</br>(DD/MM/YYYY hh:mm(UTC))</th>
+        <th> Silent Days </th>
+        <th> Last Notification</br>(DD/MM/YYYY hh:mm(UTC)) </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @silent_device_list.each do |val| %>
+        <tr>
+          <td><%= val.tbl_mfc_model.name %></td>
+          <td><%= val.serial %></td>
+          <td><%= val.device_id %></td>
+          <td><%= val.tbl_user.country %></td>
+          <td>Online</br><%= date_convert(val.last_presence)%></td>
+          <td><%= silent_days(strip_time(@notify[val.device_id]))%> days</td>
+          <td><%= strip_time(@notify[val.device_id])%></td>
+          <td><%= link_to 'Details', devices_search_path(device_id: val.device_id) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @silent_device_list %>
+  <% else %>
+    <p id='silent_empty'> No silent devices found for over <%= @days %> days.</p>
+  <% end %>
+</div>

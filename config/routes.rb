@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get '/search', to: 'search#query', as: 'search'
 
+  post '/silent_device', to: 'silent_device#show', as: 'silent_device'
+
+  get '/silent_device_search', to: 'silent_device#search', as: 'silent_device_search'
+
   get 'customers/:uuid', to: 'customers#show', as: 'customers'
   get 'customers/:uuid/download_device_information_csv', to: 'customers#download_device_information_csv', as: 'customers_download'
   get 'customers/:uuid/pin_generate', to: 'customers#pin_generate', as: 'customers_pin_generate'

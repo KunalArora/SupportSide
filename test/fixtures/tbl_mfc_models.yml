@@ -16,6 +16,12 @@ foo_brother_mfc_2:
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
+silent_brother_mfc:
+  id: 52
+  name: 'Brother MFC-L8700CDW'
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
 <% 20.times do |n| %>
 baz_brother_mfc_<%= n %>:
   id: <%= n %>

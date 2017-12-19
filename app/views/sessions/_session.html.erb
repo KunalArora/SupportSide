@@ -1,5 +1,6 @@
 <div class='session'>
   <span><%= current_staff_email %></span>
+  <span><%= link_to 'Search', search_path %></span>
   <span><%= link_to 'Settings', edit_staff_path(current_staff) %></span>
   <span><%= link_to 'Logout', logout_path, method: 'delete' %></span>
 </div>
