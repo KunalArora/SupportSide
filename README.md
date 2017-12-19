@@ -37,8 +37,9 @@ https://github.com/winebarrel/ridgepole
 
 To create BOC database Schema, run the following command:
 ```
-ridgepole -c config/database.yml -f db/SchemaFile --apply
+ridgepole -c config/database.yml -E ENVIRON_boc -f db/SchemaFile --apply
 ```
+ENVIRON value could be development or test.
 
 To insert initial data in the created BOC database, run following command:
 ```
