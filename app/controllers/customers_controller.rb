@@ -18,7 +18,8 @@ class CustomersController < ApplicationController
 
   def pin_generate
     @customer = params[:uuid]
-    @pin = generate(params[:uuid]) if params[:link] == 'pin'
+    customer_owner_id = TblUser.find_by(uid: params[:uuid]).owner_id
+    @pin = generate(params[:uuid], customer_owner_id) if params[:link] == 'pin'
     @outstanding_pins = outstanding(params[:uuid])
     @pins = @outstanding_pins['pins'].reverse.paginate(page: params[:page], per_page: 10) if @outstanding_pins['pins'].present?
   end
