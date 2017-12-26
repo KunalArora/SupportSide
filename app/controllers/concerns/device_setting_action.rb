@@ -58,6 +58,14 @@ module DeviceSettingAction
     send_req(req)
   end
 
+  def notify value
+    noti = {}
+    value.each do |v|
+      noti[v.object_id] = v.updated_date
+    end
+    noti
+  end
+
   private
 
   def send_req request

@@ -13,7 +13,6 @@ class CustomersController < ApplicationController
     end
     @devices = @customer.tbl_user_mfcs.paginate(page: params[:page],per_page: params[:per_page])
     device_id = @devices.map(&:device_id)
-    @notify = TblDeviceStatus.where(device_id: device_id).group(:device_id).maximum(:updated_date)
   end
 
   def pin_generate

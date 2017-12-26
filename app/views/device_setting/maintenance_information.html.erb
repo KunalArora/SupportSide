@@ -4,7 +4,7 @@
   <div class = 'data'>
     <%status = organize_status_by_category(@status)%>
     <% if status.empty? %>
-      <div id = 'derror'> Not found Error </div>
+      <div class = 'error'> Not found Error. </div>
     <% else %>
       <div id = 'dmaintenance'>
       <div><b>Last Notification:</b> <%= @updated_at %> </div><br>

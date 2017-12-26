@@ -19,11 +19,11 @@ Rails.application.routes.draw do
 
   get 'devices/:uuid', to: 'devices#show', as: 'device'
   get 'devices/search', to: 'devices#show'
-  get 'devices/subscription/:uuid', to: 'devices#subscription', as: 'subscription'
 
   get 'device_setting/:device_id', to: 'device_setting#show', as: 'device_setting'
   post 'device_setting/setting', to: 'device_setting#setting', as: 'setting'
   post 'device_setting/maintenance_information', to: 'device_setting#maintenance_information', as: 'maintenance'
+  post 'device_setting/subscription', to: 'device_setting#subscription', as: 'subscription'
   post 'device_setting/reboot', to: 'device_setting#reboot_device', as: 'reboot_device'
   post 'device_setting/log', to: 'device_setting#enable_log', as: 'enable_log'
   post 'device_setting/delete', to: 'device_setting#delete_device', as: 'delete_device'

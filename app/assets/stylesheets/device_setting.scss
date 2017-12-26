@@ -4,21 +4,36 @@
 
 .device_setting {
   margin-top: 20px;
-  .button {
-   margin-top: 10px;
-  .bright {
+  #bdelete {
     float: right;
     clear: right;
-    margin: auto;
+    margin-top: -75px;
+  }
+  #breboot {
+    float: right;
+    clear: both;
+    margin-top: -60px;
+  }
+  #benablelog {
+    float: right;
+    clear: right;
+    margin-top: -30px;
   }
   #bsetting {
     float: left;
     clear: right;
   }
-  #bmaintenance {
-    clear: left
+  #bsubscription {
+    float: left;
+    clear: both;
+    margin-left: -220px;
+    margin-top: -13px;
   }
- }
+  #bmaintenance {
+    float: left;
+    clear: both;
+    margin-top: -13px;
+  }
  .data {
   float: left;
   clear: both;
@@ -29,11 +44,15 @@
 }
 .device_setting_search {
   clear: both;
-  margin-top: 100px;
+  margin-top: 150px;
   input[type=text] {
     width: 350px;
   }
   input[type=submit] {
     width: 100px;
   }
+}
+
+.subscription_style {
+  text-align: center;
 }

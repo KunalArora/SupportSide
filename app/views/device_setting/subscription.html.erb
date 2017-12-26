@@ -1,0 +1,32 @@
+<%= render 'sessions/session' %>
+<%= render 'search/form' %>
+
+<span class = 'subscribe_back'><%= link_to '<<Back', device_setting_path(uuid: @uuid, device_id: @device_id) %></span>
+<div class='subscription_detail'>
+  <% if @subscribe.present? %>
+    <%= render 'device_info', device_info: @device_info %>
+    <dl>
+      <table>
+        <tr>
+          <th> Object ID </th>
+          <th> Subscribed Date/Time</th>
+          <th> Notify Interval</th>
+          <th> Service Provider ID</th>
+          <th> Last Notification </th>
+        </tr>
+        <% @subscribe.each do |s|%>
+          <tr>
+            <td><%= s.object_id %></td>
+            <td><%= s.registered_date %></td>
+            <td class = 'subscription_style'><%= s.service_id %></td>
+            <td class = 'subscription_style'><%= s.time_period %></td>
+            <td><%= @notify[s.object_id] %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= will_paginate @subscribe %>
+    </dl>
+  <% else %>
+    </br><span class = 'error'> No subscription information found. </span>
+  <% end %>
+</div>

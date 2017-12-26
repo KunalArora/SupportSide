@@ -1,9 +1,8 @@
 <div class = 'subscription'>
   <dl>
-  <dt>Subscription Status</dt>
   <dd>
     <% if subscription.present? %>
-      <%= link_to 'Subscription', subscription_path(uuid: @device.first.device_id) %>
+      <%= button_to 'Get Subscription Status', subscription_path(uuid: uuid, device_id: device_id), method: :post %>
     <% else %>
        Unsubscribed
     <% end %>
