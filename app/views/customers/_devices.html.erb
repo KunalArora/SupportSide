@@ -13,20 +13,31 @@
           <th> Model Name </th>
           <th> Serial Number </th>
           <th> Device ID </th>
-          <th> Online/Offline </th>
-          <th> Notification </th>
+          <th> Connection </th>
+          <th> Online/Offline </br>(DD/MM/YYYY hh:mm UTC) </th>
+          <th> Offline Days </th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <% devices.each do |d| %>
-          <tr class='clickable-row' >
+        <% if d.online!=1 %>
+          <tr class = 'offline_style'>
+        <% else %>
+          <tr>
+        <% end %>
             <td class='checkbox'><%= check_box :check_box, :device_id, {multiple: true, id: "checkbox#{d.id}"}, d.device_id, nil %></td>
             <td><%= d.tbl_mfc_model.name %></td>
             <td><%= d.serial %></td>
             <td><%= d.device_id %></td>
-            <td><%= network_status(d.online) %> </br>(<%= date_conversion(d.last_presence) %>) </td>
-            <td><%= notify[d.device_id] || '-' %> </td>
+            <td><%= get_connection_type(d.name) %></td>
+            <% if d.online==1 %>
+              <td><%= 'Online' %> </br>(Since <%= date_conversion(d.last_presence) %>) </td>
+              <td><%= '-' %></td>
+            <% else %>
+              <td class='offline_status'><%= 'Offline' %> </br>(Since <%= date_conversion(d.last_presence) %>) </td>
+              <td class='offline_status'><%= offline_days(d.last_presence) %> days</td>
+            <% end %>
             <td><%= link_to 'Details', devices_search_path(device_id: d.device_id) %></td>
           </tr>
         <% end %>

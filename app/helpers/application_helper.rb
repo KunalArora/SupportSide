@@ -1,6 +1,6 @@
 module ApplicationHelper
   def date_conversion date
-    DateTime.strptime(date[0..9].to_i.to_s, '%s').strftime('%Y-%m-%d %H:%M:%S')
+    DateTime.strptime(date[0..9].to_i.to_s, '%s').strftime('%d/%m/%Y %H:%M')
   end
 
   def organize_status_by_category item_renamed

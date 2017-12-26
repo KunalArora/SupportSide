@@ -1,8 +1,4 @@
 module DevicesHelper
-  def network_status bool
-    bool ? 'online' : 'offline'
-  end
-
   def subscribe_status status
     case status
     when 0
@@ -67,5 +63,22 @@ module DevicesHelper
     when '4'
       'No Unit'
     end
+  end
+
+  def get_connection_type name
+    unless name.nil?
+      if name.index('USB')
+        "BOAgent(USB)"
+      elsif name.index('NW')
+        "BOAgent(Network)"
+      else
+        "BOC direct"
+      end
+    end
+  end
+
+  def offline_days last_presence
+    last_presence = date_conversion(last_presence)
+    return (Date.parse((Time.now.utc).to_s) - Date.parse((last_presence).to_s)).to_i
   end
 end
