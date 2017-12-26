@@ -9,8 +9,12 @@ class TblUserMfc < ApplicationRecord
 
   OMNIPRESENT_OBJECT_ID = '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0'
 
-  scope :includes_device_information, lambda {
+  scope :includes_device_status_information, lambda {
     joins(:tbl_user, :tbl_mfc_model, :tbl_device_statuses).references(:tbl_user, :tbl_mfc_model, :tbl_device_statuses)
+  }
+
+  scope :includes_device_information, lambda {
+    joins(:tbl_user, :tbl_mfc_model).references(:tbl_user, :tbl_mfc_model)
   }
 
   scope :search_with_query, lambda { |key, value|
@@ -45,7 +49,7 @@ class TblUserMfc < ApplicationRecord
   def self.silent_device silent_days
     device_ids = TblDeviceStatus.retrieve_silent_devices(silent_days)
 
-    result = includes_device_information.search_for_devices(device_ids.keys)
+    result = includes_device_status_information.search_for_devices(device_ids.keys)
     return result, device_ids
   end
 
