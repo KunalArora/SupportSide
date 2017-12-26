@@ -10,7 +10,7 @@ class TblUserMfc < ApplicationRecord
   OMNIPRESENT_OBJECT_ID = '1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.8.0'
 
   scope :includes_device_information, lambda {
-    joins(:tbl_user, :tbl_mfc_model).references(:tbl_user, :tbl_mfc_model)
+    joins(:tbl_user, :tbl_mfc_model, :tbl_device_statuses).references(:tbl_user, :tbl_mfc_model, :tbl_device_statuses)
   }
 
   scope :search_with_query, lambda { |key, value|
@@ -27,7 +27,7 @@ class TblUserMfc < ApplicationRecord
   }
 
   scope :search_for_devices, lambda { |device_ids|
-    where(device_id: device_ids)
+    where(device_id: device_ids).order('tbl_device_statuses.updated_date DESC').distinct
   }
 
   def self.device_info key, value

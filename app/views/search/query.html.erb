@@ -7,7 +7,9 @@
   </div>
 
   <div class = 'heading_tag'>
-    <span class='silent_device_button'> <%= button_to 'Silent Device Information', silent_device_path(), class: 'silent_button_style' %></span>
+    <% if current_staff.admin == 'sadmin' || current_staff.admin == 'loadmin' %>
+      <span class='silent_device_button'> <%= button_to 'Silent Device Information', silent_device_path(), class: 'silent_button_style' %></span>
+    <% end %>
     <h2> Search Customer/Device Information </h2>
   </div>
   <dl>

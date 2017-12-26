@@ -7,6 +7,9 @@
     <%= 'Show : ' %>
     <%= num_disp(params[:per_page], @num_all, @days) %>
   </div>
+  <div id='silent_total_show'>
+    <p> Found <span id='silent_size'><%= @total_silent %></span> device(s) which are silent for over <%= @days %> days. </p>
+  </div>
   <table>
     <thead>
       <tr>
@@ -32,7 +35,7 @@
           <td><%= strip_time(@notify[val.device_id])%></td>
           <td><%= link_to 'Details', devices_search_path(device_id: val.device_id) %></td>
         </tr>
-        <% end %>
+      <% end %>
     </tbody>
   </table>
   <%= will_paginate @silent_device_list %>
