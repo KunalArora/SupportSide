@@ -11,6 +11,10 @@
     <dd><%= device.serial %></dd>
     <dt>BOC Device ID</dt>
     <dd><%= device.device_id %></dd>
+    <dt>Country</dt>
+    <dd><%= device.tbl_user.country %></dd>
+    <dt>Connection Type</dt>
+    <dd id= 'connection_type'><%= device.get_connection_type %></dd>
   </dl>
 </div>
 
@@ -18,6 +22,25 @@
   <h2>Device Status </h2>
   <dl>
     <dt>Network Status</dt>
-    <dd><%= network_status(device.online) %> ( since <%= date_conversion(device.last_presence) %> UTC) </dd>
+    <dd>
+      <% status = online_status(device.online, @subscription) %>
+      <% if status[:color] == 'red'%>
+        <font class= 'font_status' color='red'>
+          <div class='status_msg'><%= status[:msg] %></div>
+          <div class='since'> since <%= date_conversion(device.last_presence) %> (UTC)</div>
+        </font>
+      <% else %>
+        <div class='status_msg'><%= status[:msg] %></div>
+        <div class='since'> since <%= date_conversion(device.last_presence) %> (UTC)</div>
+      <% end %>
+    </dd>
+    <dt>Offline Days</dt>
+    <dd>
+      <% if device.online %>
+        -
+      <% else %>
+        <font class='font_offlinedays' color='red'><%= silent_days(strip_time(Time.at(device.last_presence[0..9].to_i))) %> days</font>
+      <% end %>
+    </dd>
   </dl>
 </div>

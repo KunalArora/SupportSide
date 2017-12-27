@@ -58,7 +58,7 @@ class TblUserMfc < ApplicationRecord
       if name.index('USB')
         "BOAgent(USB)"
       elsif name.index('NW')
-        "BOAgent(NW)"
+        "BOAgent(Network)"
       else
         "BOC direct"
       end
