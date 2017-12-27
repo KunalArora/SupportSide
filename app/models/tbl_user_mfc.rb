@@ -79,7 +79,7 @@ class TblUserMfc < ApplicationRecord
 
   def get_offline_days
     if !online
-      t = Time.at(last_presence[0..9].to_i)
+      t = Time.at(last_presence[0..9].to_i).utc
       (Date.today - Date.new(t.year, t.month, t.day)).to_i
     else
       0

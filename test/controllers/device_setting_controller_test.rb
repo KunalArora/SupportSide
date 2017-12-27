@@ -71,7 +71,9 @@ class DeviceSettingControllerTest < ActionController::TestCase
     assert_template 'search/_form'
     assert_select '.device_setting', 1
     assert_select '#bsetting', 1
-    assert_select '.bright', 0
+    assert_select '#bdelete', 0
+    assert_select '#breboot', 0
+    assert_select '#benablelog', 0
   end
 
   test 'should show all buttons on admin login' do
@@ -82,7 +84,9 @@ class DeviceSettingControllerTest < ActionController::TestCase
     assert_template 'search/_form'
     assert_select '.device_setting', 1
     assert_select '#bsetting', 1
-    assert_select '.bright', 3
+    assert_select '#bdelete', 1
+    assert_select '#breboot', 1
+    assert_select '#benablelog', 1
   end
 
   test 'should show all buttons on super admin login' do
@@ -93,7 +97,9 @@ class DeviceSettingControllerTest < ActionController::TestCase
     assert_template 'search/_form'
     assert_select '.device_setting', 1
     assert_select '#bsetting', 1
-    assert_select '.bright', 3
+    assert_select '#bdelete', 1
+    assert_select '#breboot', 1
+    assert_select '#benablelog', 1
   end
 
   test 'should show data when get device status button is clicked' do

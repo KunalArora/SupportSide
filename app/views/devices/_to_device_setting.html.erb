@@ -39,7 +39,7 @@
       <% if device.online %>
         -
       <% else %>
-        <font class='font_offlinedays' color='red'><%= silent_days(strip_time(Time.at(device.last_presence[0..9].to_i))) %> days</font>
+        <font class='font_offlinedays' color='red'><%= silent_days(strip_time(Time.at(device.last_presence[0..9].to_i).utc)) %> days</font>
       <% end %>
     </dd>
   </dl>

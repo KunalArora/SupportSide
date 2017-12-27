@@ -7,5 +7,6 @@ class DevicesController < ApplicationController
     @device = TblUserMfc.device_info(@key, params[@key]).paginate(page: params[:page], per_page: 10) if params[@key].present?
     return unless @device.present? && @device.size == 1
     @consumable = consumables(TblDeviceStatus.consumable_status(@device.first.device_id))
+    @subscription = TblSubscriptionConfig.exists?(device_id: @device.first.device_id)
   end
 end
