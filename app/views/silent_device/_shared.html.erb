@@ -1,8 +1,8 @@
-<h1>Silent Device Information</h1>
+<h1>Unresponsive Devices Information</h1>
 
-<p id='silent_text'> Search devices which are silent for over </p>
+<p id='silent_text'> Search devices which are unresponsive for over </p>
 <div id='silent_form'>
-  <%= form_for(:silent_search, url: silent_device_search_path, method: :get) do |f|%>
+  <%= form_for(:unresponsive_search, url: silent_device_search_path, method: :get) do |f|%>
     <%= f.text_field :days, autofocus: true, size: 2 %>  <span id='silent_span'>days</span>
     <%= f.submit 'Search'%>
   <% end %>
