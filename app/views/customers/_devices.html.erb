@@ -21,17 +21,17 @@
       </thead>
       <tbody class='device_list'>
         <% devices.each do |d| %>
-        <% if d.online!=1 %>
-          <tr class = 'offline_style'>
-        <% else %>
+        <% if d.online? %>
           <tr>
+        <% else %>
+          <tr class = 'offline_style'>
         <% end %>
             <td class='checkbox'><%= check_box :check_box, :device_id, {multiple: true, id: "checkbox#{d.id}"}, d.device_id, nil %></td>
             <td><%= d.tbl_mfc_model.name %></td>
             <td><%= d.serial %></td>
             <td><%= d.device_id %></td>
             <td><%= get_connection_type(d.name) %></td>
-            <% if d.online==1 %>
+            <% if d.online? %>
               <td><%= 'Online' %> </br>(Since <%= date_conversion(d.last_presence) %>) </td>
               <td><%= '-' %></td>
             <% else %>
