@@ -1,10 +1,6 @@
 <div class = 'subscription'>
-  <dl>
-  <dd>
-    <% if subscription.present? %>
-      <%= button_to 'Get Subscription Status', subscription_path(uuid: uuid, device_id: device_id), method: :post %>
-    <% else %>
-       Unsubscribed
-    <% end %>
-  </dd></dl>
+  <%= button_to 'Get Subscription Status', subscription_path(uuid: uuid, device_id: device_id), method: :post, disabled: !subscription.present? %>
+  <% unless subscription.present? %>
+    <div id='unsubscribed'> The device is not subscribed. </div>
+  <% end %>
 </div>
