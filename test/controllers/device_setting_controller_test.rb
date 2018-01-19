@@ -11,7 +11,7 @@ class DeviceSettingControllerTest < ActionController::TestCase
 
   test 'should get show' do
     session[:email] = @sadmin.email
-    get :show, params: { device_id: @device.device_id }
+    get :show, params: {uuid: @user.uid, device_id: @device.device_id }
     assert_response :success
     assert_select '.device_setting', 1
     assert_template 'devices/_back_to_customer'
@@ -65,7 +65,7 @@ class DeviceSettingControllerTest < ActionController::TestCase
 
   test 'should show only get device setting button on managing staff login' do
     session[:email] = @mstaff.email
-    get :show, params: { device_id: @device.device_id }
+    get :show, params: {uuid: @user.uid, device_id: @device.device_id }
     assert_response :success
     assert_template 'sessions/_session'
     assert_template 'search/_form'
@@ -78,7 +78,7 @@ class DeviceSettingControllerTest < ActionController::TestCase
 
   test 'should show all buttons on admin login' do
     session[:email] = @admin.email
-    get :show, params: { device_id: @device.device_id }
+    get :show, params: {uuid: @user.uid, device_id: @device.device_id }
     assert_response :success
     assert_template 'sessions/_session'
     assert_template 'search/_form'
@@ -91,7 +91,7 @@ class DeviceSettingControllerTest < ActionController::TestCase
 
   test 'should show all buttons on super admin login' do
     session[:email] = @sadmin.email
-    get :show, params: { device_id: @device.device_id }
+    get :show, params: {uuid: @user.uid, device_id: @device.device_id }
     assert_response :success
     assert_template 'sessions/_session'
     assert_template 'search/_form'
@@ -105,6 +105,7 @@ class DeviceSettingControllerTest < ActionController::TestCase
   test 'should show data when get device status button is clicked' do
     session[:email] = @sadmin.email
     get :show, params: {
+      uuid: @user.uid,
       device_id: @device.device_id,
       link: 'device_and_network_setting'
     }
@@ -115,6 +116,7 @@ class DeviceSettingControllerTest < ActionController::TestCase
   test 'should show data when delete device button is clicked' do
     session[:email] = @sadmin.email
     get :show, params: {
+      uuid: @user.uid,
       device_id: @device.device_id,
       link: 'delete_device'
     }
@@ -125,6 +127,7 @@ class DeviceSettingControllerTest < ActionController::TestCase
   test 'should show data when reboot device button is clicked' do
     session[:email] = @sadmin.email
     get :show, params: {
+      uuid: @user.uid,
       device_id: @device.device_id,
       link: 'reboot_device'
     }
@@ -135,6 +138,7 @@ class DeviceSettingControllerTest < ActionController::TestCase
   test 'should show data when enable device log button is clicked' do
     session[:email] = @sadmin.email
     get :show, params: {
+      uuid: @user.uid,
       device_id: @device.device_id,
       link: 'enable_device_log'
     }

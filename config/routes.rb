@@ -20,14 +20,17 @@ Rails.application.routes.draw do
   get 'devices/:uuid', to: 'devices#show', as: 'device'
   get 'devices/search', to: 'devices#show'
 
-  get 'device_setting/:device_id', to: 'device_setting#show', as: 'device_setting'
-  post 'device_setting/setting', to: 'device_setting#setting', as: 'setting'
-  post 'device_setting/maintenance_information', to: 'device_setting#maintenance_information', as: 'maintenance'
+  get 'customers/:uuid/devices/:device_id/device_settings', to: 'device_setting#show', as: 'device_setting'
+  get 'customers/:uuid/devices/:device_id/device_settings/setting', to: 'device_setting#setting', as: 'setting'
+  get 'customers/:uuid/devices/:device_id/device_settings/maintenance_information', to: 'device_setting#maintenance_information', as: 'maintenance'
   post 'device_setting/subscription', to: 'device_setting#subscription', as: 'subscription'
-  post 'device_setting/reboot', to: 'device_setting#reboot_device', as: 'reboot_device'
-  post 'device_setting/log', to: 'device_setting#enable_log', as: 'enable_log'
-  post 'device_setting/delete', to: 'device_setting#delete_device', as: 'delete_device'
-  post 'device_setting/device_search', to: 'device_setting#device_search', as: 'device_search'
+  get 'customers/:uuid/devices/:device_id/device_settings/reboot', to: 'device_setting#reboot_device', as: 'reboot_device'
+  post 'customers/:uuid/devices/:device_id/device_settings/reboot', to: 'device_setting#reboot_device'
+  get 'customers/:uuid/devices/:device_id/device_settings/enable_log', to: 'device_setting#enable_log', as: 'enable_log'
+  post 'customers/:uuid/devices/:device_id/device_settings/enable_log', to: 'device_setting#enable_log'
+  get 'customers/:uuid/devices/:device_id/device_settings/delete', to: 'device_setting#delete_device', as: 'delete_device'
+  delete 'customers/:uuid/devices/:device_id/device_settings/delete', to: 'device_setting#delete_device'
+  get 'customers/:uuid/devices/:device_id/device_settings/search', to: 'device_setting#device_search', as: 'device_search'
 
   resources :staffs, only: %w(edit update)
 

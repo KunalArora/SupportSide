@@ -6,11 +6,11 @@
   <%= render 'back_to_devices', device: device_id %>
   <%= render 'device_info', device_info: @device_info %>
   <div class = 'button'>
-    <div id = 'bsetting' ><%= button_to 'Get Device Status/Settings', setting_path(uuid: uuid, device_id: device_id), method: :post %></div>
+    <div id = 'bsetting' ><%= button_to 'Get Device Status/Settings', setting_path(uuid: uuid, device_id: device_id), method: :get %></div>
     <div id = 'bsubscription'><%= render 'subscription_status', subscription: @subscription, uuid: uuid, device_id: device_id %></div>
-    <div id = 'bmaintenance'><%= button_to 'Get Device Maintenance Information', maintenance_path(uuid: uuid, device_id: device_id), method: :post %></div>
+    <div id = 'bmaintenance'><%= button_to 'Get Device Maintenance Information', maintenance_path(uuid: uuid, device_id: device_id), method: :get %></div>
   <% if current_staff.admin == 'sadmin' || current_staff.admin == 'loadmin' %>
-    <span id= 'bdelete'><%= button_to 'Delete Device', delete_device_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to delete this device?'} %></span>
+    <span id= 'bdelete'><%= button_to 'Delete Device', delete_device_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to delete this device?'}, method: :delete %></span>
     <span id= 'breboot'><%= button_to 'Reboot Device', reboot_device_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to reboot this device?'} %></span>
     <span id= 'benablelog'><%= button_to 'Enable Device Log', enable_log_path(uuid: uuid, device_id: device_id), data: {confirm: 'Are you sure to enable log feature for this device?'} %></span>
   <% end %>
@@ -19,7 +19,7 @@
   <% if current_staff.admin == 'sadmin' || current_staff.admin == 'loadmin' %>
     <div class = 'device_setting_search'>
       <h2> Search by Object ID </h2>
-      <%= form_tag(device_search_path(uuid: uuid, device_id: device_id), method: 'post', action: 'device_search') do %>
+      <%= form_tag(device_search_path(uuid: uuid, device_id: device_id), method: :get, action: 'device_search') do %>
         <%= text_field_tag(:object_id, params[:object_id], placeholder: 'Object-ID', autofocus: true) %>
         <%= submit_tag 'Search' %>
     </div>

@@ -1,5 +1,5 @@
 <div class='to_device_setting'>
-  <%= link_to 'Device Settings >>', device_setting_path(device.device_id) %>
+  <%= link_to 'Device Settings >>', device_setting_path(uuid: device.tbl_user.uid, device_id: device.device_id) %>
 </div>
 
 <div class='detail'>
