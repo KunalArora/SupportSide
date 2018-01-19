@@ -12,12 +12,12 @@ Rails.application.routes.draw do
 
   get '/unresponsive_devices_search', to: 'silent_device#search', as: 'silent_device_search'
 
-  get 'customers/:uuid', to: 'customers#show', as: 'customers'
+  get 'customers/:uuid', to: 'customers#show', as: 'customer_info'
   get 'customers/:uuid/download_device_information_csv', to: 'customers#download_device_information_csv', as: 'customers_download'
   get 'customers/:uuid/pin_generate', to: 'customers#pin_generate', as: 'customers_pin_generate'
   post 'customers/:uuid/pin_generate', to: 'customers#pin_generate'
 
-  get 'devices/:uuid', to: 'devices#show', as: 'device'
+  get 'customers/:uuid/devices/:device_id', to: 'devices#show', as: 'device_info'
   get 'devices/search', to: 'devices#show'
 
   get 'customers/:uuid/devices/:device_id/device_settings', to: 'device_setting#show', as: 'device_setting'

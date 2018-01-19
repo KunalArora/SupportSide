@@ -19,7 +19,7 @@ class SilentDeviceControllerTest < ActionController::TestCase
 
   test 'should get search with silent device list' do
     session[:email] = @sadmin.email
-    get :search, params: {silent_search: {days: 1}}
+    get :search, params: {unresponsive_search: {days: 1}}
     assert_response :success
     assert_select '#silent_form', 1
     assert_select '.silent_device_list table', 1
@@ -28,7 +28,7 @@ class SilentDeviceControllerTest < ActionController::TestCase
 
   test 'should get search without silent device list' do
     session[:email] = @sadmin.email
-    get :search, params: {silent_search: {days: 3}}
+    get :search, params: {unresponsive_search: {days: 3}}
     assert_response :success
     assert_select '#silent_form', 1
     assert_select '.silent_device_list table', 0

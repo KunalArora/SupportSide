@@ -15,7 +15,7 @@ class DeviceSettingController < ApplicationController
   end
 
   def reboot_device
-    @reboot = reboot(@device_id)
+    @reboot = reboot(@device_id) 
   end
 
   def enable_log

@@ -3,11 +3,12 @@ require 'test_helper'
 class DevicesControllerTest < ActionController::TestCase
   def setup
     session[:email] = staffs(:jack).email
+    @user = tbl_users(:foo)
     @device = tbl_user_mfcs(:foo_mfc)
   end
 
   test 'should get show with device_id' do
-    get :show, params: { device_id: @device.device_id }
+    get :show, params: { uuid: @user.uid, device_id: @device.device_id }
     assert_response :success
     assert_template 'sessions/_session'
     assert_template 'search/_form'
@@ -20,7 +21,7 @@ class DevicesControllerTest < ActionController::TestCase
   end
 
   test 'should get show with serial number' do
-    get :show, params: { serial: @device.serial }
+    get :show, params: {uuid: @user.uid, serial: @device.serial }
     assert_response :success
     assert_template 'sessions/_session'
     assert_template 'search/_form'
@@ -40,7 +41,7 @@ class DevicesControllerTest < ActionController::TestCase
   end
 
   test 'should show device not found with device_id' do
-    get :show, params: { device_id: '-1' }
+    get :show, params: { uuid: @user.uid, device_id: '-1' }
     assert_template 'sessions/_session'
     assert_template 'search/_form'
     assert_select '.device .error', 'Device not found.'

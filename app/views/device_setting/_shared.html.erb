@@ -3,7 +3,7 @@
 
 <div class ='device_setting'>
   <%= render 'devices/back_to_customer', customers: uuid %>
-  <%= render 'back_to_devices', device: device_id %>
+  <%= render 'back_to_devices', uuid: uuid, device_id: device_id %>
   <%= render 'device_info', device_info: @device_info %>
   <div class = 'button'>
     <div id = 'bsetting' ><%= button_to 'Get Device Status/Settings', setting_path(uuid: uuid, device_id: device_id), method: :get %></div>

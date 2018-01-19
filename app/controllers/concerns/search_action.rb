@@ -11,7 +11,7 @@ module SearchAction
     when DEVICE_ID_REGEXP
       devices_search_path(device_id: query)
     when CUSTOMER_UUID_REGEXP
-      customers_path("{#{Regexp.last_match(1)}}")
+      customer_info_path("{#{Regexp.last_match(1)}}")
     when *SERIAL_NUMBER_REGEXP
       devices_search_path(serial: query)
     end

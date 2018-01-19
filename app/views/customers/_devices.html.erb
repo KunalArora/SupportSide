@@ -38,7 +38,7 @@
               <td class='offline_status'><%= 'Offline' %> </br>(Since <%= date_conversion(d.last_presence) %>) </td>
               <td class='offline_status'><%= offline_days(d.last_presence) %> days</td>
             <% end %>
-            <td><%= link_to 'Details', devices_search_path(device_id: d.device_id) %></td>
+            <td><%= link_to 'Details', device_info_path(uuid: @customer.uid, device_id: d.device_id) %></td>
           </tr>
         <% end %>
       </tbody>

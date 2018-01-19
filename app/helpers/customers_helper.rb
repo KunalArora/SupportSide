@@ -11,7 +11,7 @@ module CustomersHelper
       if i.zero? && (link.count(num) > 1)
         name
       else
-        per_page == p && repeat[0] != p ? name : link_to(name, customers_path(per_page: p.presence), {id: "link#{i + 1}"})
+        per_page == p && repeat[0] != p ? name : link_to(name, customer_info_path(per_page: p.presence), {id: "link#{i + 1}"})
       end
     end.join('|').html_safe
   end
