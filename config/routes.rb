@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'customers/:uuid/devices/:device_id/device_settings', to: 'device_setting#show', as: 'device_setting'
   get 'customers/:uuid/devices/:device_id/device_settings/setting', to: 'device_setting#setting', as: 'setting'
   get 'customers/:uuid/devices/:device_id/device_settings/maintenance_information', to: 'device_setting#maintenance_information', as: 'maintenance'
-  post 'device_setting/subscription', to: 'device_setting#subscription', as: 'subscription'
+  get 'customers/:uuid/devices/:device_id/device_settings/subscription', to: 'device_setting#subscription', as: 'subscription'
   get 'customers/:uuid/devices/:device_id/device_settings/reboot', to: 'device_setting#reboot_device', as: 'reboot_device'
   post 'customers/:uuid/devices/:device_id/device_settings/reboot', to: 'device_setting#reboot_device'
   get 'customers/:uuid/devices/:device_id/device_settings/enable_log', to: 'device_setting#enable_log', as: 'enable_log'
