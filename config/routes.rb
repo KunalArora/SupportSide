@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get '/search', to: 'search#query', as: 'search'
 
-  post '/unresponsive_devices', to: 'silent_device#show', as: 'silent_device'
+  get '/unresponsive_devices', to: 'silent_device#show', as: 'silent_device'
 
   get '/unresponsive_devices_search', to: 'silent_device#search', as: 'silent_device_search'
 
