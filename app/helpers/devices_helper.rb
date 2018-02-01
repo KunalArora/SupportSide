@@ -33,7 +33,7 @@ module DevicesHelper
   def ink_status status
     case status
     when '1'
-      ' '
+      'Normal'
     when '2'
       'Low'
     when '3'
@@ -52,7 +52,7 @@ module DevicesHelper
   def drum_belt_status status
     case status
     when '1'
-      ' '
+      'Normal'
     when '2'
       'Low'
     when '3'
@@ -67,7 +67,7 @@ module DevicesHelper
   def waste_box_status status
     case status
     when '1'
-      ' '
+      'Normal'
     when '2'
       'Near'
     when '3'
