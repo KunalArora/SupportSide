@@ -1,5 +1,5 @@
 <div class = 'subscription'>
-  <%= button_to 'Get Subscription Status', subscription_path(uuid: uuid, device_id: device_id), method: :get, disabled: !subscription.present? %>
+  <%= button_to 'Get Subscription Status', subscription_path(device_id: device_id), method: :get, disabled: !subscription.present? %>
   <% unless subscription.present? %>
     <div id='unsubscribed'> The device is not subscribed. </div>
   <% end %>

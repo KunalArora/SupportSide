@@ -1,15 +1,10 @@
 <div class = 'cust_device'>
-  <div class = 'num_disp'>
-    <%= 'Show : ' %>
-    <%= num_disp_link(params[:per_page], @num_all) %>
-  </div>
-  <div id= 'btn_dl_all' class='download_button'><%= button_to 'Download All Items', customers_download_path, method: :get %></div>
-  <%= form_tag(customers_download_path, method: :get, id: 'frm') do %>
-  <div id='btn_dl_selected'class='download_button'><%= tag :input, {"type" => "button", "value" => 'Download Selected Items', "id" => "btn_submit", "disabled" => true} %></div>
     <table>
       <thead>
         <tr>
+          <% if @customer %>
           <th class = 'checkbox'><%= tag :input, {"type" => "checkbox", "id" => "all_check"}%> </th>
+          <% end %>
           <th> Model Name </th>
           <th> Serial Number </th>
           <th> Device ID </th>
@@ -26,7 +21,9 @@
         <% else %>
           <tr class = 'offline_style'>
         <% end %>
+            <% if @customer%>
             <td class='checkbox'><%= check_box :check_box, :device_id, {multiple: true, id: "checkbox#{d.id}"}, d.device_id, nil %></td>
+            <% end %>
             <td><%= d.tbl_mfc_model.name %></td>
             <td><%= d.serial %></td>
             <td><%= d.device_id %></td>
@@ -38,11 +35,10 @@
               <td class='offline_status'><%= 'Offline' %> </br>(Since <%= date_conversion(d.last_presence) %>) </td>
               <td class='offline_status'><%= offline_days(d.last_presence) %> days</td>
             <% end %>
-            <td><%= link_to 'Details', device_info_path(uuid: @customer.uid, device_id: d.device_id) %></td>
+            <td><%= link_to 'Details', devices_search_path(device_id: d.device_id) %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
     <%= will_paginate devices %>
     </div>
-  <% end %>

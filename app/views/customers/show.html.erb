@@ -9,7 +9,15 @@
         <%= link_to 'PIN Settings>>', customers_pin_generate_path, method: :post %>
       </div>
     <% if @devices.present? %>
+      <div class = 'num_disp'>
+        <%= 'Show : ' %>
+        <%= num_disp_link(params[:per_page], @num_all) %>
+      </div>
+      <div id= 'btn_dl_all' class='download_button'><%= button_to 'Download All Items', customers_download_path, method: :get %></div>
+      <%= form_tag(customers_download_path, method: :get, id: 'frm') do %>
+      <div id='btn_dl_selected'class='download_button'><%= tag :input, {"type" => "button", "value" => 'Download Selected Items', "id" => "btn_submit", "disabled" => true} %></div>
       <%= render 'devices', devices: @devices, notify: @notify %>
+      <% end %>
     <% else %>
       </br><span class = 'error'> No Device Registered. </span>
     <% end %>

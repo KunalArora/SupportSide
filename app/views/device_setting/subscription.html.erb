@@ -1,7 +1,7 @@
 <%= render 'sessions/session' %>
 <%= render 'search/form' %>
 
-<span class = 'subscribe_back'><%= link_to '<<Back', device_setting_path(uuid: @uuid, device_id: @device_id) %></span>
+<span class = 'subscribe_back'><%= link_to '<<Back', device_setting_path(device_id: @device_id) %></span>
 <div class='subscription_detail'>
   <% if @subscribe.present? %>
     <%= render 'device_info', device_info: @device_info %>

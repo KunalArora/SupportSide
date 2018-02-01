@@ -39,7 +39,7 @@ class DeviceSettingController < ApplicationController
   private
 
   def set_param
-    @uuid = params[:uuid]
+    @uuid = TblUserMfc.find_by(device_id: params[:device_id]).tbl_user.uid
     @device_id = params[:device_id]
   end
 
