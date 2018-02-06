@@ -8,7 +8,7 @@
     </div>
   <% else %>
     <% unless @silent_device_list.empty? %>
-    <div class = 'num_disp'>
+    <div class = 'num_disp_silent'>
       <%= 'Show : ' %>
       <%= num_disp(params[:per_page], @num_all, @days) %>
     </div>

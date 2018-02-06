@@ -3,19 +3,25 @@
 
 <div class = 'customers'>
   <h2> Customer Information </h2>
-  <% if @customer.present? %>
-    <%= render 'detail', customer: @customer.uid %>
-      <div class = 'pin_link'>
-        <%= link_to 'PIN Settings>>', customers_pin_generate_path, method: :post %>
+    <% if @customer.present? %>
+      <div class='customer'>
+        <%= render 'detail', customer: @customer.uid %>
+        <div class='pin_link'>
+          <%= link_to 'PIN Settings>>', customers_pin_generate_path, method: :post %>
+        </div>
       </div>
     <% if @devices.present? %>
-      <div class = 'num_disp'>
-        <%= 'Show : ' %>
-        <%= num_disp_link(params[:per_page], @num_all) %>
+      <div class = 'download'>
+        <div id = 'num_disp'>
+          <%= 'Show : ' %>
+          <%= num_disp_link(params[:per_page], @num_all) %>
+        </div>
+        <div class='download_button'>
+          <div id= 'btn_dl_all'><%= button_to 'Download All Items', customers_download_path, method: :get %></div>
+          <div id='btn_dl_selected'><%= tag :input, {"type" => "button", "value" => 'Download Selected Items', "id" => "btn_submit", "disabled" => true} %></div>
+        </div>
       </div>
-      <div id= 'btn_dl_all' class='download_button'><%= button_to 'Download All Items', customers_download_path, method: :get %></div>
       <%= form_tag(customers_download_path, method: :get, id: 'frm') do %>
-      <div id='btn_dl_selected'class='download_button'><%= tag :input, {"type" => "button", "value" => 'Download Selected Items', "id" => "btn_submit", "disabled" => true} %></div>
       <%= render 'devices', devices: @devices, notify: @notify %>
       <% end %>
     <% else %>

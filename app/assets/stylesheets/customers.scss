@@ -16,13 +16,9 @@ td {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
-
-.cust_detail {
-  float: left;
-}
-.pin_link {
-  float: right;
-  margin-top: 15px;
+.customer {
+  display:flex;
+  justify-content: space-between;
 }
 .cust_device {
   clear: both;
@@ -44,24 +40,17 @@ td {
 .outstanding_data {
   margin-top: 150px;
 }
+.pin_link {
+  margin-top: 15px;
+}
+.download {
+  display:flex;
+  justify-content: space-between;
+}
 .download_button {
-  float: left;
-  margin-top: -10px;
+  display:flex;
+  justify-content: flex-end;
 }
-#btn_dl_all {
-  margin-left: 640px;
-}
-
-#btn_dl_selected {
-  margin-left: 10px;
-}
-
-.num_disp {
-  float: left;
-  margin-top: 60px;
-  margin-left: -560px;
-}
-
 .offline_status {
   color: red;
 }
