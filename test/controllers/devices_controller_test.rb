@@ -83,4 +83,101 @@ class DevicesControllerTest < ActionController::TestCase
     end
   end
 
+  test 'should get radio button' do
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select '#1day', 1
+    assert_select '#7days', 1
+    assert_select '#1month', 1
+    assert_select '#1year', 1
+    assert_select '#specific_p', 1
+    assert_select '#hourly', 1
+    assert_select '#monthly', 1
+    assert_select '#daily', 1
+    assert_select '#consumable', 1
+    assert_select '#printcount', 1
+    assert_select '#online_1day', 1
+    assert_select '#specific_d', 1
+  end
+
+  test 'should get text area' do
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select '#from', 1
+    assert_select '#to', 1
+    assert_select '#text_d', 1
+  end
+
+  test 'should get download button' do
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select '#radio_submit_notificaiton', 1
+    assert_select '#radio_submit_online', 1
+  end
+
+  test 'should get radio button which is disabled' do
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select "#hourly[disabled='disabled']", true
+    assert_select "#daily[disabled='disabled']", true
+    assert_select "#monthly[disabled='disabled']", true
+    assert_select "#from[disabled='disabled']", true
+    assert_select "#to[disabled='disabled']", true
+    assert_select "#text_d[disabled='disabled']", true
+  end
+
+  test 'should get raido button which is checked' do
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select "#1day[checked='checked']", true
+    assert_select "#consumable[checked='checked']", true
+    assert_select "#online_1day[checked='checked']", true
+  end
+
+  test 'should get text field whose placeholder is DD/MM/YYYY' do
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select "#from[placeholder='DD/MM/YYYY']", true
+    assert_select "#to[placeholder='DD/MM/YYYY']", true
+    assert_select "#text_d[placeholder='DD/MM/YYYY']", true
+  end
+
+  test 'should show specific period to sadmin user' do
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select '#specific_p', 1
+    assert_select '#from', 1
+    assert_select '#to', 1
+    assert_select '.time_unit', 1
+  end
+
+  test 'should show specific period to loadmin user' do
+    session[:email] = staffs(:john).email
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select '#specific_p', 1
+    assert_select '#from', 1
+    assert_select '#to', 1
+    assert_select '.time_unit', 1
+  end
+
+  test 'should not show specific period to lomstaff user' do
+    session[:email] = staffs(:jill).email
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select '#specific_p', 0
+    assert_select '#from', 0
+    assert_select '#to', 0
+    assert_select '.time_unit', 0
+  end
+
+  test 'should not show specific period to sdesk user' do
+    session[:email] = staffs(:jordan).email
+    get :history_log, params: { device_id: @device.device_id}
+    assert_response :success
+    assert_select '#specific_p', 0
+    assert_select '#from', 0
+    assert_select '#to', 0
+    assert_select '.time_unit', 0
+  end
 end

@@ -1,0 +1,62 @@
+<%= render 'sessions/session' %>
+<%= render 'search/form' %>
+
+<div class='history_log'>
+  <div id= 'back_to_devices'><%= render 'device_setting/back_to_devices', device_id: @device.device_id %></div>
+  <%= render 'device_setting/device_info', device_info: @device %>
+  <div class= 'notification_log'>
+    <h2> Notification Log Download </h2>
+    <dl>
+      <%= form_tag(notification_log_path, method: :get, id: 'frm_notification') do %>
+      <dt> Period : </dt>
+      <dd>
+        <div class='period'>
+          <%= radio_button 'log_noti', 'period','last_1_day', {id: '1day', checked: @checked_period[:noti]['last_1_day']} %> Last 1 day
+          <%= radio_button 'log_noti', 'period','last_7_days', {id: '7days', checked: @checked_period[:noti]['last_7_days']} %> Last 7 days
+          <%= radio_button 'log_noti', 'period', 'last_1_month', {id: '1month', checked: @checked_period[:noti]['last_1_month']} %> Last 1 month
+          <%= radio_button 'log_noti', 'period', 'last_1_year', {id: '1year', checked: @checked_period[:noti]['last_1_year']} %> Last 1 year<br>
+          <% if current_staff.admin == 'sadmin' || current_staff.admin == 'loadmin' %>
+            <%= radio_button 'log_noti', 'period', 'specific_period', {id: 'specific_p', checked: @checked_period[:noti]['specific_period']} %> Specific period
+            <%= text_field 'log_noti', 'from', {id: 'from', size: 6, placeholder: 'DD/MM/YYYY', disabled: @disabled[:noti], value: @value[:noti]['from']} %>~
+            <%= text_field 'log_noti', 'to', {id: 'to', size: 6, placeholder: 'DD/MM/YYYY', disabled: @disabled[:noti], value: @value[:noti]['to']} %>
+            <div class='time_unit'>
+              Time unit :
+              <%= radio_button 'log_noti', 'time_unit','hourly', {id: 'hourly', checked: @checked_timeunit['hourly'], disabled: @disabled[:noti]} %> Hourly
+              <%= radio_button 'log_noti', 'time_unit','daily', {id: 'daily', checked: @checked_timeunit['daily'], disabled: @disabled[:noti]} %> Daily
+              <%= radio_button 'log_noti', 'time_unit','monthly', {id: 'monthly', checked: @checked_timeunit['monthly'], disabled: @disabled[:noti]} %> Monthly
+            </div>
+          <% end %>
+        </div>
+      </dd>
+      <dt> Reporting Items : </dt>
+      <dd>
+        <%= radio_button 'log_noti', 'reporting_item','consumable',{id: 'consumable', checked: @checked_item['consumable']} %> Consumable Status Log
+        <%= radio_button 'log_noti', 'reporting_item','printcount', {id: 'printcount', checked: @checked_item['printcount']} %> Print Count Log
+      </dd>
+      <%= tag :input, {"type" => "button", "value" => 'Download', "id" => "radio_submit_notificaiton"} %>
+      <div class = 'error'>
+        <%= flash[:error_notifi] if flash[:error_notifi] %>
+      </div>
+      <% end %>
+    </dl>
+  </div>
+
+  <div class='online_status_log'>
+    <h2> BOC Online/Offline Status Log Download </h2>
+    <dl>
+      <%= form_tag(network_status_log_path, method: :get, id: 'frm_online') do %>
+      <dt> Period : </dt>
+      <dd>
+        <%= radio_button 'log_net', 'period','last_1_day', {id: 'online_1day', checked: @checked_period[:net]['last_1_day']} %> Last 1 day
+        <%= radio_button 'log_net', 'period','specific_date', {id: 'specific_d', checked: @checked_period[:net]['specific_date']} %> Specific Date
+        <%= text_field 'log_net', 'date' , {id: 'text_d', size: 6, placeholder: 'DD/MM/YYYY', disabled: @disabled[:net], value: @value[:net]}%>
+        <%= text_field 'dummy', 'dummy', {style: "display:none"}%>
+      </dd>
+      <%= tag :input, {"type" => "button", "value" => 'Download', "id" => "radio_submit_online"} %>
+      <div class = 'error'>
+        <%= flash[:error_network] if flash[:error_network] %>
+      </div>
+      <% end %>
+    </dl>
+  </div>
+</div>

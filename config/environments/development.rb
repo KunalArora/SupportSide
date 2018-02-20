@@ -52,4 +52,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.relative_url_root = '/boc/support'
+  config.odessa_api_endpoint = 'https://dev-odessa.mysora.net'
+  config.boc_api_endpoint= 'https://dev-connections.mysora.net'
+  config.boc_service_id = 18
 end

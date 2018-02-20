@@ -21,6 +21,9 @@ Rails.application.routes.draw do
 
   get 'devices/:device_id/device_settings', to: 'device_setting#show', as: 'device_setting'
   get 'devices/:device_id/device_settings/setting', to: 'device_setting#setting', as: 'setting'
+  get 'devices/:device_id/history_log', to: 'devices#history_log', as: 'history_log'
+  get 'devices/:device_id/history_log/notification_log', to: 'devices#notification_log', as: 'notification_log'
+  get 'devices/:device_id/history_log/network_status_log', to: 'devices#network_status_log', as: 'network_status_log'
   get 'devices/:device_id/device_settings/maintenance_information', to: 'device_setting#maintenance_information', as: 'maintenance'
   get 'devices/:device_id/device_settings/subscription', to: 'device_setting#subscription', as: 'subscription'
   get 'devices/:device_id/device_settings/reboot', to: 'device_setting#reboot_device', as: 'reboot_device'

@@ -84,4 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.relative_url_root = '/boc/support'
+  config.boc_api_endpoint = 'https://connections.brother.com'
+  config.odessa_api_endpoint = 'https://odessa.brother.com'
+  config.boc_service_id = 8
 end

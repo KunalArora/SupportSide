@@ -24,4 +24,12 @@ module DevicesAction
     end
     result
   end
+
+  def return_radio_box_status param, periods
+    checked = Hash.new
+    periods.each do |period|
+      checked.store(period, period == param)
+    end
+    checked
+  end
 end

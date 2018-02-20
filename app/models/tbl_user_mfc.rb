@@ -1,6 +1,8 @@
 require 'csv'
 require 'mib_parser'
+require 'odessa_api'
 class TblUserMfc < ApplicationRecord
+  include CsvUtility
   belongs_to :tbl_mfc_model, foreign_key: 'id_model', class_name: 'TblMfcModel'
   belongs_to :tbl_user, foreign_key: 'id_user', class_name: 'TblUser'
   has_one :tlb_serial_mfc, foreign_key: 'id_mfc'
@@ -242,5 +244,112 @@ end
                 ]
       end
     end
+  end
+
+  def get_notification_log params, device_id
+    f = features(params[:reporting_item])
+    p = period(params)
+    req_body = body_notification(f, p, device_id)
+    res = api_request('/eu/devices/log/history', req_body)
+    return res['code'], res['message'] if !(res['code'] == 200 || res['code'] == 207)
+    csv_format_notification_log = create_csv_format_notification_log(date_list(res["data"]), res["data"], f)
+    return res['code'], res['message'], to_csv(FeaturesBasic + f, csv_format_notification_log, create_csv_format_basic_log(get_log_basic), device_id)
+  end
+
+  def get_network_status_log params, device_id
+    p = period(params)
+    req_body_network_status = body_network_status(p, device_id)
+    req_body_notification = body_notification(FeaturesCommon, p, device_id)
+    network_status = api_request('/eu/devices/status/history', req_body_network_status)
+    notification = api_request('/eu/devices/log/history', req_body_notification)
+    return network_status['code'], network_status['message'] if !network_status["data"].present?
+    list = date_list([network_status["data"]])
+    csv_format_notification_log = create_csv_format_notification_log(list, notification["data"], FeaturesCommon)
+    csv_format_network_status_log = create_csv_format_network_status_log(list, network_status["data"])
+    csv_format = Hash.new
+    csv_format_network_status_log.each_key do |key|
+      csv_format.store(key, csv_format_notification_log[key] + csv_format_network_status_log[key])
+    end
+    return network_status['code'], network_status['message'], to_csv(FeaturesBasic + FeaturesCommon + ["Online_Offline"], csv_format, create_csv_format_basic_log(get_log_basic), device_id)
+  end
+
+  def api_request url, req_param
+    req = Net::HTTP::Post.new(url)
+    req.body = req_param.to_json
+    JSON.parse(OdessaAPI.new(Rails.application.config.odessa_api_endpoint).connect(req))
+  end
+
+  def features reporting_item
+    case reporting_item
+    when 'consumable'
+      FeaturesCommon + FeaturesConsumable
+    when 'printcount'
+      FeaturesCommon + FeaturesPrintconut
+    end
+  end
+
+  def period params
+    to = Time.current.utc
+    case params[:period]
+    when 'last_1_day'
+      from = to.yesterday
+      time_unit = 'hourly'
+    when 'last_7_days'
+      from = to.ago(7.days)
+      time_unit = 'daily'
+    when 'last_1_month'
+      from = to.prev_month
+      time_unit = 'daily'
+    when 'last_1_year'
+      from = to.prev_year
+      time_unit = 'monthly'
+    when 'specific_period'
+      from = text_to_time(params[:from])
+      to = text_to_time(params[:to])+ (60 * 60 * 24) - 1
+      time_unit = params[:time_unit]
+    when 'specific_date'
+      from = text_to_time(params[:date])
+      to = from + (60 * 60 * 24) - 1
+      time_unit = 'hourly'
+    end
+    {to: to,
+     from: from,
+     time_unit: time_unit
+    }
+  end
+
+  def text_to_time text
+    array = text.split('/')
+    Time.utc(array[2], array[1], array[0])
+  end
+
+  def body_notification features, period, device_id
+    { "device_id": device_id,
+      "features": features,
+      "from": "#{period[:from].strftime('%FT%H:%M:%S%:z')}",
+      "to": "#{period[:to].strftime('%FT%H:%M:%S%:z')}",
+      "time_unit": "#{period[:time_unit]}",
+      "log_pre_from": "True"
+    }
+  end
+
+  def body_network_status period, device_id
+    { "device_id": device_id,
+      "from": "#{period[:from].strftime('%FT%H:%M:%S%:z')}",
+      "to": "#{period[:to].strftime('%FT%H:%M:%S%:z')}"
+    }
+  end
+
+  def get_log_basic
+    mac_address = tbl_device_statuses.select {|item|
+      item.object_id == '1.3.6.1.2.1.2.2.1.6.1'
+    }.map(&:status)[0]
+    if mac_address.present?
+      mac_address_parsed = MIBParser::ObjectId.new('1.3.6.1.2.1.2.2.1.6.1').parse(mac_address)["Mac_Address"]
+    end
+    { model_name: tbl_mfc_model.name,
+      serial_number: serial,
+      mac_address: mac_address_parsed,
+    }
   end
 end

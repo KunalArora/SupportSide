@@ -40,4 +40,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.relative_url_root = '/boc/support'
+  config.boc_api_endpoint = 'https://qas-connections.mysora.net'
+  config.odessa_api_endpoint = 'https://qas-odessa.mysora.net'
+  config.boc_service_id = 15
 end

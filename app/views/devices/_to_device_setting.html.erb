@@ -20,6 +20,7 @@
 
 <div class='network_status'>
   <h2>Device Status </h2>
+    <div id='bhistory'><%=button_to 'Get History Logs', history_log_path(device_id: device.device_id), method: :get%></div>
   <dl>
     <dt>Network Status</dt>
     <dd>
