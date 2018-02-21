@@ -1,10 +1,13 @@
 require 'csv'
 module CsvUtility
-  def to_csv column, values, basic_info, device_id
+  def to_csv column, values, basic_info, device_id, log_type, period
       CSV.generate do |csv|
-      csv << column
-      values.each do |date, value|
-        csv << [device_id, Time.parse(date).strftime('%d/%m/%Y %H:%M'), basic_info, value].flatten
+        csv << log_type
+        csv << ['FROM', period[:from].strftime('%d/%m/%Y %H:%M')]
+        csv << ['TO', period[:to].strftime('%d/%m/%Y %H:%M')]
+        csv << column
+        values.each do |date, value|
+         csv << [device_id, Time.parse(date).strftime('%d/%m/%Y %H:%M'), basic_info, value].flatten
       end
     end
   end
@@ -68,5 +71,14 @@ module CsvUtility
       csv_format << (v.present? ? v : '-')
     end
     csv_format
-  end  
+  end
+
+  def create_csv_format_log_type log_type
+    case log_type
+      when 'consumable'
+        ['Consumable Status']
+      when 'printcount'
+        ['Print Count']
+      end
+  end
 end

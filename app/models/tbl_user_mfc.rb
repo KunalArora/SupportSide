@@ -253,7 +253,7 @@ end
     res = api_request('/eu/devices/log/history', req_body)
     return res['code'], res['message'] if !(res['code'] == 200 || res['code'] == 207)
     csv_format_notification_log = create_csv_format_notification_log(date_list(res["data"]), res["data"], f)
-    return res['code'], res['message'], to_csv(FeaturesBasic + f, csv_format_notification_log, create_csv_format_basic_log(get_log_basic), device_id)
+    return res['code'], res['message'], to_csv(FeaturesBasic + f, csv_format_notification_log, create_csv_format_basic_log(get_log_basic), device_id, create_csv_format_log_type(params[:reporting_item]), p)
   end
 
   def get_network_status_log params, device_id
@@ -270,7 +270,7 @@ end
     csv_format_network_status_log.each_key do |key|
       csv_format.store(key, csv_format_notification_log[key] + csv_format_network_status_log[key])
     end
-    return network_status['code'], network_status['message'], to_csv(FeaturesBasic + FeaturesCommon + ["Online_Offline"], csv_format, create_csv_format_basic_log(get_log_basic), device_id)
+    return network_status['code'], network_status['message'], to_csv(FeaturesBasic + FeaturesCommon + ["Online_Offline"], csv_format, create_csv_format_basic_log(get_log_basic), device_id, ["Network Status"], p)
   end
 
   def api_request url, req_param

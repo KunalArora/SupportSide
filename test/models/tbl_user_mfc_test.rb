@@ -57,13 +57,15 @@ class TblUserMfcTest < ActiveSupport::TestCase
 
   test 'should get csv_string' do
     device_id = "device_id"
+    log_type = "printcount"
+    period = {from: Time.gm(2016, 8, 30), to: Time.gm(2016, 10, 1)}
     basic_info = ["device_type", "serial", "mac_address"]
     column = ["DeviceID", "Device_Type", "Serial_Number", "Mac_Address", "Location", "Contact"]
     values = {
       "2016-09-30T20:00:00+00:00" => ["location1", "contact1"],
       "2016-08-30T20:00:00+00:00" => ["location2", "contact2"]
     }
-    assert_equal("DeviceID,Device_Type,Serial_Number,Mac_Address,Location,Contact\ndevice_id,30/09/2016 20:00,device_type,serial,mac_address,location1,contact1\ndevice_id,30/08/2016 20:00,device_type,serial,mac_address,location2,contact2\n", to_csv(column, values, basic_info, device_id))
+    assert_equal("Print Count\nFROM,30/08/2016 00:00\nTO,01/10/2016 00:00\nDeviceID,Device_Type,Serial_Number,Mac_Address,Location,Contact\ndevice_id,30/09/2016 20:00,device_type,serial,mac_address,location1,contact1\ndevice_id,30/08/2016 20:00,device_type,serial,mac_address,location2,contact2\n", to_csv(column, values, basic_info, device_id, create_csv_format_log_type(log_type), period))
   end
 
   test 'should get date and notification values' do
