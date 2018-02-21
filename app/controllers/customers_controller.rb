@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
       params[:per_page] = @customer.tbl_user_mfcs.size.to_s
       @num_all = params[:per_page]
     end
-    @devices = @customer.tbl_user_mfcs.paginate(page: params[:page],per_page: params[:per_page])
+    @devices = @customer.tbl_user_mfcs.includes(:tbl_mfc_model).paginate(page: params[:page],per_page: params[:per_page])
     device_id = @devices.map(&:device_id)
   end
 
