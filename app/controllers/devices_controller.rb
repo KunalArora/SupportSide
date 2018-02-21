@@ -31,7 +31,7 @@ class DevicesController < ApplicationController
       end
     end
     if error_code == 200 || error_code == 207
-      send_data(res, filename: "#{@device.tbl_mfc_model.name}_#{@device.serial}_#{params[:log_noti]['reporting_item']}.csv")
+      send_data(res, filename: "#{@device.serial}_#{return_abbreviation(params[:log_noti]['reporting_item'])}_#{Time.now.utc.strftime("%d%m%Y")}.csv")
     else
       flash.now[:error_notifi] = message if flash.now[:error_notifi].nil?
       @checked_period = {noti: return_radio_box_status(params[:log_noti]['period'], NOTIFICATION_PERIOD), net: NETWORKSTATUS_PERIOD_DEFAULT}
@@ -55,7 +55,7 @@ class DevicesController < ApplicationController
       end
     end
     if error_code == 200
-      send_data(res, filename: "#{@device.tbl_mfc_model.name}_#{@device.serial}_Network_Status.csv")
+      send_data(res, filename: "#{@device.serial}_NS_#{Time.now.utc.strftime("%d%m%Y")}.csv")
     else
       flash.now[:error_network] = message if flash.now[:error_network].nil?
       @checked_period = {noti: NOTIFICATION_PERIOD_DEFAULT, net: return_radio_box_status(params[:log_net]['period'], NETWORKSTATUS_PERIOD)}

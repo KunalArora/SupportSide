@@ -32,4 +32,13 @@ module DevicesAction
     end
     checked
   end
+
+  def return_abbreviation log_type
+    case log_type
+    when 'consumable'
+      'CS'
+    when 'printcount'
+      'PV'
+    end
+  end
 end
