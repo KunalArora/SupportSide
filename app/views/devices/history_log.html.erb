@@ -17,8 +17,8 @@
           <%= radio_button 'log_noti', 'period', 'last_1_year', {id: '1year', checked: @checked_period[:noti]['last_1_year']} %> Last 1 year<br>
           <% if current_staff.admin == 'sadmin' || current_staff.admin == 'loadmin' %>
             <%= radio_button 'log_noti', 'period', 'specific_period', {id: 'specific_p', checked: @checked_period[:noti]['specific_period']} %> Specific period
-            <%= text_field 'log_noti', 'from', {id: 'from', size: 6, placeholder: 'DD/MM/YYYY', disabled: @disabled[:noti], value: @value[:noti]['from']} %>~
-            <%= text_field 'log_noti', 'to', {id: 'to', size: 6, placeholder: 'DD/MM/YYYY', disabled: @disabled[:noti], value: @value[:noti]['to']} %>
+            <%= text_field 'log_noti', 'from', {id: 'from', size: 10, placeholder: 'DD/MM/YYYY', disabled: @disabled[:noti], value: @value[:noti]['from']} %>~
+            <%= text_field 'log_noti', 'to', {id: 'to', size: 10, placeholder: 'DD/MM/YYYY', disabled: @disabled[:noti], value: @value[:noti]['to']} %>
             <div class='time_unit'>
               Time unit :
               <%= radio_button 'log_noti', 'time_unit','hourly', {id: 'hourly', checked: @checked_timeunit['hourly'], disabled: @disabled[:noti]} %> Hourly
@@ -49,7 +49,7 @@
       <dd>
         <%= radio_button 'log_net', 'period','last_1_day', {id: 'online_1day', checked: @checked_period[:net]['last_1_day']} %> Last 1 day
         <%= radio_button 'log_net', 'period','specific_date', {id: 'specific_d', checked: @checked_period[:net]['specific_date']} %> Specific Date
-        <%= text_field 'log_net', 'date' , {id: 'text_d', size: 6, placeholder: 'DD/MM/YYYY', disabled: @disabled[:net], value: @value[:net]}%>
+        <%= text_field 'log_net', 'date' , {id: 'text_d', size: 10, placeholder: 'DD/MM/YYYY', disabled: @disabled[:net], value: @value[:net]}%>
         <%= text_field 'dummy', 'dummy', {style: "display:none"}%>
       </dd>
       <%= tag :input, {"type" => "button", "value" => 'Download', "id" => "radio_submit_online"} %>
