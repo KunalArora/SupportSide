@@ -251,9 +251,10 @@ end
     p = period(params)
     req_body = body_notification(f, p, device_id)
     res = api_request('/eu/devices/log/history', req_body)
-    return res['code'], res['message'] if !(res['code'] == 200 || res['code'] == 207)
+    dl_judge = res['data'].select {|item| item['error_code'] == 200}
+    return unless dl_judge.present?
     csv_format_notification_log = create_csv_format_notification_log(date_list(res["data"]), res["data"], f)
-    return res['code'], res['message'], to_csv(FeaturesBasic + f, csv_format_notification_log, create_csv_format_basic_log(get_log_basic), device_id, create_csv_format_log_type(params[:reporting_item]), p)
+    return to_csv(FeaturesBasic + f, csv_format_notification_log, create_csv_format_basic_log(get_log_basic), device_id, create_csv_format_log_type(params[:reporting_item]), p)
   end
 
   def get_network_status_log params, device_id
@@ -262,7 +263,7 @@ end
     req_body_notification = body_notification(FeaturesCommon, p, device_id)
     network_status = api_request('/eu/devices/status/history', req_body_network_status)
     notification = api_request('/eu/devices/log/history', req_body_notification)
-    return network_status['code'], network_status['message'] if !network_status["data"].present?
+    return unless network_status["data"].present?
     list = date_list([network_status["data"]])
     csv_format_notification_log = create_csv_format_notification_log(list, notification["data"], FeaturesCommon)
     csv_format_network_status_log = create_csv_format_network_status_log(list, network_status["data"])
@@ -270,7 +271,7 @@ end
     csv_format_network_status_log.each_key do |key|
       csv_format.store(key, csv_format_notification_log[key] + csv_format_network_status_log[key])
     end
-    return network_status['code'], network_status['message'], to_csv(FeaturesBasic + FeaturesCommon + ["Online_Offline"], csv_format, create_csv_format_basic_log(get_log_basic), device_id, ["Network Status"], p)
+    return to_csv(FeaturesBasic + FeaturesCommon + ["Online_Offline"], csv_format, create_csv_format_basic_log(get_log_basic), device_id, ["Network Status"], p)
   end
 
   def api_request url, req_param

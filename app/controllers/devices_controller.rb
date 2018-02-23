@@ -22,7 +22,7 @@ class DevicesController < ApplicationController
   def notification_log
     @device = TblUserMfc.find_by(device_id: params[:device_id])
     begin
-      error_code, message, res = @device.get_notification_log(params[:log_noti], params[:device_id])
+      res = @device.get_notification_log(params[:log_noti], params[:device_id])
     rescue
       if $ERROR_INFO.data.code == '504'
         flash.now[:error_notifi] = 'Request timed out. You should shorten the Specific period or widen the Time unit.'
@@ -30,10 +30,10 @@ class DevicesController < ApplicationController
         flash.now[:error_notifi] = 'Internal server error. Please try again later.'
       end
     end
-    if error_code == 200 || error_code == 207
+    if res
       send_data(res, filename: "#{@device.serial}_#{return_abbreviation(params[:log_noti]['reporting_item'])}_#{Time.now.utc.strftime("%d%m%Y")}.csv")
     else
-      flash.now[:error_notifi] = message if flash.now[:error_notifi].nil?
+      flash.now[:error_notifi] = "Logs Not Found" if flash.now[:error_notifi].nil?
       @checked_period = {noti: return_radio_box_status(params[:log_noti]['period'], NOTIFICATION_PERIOD), net: NETWORKSTATUS_PERIOD_DEFAULT}
       @checked_timeunit = @checked_period[:noti]['specific_period'] ? return_radio_box_status(params[:log_noti]['time_unit'], NOTIFICATION_TIMEUNIT) : NOTIFICATION_TIMEUNIT_DEFAULT
       @checked_item = return_radio_box_status(params[:log_noti]['reporting_item'], NOTIFICATION_ITEM)
@@ -46,7 +46,7 @@ class DevicesController < ApplicationController
   def network_status_log
     @device = TblUserMfc.find_by(device_id: params[:device_id])
     begin
-      error_code, message, res = @device.get_network_status_log(params[:log_net], params[:device_id])
+      res = @device.get_network_status_log(params[:log_net], params[:device_id])
     rescue
       if $ERROR_INFO.data.code == '504'
         flash.now[:error_network] = 'Request timed out.'
@@ -54,10 +54,10 @@ class DevicesController < ApplicationController
         flash.now[:error_network] = 'Internal server error. Please try again later.'
       end
     end
-    if error_code == 200
+    if res
       send_data(res, filename: "#{@device.serial}_NS_#{Time.now.utc.strftime("%d%m%Y")}.csv")
     else
-      flash.now[:error_network] = message if flash.now[:error_network].nil?
+      flash.now[:error_network] = 'Logs Not Found' if flash.now[:error_network].nil?
       @checked_period = {noti: NOTIFICATION_PERIOD_DEFAULT, net: return_radio_box_status(params[:log_net]['period'], NETWORKSTATUS_PERIOD)}
       @value = {noti: NOTIFICATION_TEXT_DEFAULT, net: params[:log_net]['date']}
       @disabled= {noti: !@checked_period[:noti]['specific_period'], net: !@checked_period[:net]['specific_date']}
